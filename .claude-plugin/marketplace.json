@@ -1,0 +1,13 @@
+{
+  "name": "gnarea",
+  "owner": {
+    "name": "Gus Narea"
+  },
+  "plugins": [
+    {
+      "name": "ghost-writing",
+      "source": "./",
+      "description": "Writing conventions for drafting and editing text."
+    }
+  ]
+}
