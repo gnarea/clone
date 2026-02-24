@@ -8,17 +8,17 @@ Determine whether the context is **formal** (specs, RFDs, Internet-Drafts), **se
 
 ## Core Rules
 
-- **Tone**: friendly and approachable, but factual and objective in substance.
-- **Density**: information-packed. No filler words (e.g., "basically", "actually", "just", "really", "very"), no repetition. Every sentence earns its place.
-- **Clarity**: articulate. Present ideas so they are immediately clear to the reader.
-- **Concreteness**: ground explanations in specific examples and scenarios rather than abstract descriptions.
-- **Honesty**: state assumptions, constraints, and uncertainty directly rather than overstating confidence.
-- **Layered exposition**: definitions before examples, with links as escape hatches for depth.
-- **Parallelism**: use consistent grammatical structure across list items and comparable elements.
-- **Voice**: prefer active voice.
-- **Oxford comma**: always.
-- **List items**: always end with punctuation (typically a full stop).
-- **Blank lines**: always include a blank line before and after list blocks.
+- Friendly and approachable in tone, but factual and objective in substance.
+- Information-dense: no filler words (e.g., "basically", "actually", "just", "really", "very"), no repetition. Every sentence earns its place.
+- Present ideas so they land immediately.
+- Ground explanations in specific examples and scenarios, not abstract descriptions.
+- State assumptions, constraints, and uncertainty directly, rather than overstating confidence.
+- Definitions before examples, with links as escape hatches for depth.
+- Consistent grammatical structure across list items and comparable elements.
+- Active voice preferred.
+- Oxford comma always.
+- List items end with a full stop (or other terminal punctuation).
+- Blank line before and after every list block.
 
 ## British English
 
@@ -34,11 +34,8 @@ Determine whether the context is **formal** (specs, RFDs, Internet-Drafts), **se
 
 **Do this, not this:**
 
-- "The system serialises the data." not "The system serializes the data."
-- "Whilst the build runs, review the logs." not "While the build runs, review the logs."
-- "22 February 2026" not "February 22, 2026".
-- "The meeting is at 14:30." not "The meeting is at 2:30 PM."
-- "Mr Narea" not "Mr. Narea".
+- "The organisation's modelling of programme behaviour spans three centres, with results serialised on 22 February." not "The organization's modeling of program behavior spans three centers, with results serialized on February 22."
+- "Whilst analysing the grey colour scheme, the defence team realised the licence had lapsed." not "While analyzing the gray color scheme, the defense team realized the license had lapsed."
 
 ## Formatting
 
@@ -87,4 +84,4 @@ In addition to the core rules:
 - Em-dashes permitted (sparingly).
 - No emojis.
 - Formal but accessible tone.
-- [See DomainAuth I-D exemplar](https://github.com/CheVeraId/domainauth-spec).
+- [See DomainAuth I-D exemplar](https://raw.githubusercontent.com/CheVeraId/domainauth-spec/main/draft-narea-domainauth.md).
