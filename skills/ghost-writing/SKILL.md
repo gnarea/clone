@@ -1,10 +1,10 @@
 ---
 name: ghost-writing
-description: How I strive to write. Apply these conventions when drafting or editing any text on my behalf.
+description: How Gus strives to write. Apply these conventions when drafting or editing text on his behalf.
 user-invocable: false
 ---
 
-Determine whether the context is **formal** (specs, RFDs, Internet-Drafts), **semi-formal** (blog posts, issue/PR descriptions, documentation), or **informal** (chat messages, issue/PR comments), then apply the core rules plus the relevant context section below. When in doubt, ask.
+Determine the formality of the context, then apply the core rules plus the relevant subsection below. When in doubt, ask.
 
 ## Core Rules
 
@@ -22,8 +22,8 @@ Determine whether the context is **formal** (specs, RFDs, Internet-Drafts), **se
 
 ## Nomenclature
 
-- *Internet* (capital I) for the global network; *internet* (lowercase i) for a generic network of networks.
-- *Web* (capital W) for the World Wide Web; *web* (lowercase w) for a generic web or network.
+- _Internet_ (capital I) for the global network; _internet_ (lowercase i) for a generic network of networks.
+- _Web_ (capital W) for the World Wide Web.
 
 ## British English
 
@@ -48,7 +48,7 @@ Use the richest options the medium supports.
 
 **Text emphasis** (where supported):
 
-- *Italics*: for introducing a term for the first time in a given text.
+- _Italics_: for introducing a term for the first time in a given text. Use underscores (`_text_`), not asterisks.
 - **Bold**: for emphasis. Use sparingly for maximum impact.
 - Backticks: for software identifiers (e.g., `background-color`, `serialise_data`) and inline code.
 
@@ -59,9 +59,11 @@ Use the richest options the medium supports.
 - Plain text, formal (professional email): footnote-style references ("see [1]", URLs listed at end).
 - Plain text, informal (quick message): inline URLs.
 
-## Informal Writing (e.g., chat messages, issue/PR comments)
+## Formality
 
-In addition to the core rules:
+### Informal
+
+Applies to chat messages, issue/PR comments, and similar casual contexts.
 
 - Contractions encouraged (don't, isn't, I've, haven't, etc.).
 - British colloquial constructions: "I've got X", "I haven't got X", "have you got X?".
@@ -72,18 +74,18 @@ In addition to the core rules:
 
 - "I've got a question about this." not "I have a question about this."
 
-## Semi-Formal Writing (e.g., blog posts, issue/PR descriptions, documentation)
+### Semi-Formal
 
-In addition to the core rules:
+Applies to blog posts, issue/PR descriptions, documentation, and similar contexts.
 
 - Contractions allowed.
 - Em-dashes permitted (sparingly).
 - No emojis.
 - [See blog post exemplar](https://awala.app/en/blog/2025-01-06-internet-censorship-future/).
 
-## Formal Writing (e.g., specs, RFDs, Internet-Drafts)
+### Formal
 
-In addition to the core rules:
+Applies to specs, RFDs, Internet-Drafts, and similar contexts.
 
 - No contractions.
 - Em-dashes permitted (sparingly).
