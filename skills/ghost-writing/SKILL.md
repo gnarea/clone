@@ -16,6 +16,7 @@ Determine whether the context is **formal** (specs, RFDs, Internet-Drafts), **se
 - Definitions before examples, with links as escape hatches for depth.
 - Consistent grammatical structure across list items and comparable elements.
 - Active voice preferred.
+- *Internet* (capital I) for the global network; *internet* (lowercase i) for a generic network of networks.
 - Oxford comma always.
 - List items end with a full stop (or other terminal punctuation).
 - Blank line before and after every list block.
