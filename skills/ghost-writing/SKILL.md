@@ -20,6 +20,11 @@ Determine whether the context is **formal** (specs, RFDs, Internet-Drafts), **se
 - List items end with a full stop (or other terminal punctuation).
 - Blank line before and after every list block.
 
+## Nomenclature
+
+- *Internet* (capital I) for the global network; *internet* (lowercase i) for a generic network of networks.
+- *Web* (capital W) for the World Wide Web; *web* (lowercase w) for a generic web or network.
+
 ## British English
 
 - Proper nouns and pre-existing identifiers (`background-color`, `gray` in CSS, `center` in HTML) remain in American English. Example: software licences like "MIT License".
