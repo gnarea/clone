@@ -30,7 +30,7 @@ Determine the formality of the context, then apply the core rules plus the relev
 - Proper nouns and pre-existing identifiers (`background-color`, `gray` in CSS, `center` in HTML) remain in American English. Example: software licences like "MIT License".
 - Default to `-ise` for all `-ise`/`-ize` variants (serialise, normalise, initialise, optimise, synchronise, authorise, customise, analyse).
 - Doubled consonants before suffixes: modelling, labelling, cancelling, travelling.
-- Key vocabulary: behaviour, colour, centre, defence, licence (noun) / license (verb), grey, fulfil, spelt (not "spelled").
+- Key vocabulary: behaviour, colour, centre, defence, despatch, licence (noun) / license (verb), grey, fulfil, spelt (not "spelled").
 - Always "whilst" as a conjunction, not "while" (except where grammatically required: "once in a while", "while away the time").
 - *Programme* for non-software contexts (training programme, conference programme); *program* for software.
 - No full stop after abbreviations: Dr, Mr, Mrs, vs (not Dr., Mr., Mrs., vs.).
