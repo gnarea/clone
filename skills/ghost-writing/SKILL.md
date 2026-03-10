@@ -28,19 +28,18 @@ Determine the formality of the context, then apply the core rules plus the relev
 ## British English
 
 - Proper nouns and pre-existing identifiers (`background-color`, `gray` in CSS, `center` in HTML) remain in American English. Example: software licences like "MIT License".
-- Default to `-ise` for all `-ise`/`-ize` variants (serialise, normalise, initialise, optimise, synchronise, authorise, customise, analyse).
-- Doubled consonants before suffixes: modelling, labelling, cancelling, travelling.
-- Key vocabulary: behaviour, colour, centre, defence, despatch, licence (noun) / license (verb), grey, fulfil, spelt (not "spelled").
-- Always "whilst" as a conjunction, not "while" (except where grammatically required: "once in a while", "while away the time").
+- Default to _-ise_ for all _-ise_/_-ize_ variants (e.g., "serialise", "normalise", "initialise", "optimise", "synchronise", "authorise", "customise", "analyse").
+- Doubled consonants before suffixes: "modelling", "labelling", "cancelling", "travelling", etc.
+- Key vocabulary: "behaviour", "colour", "centre", "defence", "despatch", "licence" (noun only), "grey", "fulfil", "spelt".
+- Always "whilst" as a conjunction, not "while" (except where grammatically required; e.g., "once in a while").
 - *Programme* for non-software contexts (training programme, conference programme); *program* for software.
-- No full stop after abbreviations: Dr, Mr, Mrs, vs (not Dr., Mr., Mrs., vs.).
+- No full stop after abbreviations: "Dr", "Mr", "Mrs", "vs" (not "Dr.", "Mr.", "Mrs.", "vs.").
 - Dates: DD Month YYYY (e.g., 22 February 2026). Never MM/DD/YYYY.
 - Times: 24-hour format without leading zero (e.g., 9:00, 17:30).
 
-**Do this, not this:**
+Compliant example:
 
-- "The organisation's modelling of programme behaviour spans three centres, with results serialised on 22 February." not "The organization's modeling of program behavior spans three centers, with results serialized on February 22."
-- "Whilst analysing the grey colour scheme, the defence team realised the licence had lapsed." not "While analyzing the gray color scheme, the defense team realized the license had lapsed."
+> The organisation's modelling of programme behaviour spans three centres, with results serialised at 17:30 on 22 February. Dr Smith fulfilled the licence requirements, arranged the despatch, and updated the programme schedule, whilst the defence team analysed the grey colour scheme and realised a field name had been misspelt.
 
 ## Formatting
 
@@ -65,14 +64,14 @@ Use the richest options the medium supports.
 
 Applies to chat messages, issue/PR comments, and similar casual contexts.
 
-- Contractions encouraged (don't, isn't, I've, haven't, etc.).
+- Contractions encouraged ("don't", "isn't", "I've", etc.).
 - British colloquial constructions: "I've got X", "I haven't got X", "have you got X?".
 - No em-dashes.
 - Emojis sparingly — only to convey or emphasise emotions.
 
-**Do this, not this:**
+Compliant example:
 
-- "I've got a question about this." not "I have a question about this."
+> I've got a question about this.
 
 ### Semi-Formal
 
