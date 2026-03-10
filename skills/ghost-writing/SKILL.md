@@ -15,6 +15,7 @@ Determine the formality of the context, then apply the core rules plus the relev
 - State assumptions, constraints, and uncertainty directly, rather than overstating confidence.
 - Definitions before examples, with links as escape hatches for depth.
 - Consistent grammatical structure across list items and comparable elements.
+- In definition-style lists, separate the term from its description with a colon, not an em-dash (e.g., "Term: description.", not "Term — description.").
 - Active voice preferred.
 - Oxford comma always.
 - List items end with a full stop (or other terminal punctuation).
