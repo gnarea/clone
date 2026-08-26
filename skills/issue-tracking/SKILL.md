@@ -1,55 +1,86 @@
 ---
 name: issue-tracking
-description: How Gus wants issues and tasks managed in any issue tracker (GitHub, Jira, Linear, etc.). Apply when creating, refining, updating or closing issues on his behalf.
-user-invocable: false
+description: Guidelines for creating, updating, closing, or replying to issues/tasks in any issue tracker (e.g., GitHub, Jira, Linear)
 ---
+# Issue authoring
 
-Applies to any issue tracker. Translate the vocabulary below into whatever the tracker uses: an _issue_ may be a ticket, a task, a story, or a work item.
+## Issue creation
 
-Every issue you write or edit MUST observe the [ghost-writing](../ghost-writing/SKILL.md) skill: semi-formal for titles and descriptions, informal for comments.
+You MUST avoid creating a duplicate. Search the tracker for potential duplicates, covering both open and closed issues. If a match exists, you SHOULD add any new and relevant information as a comment; if the match is closed, you SHOULD reopen it or file a follow-up.
 
-## Before Creating an Issue
+You MUST observe the ghost-writing skill with semi-formal tone when creating an issue.
 
-1. Search the tracker for an existing report, covering both open and closed issues, and searching by symptom as well as by suspected cause. For example, a report of "the export button does nothing" may already exist as "CSV export fails silently for empty projects".
-2. If a match exists, add the new information as a comment there instead of opening a duplicate.
-3. If the match is closed and the problem has returned, comment on it and ask whether to reopen it or file a follow-up.
+When filing bug reports or feature requests, you MUST use a language that a power user of the product would use, although you MAY include relevant environmental and/or implementation details at the bottom of the description if known.
 
-## Writing the Issue
+### Issue title
 
-Frame the issue in terms of the product and the user experience. Describe what a person tries to do, what happens instead, and what should happen. Reserve technical framing for issues that are inherently technical, such as a dependency upgrade or a refactor with no user-visible surface.
+A single succinct sentence explaining the issue (if a bug report) or desired outcome (if a feature request or task).
 
-Structure:
+### Issue description
 
-- Title: the problem or the outcome, in one line.
-- Context: who is affected and in which scenario.
-- Current behaviour: what happens today, with the steps that reproduce it.
-- Desired behaviour: what should happen instead, and how to tell when it is done.
-- Implementation pointers: high-level notes on where the work will land, at the end of the document, only if such details are already known.
+You MUST use the following template unless the user or the issue tracker instructs you to use a different one:
 
-Keep implementation pointers as pointers. Name the components, files, or endpoints involved and the constraints that will shape the fix. Leave the design to the implementer.
+Bug report:
 
-Be succinct. Cut anything a reader does not need in order to act. Prefer a link to a log, a screenshot, or a prior discussion over a transcript pasted inline.
+```markdown
+# Overview
 
-Compliant example:
+(One or two succinct sentences that summarise the issue, who's affected and the impact.)
 
-> **Title:** Exporting a project with no tasks produces an empty file
->
-> **Context:** Users who create a project and export it before adding any tasks.
->
-> **Current behaviour:** The export downloads a 0-byte CSV file with no headers or warning, so users assume their tasks were lost.
->
-> **Desired behaviour:** The export contains the column headers, and the app tells the user that the project has no tasks yet.
->
-> **Implementation pointers:** The CSV writer in `exporters/csv.py` returns early when the task list is empty.
+# Current behaviour
 
-## Updating an Issue
+(What happens today, with the steps that reproduce it. Screenshots SHOULD be included if relevant and readily available.)
 
-- Keep the description as the current source of truth: edit it when the understanding of the problem changes, rather than appending corrections.
-- Record discussion, findings, and decisions in comments, and fold the conclusions back into the description.
-- State explicitly when the scope changes, so that subscribers can see what moved.
-- Split the issue in two when it grows a second, separable outcome, and link the parts to each other.
+# Expected behaviour
 
-## Closing an Issue
+(What should happen instead, and how to tell when it's fixed.)
+
+# Implementation details
+
+(Optional section; skip unless details are already known. Where in the code the bug is, and when it was introduced. No solution should be prescribed, but suggestions can be made.)
+```
+
+Feature request:
+
+```markdown
+# Overview
+
+(One or two succinct sentences that summarise a user's problem, and their proposed solution.)
+
+# Problem
+
+(The user problem that the product does not yet address.)
+
+# Proposed solution
+
+(Optional section. What the ideal solution looks like from the user's perspective.)
+
+# Alternatives considered
+
+(Optional section; skip if no solution is proposed. One or more alternatives, along with their pros and cons. Alternatives that do not require product changes SHOULD ideally be included.)
+
+# Architectual and/or implementation considerations
+
+(Optional section; skip unless user requests it. Any relevant suggestions or considerations in the context of the systems architecture, software architecture, or code implementation. Any code references linkified with GitHub permalinks or equivalent.)
+```
+
+Any references to specific parts of the code MUST linkified with GitHub permalinks or equivalent.
+
+## Issue update
+
+You MUST observe the issue's pre-existing language, tone and structure -- especially if the author is different from the current user -- unless the user says otherwise.
+
+You MUST ensure that the description reflects our current understanding of the issue or plans. You MUST NOT append corrections.
+
+## Issue resolution
 
 - Say what changed and how it was verified, linking to the change that resolved it.
 - Close as "not planned", or the tracker's equivalent, when the issue will not be acted upon, and give the reason.
+
+# Comment authoring
+
+Every comment you write or edit MUST observe the ghost-writing skill with informal tone.
+
+# User Sign-off
+
+You MUST obtain user sign-off before performing any write operation on the issue tracker on their behalf. Unless told not to, you MUST present the ghost-written content to the user for sign-off.
