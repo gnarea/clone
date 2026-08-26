@@ -10,11 +10,11 @@ You MUST avoid creating a duplicate. Search the tracker for potential duplicates
 
 You MUST observe the ghost-writing skill with semi-formal tone when creating an issue.
 
-When filing bug reports or feature requests, you MUST use a language that a power user of the product would use, although you MAY include relevant environmental and/or implementation details at the bottom of the description if known.
+When filing bug reports or feature requests, you MUST use the language that a power user of the product would use, although you MAY include relevant environmental and/or implementation details at the bottom of the description if known.
 
 ### Issue title
 
-A single succinct sentence explaining the issue (if a bug report) or desired outcome (if a feature request or task).
+A single succinct sentence explaining the issue (if a bug report) or the desired outcome (if a feature request or task).
 
 ### Issue description
 
@@ -25,7 +25,7 @@ Bug report:
 ```markdown
 # Overview
 
-(One or two succinct sentences that summarise the issue, who's affected and the impact.)
+(One or two succinct sentences that summarise the issue, who's affected, and the impact.)
 
 # Current behaviour
 
@@ -53,22 +53,22 @@ Feature request:
 
 # Proposed solution
 
-(Optional section. What the ideal solution looks like from the user's perspective.)
+(Optional section; what the ideal solution looks like from the user's perspective.)
 
 # Alternatives considered
 
 (Optional section; skip if no solution is proposed. One or more alternatives, along with their pros and cons. Alternatives that do not require product changes SHOULD ideally be included.)
 
-# Architectual and/or implementation considerations
+# Architectural and/or implementation considerations
 
-(Optional section; skip unless user requests it. Any relevant suggestions or considerations in the context of the systems architecture, software architecture, or code implementation. Any code references linkified with GitHub permalinks or equivalent.)
+(Optional section; skip unless user requests it. Any relevant suggestions or considerations in the context of the systems architecture, software architecture, or code implementation.)
 ```
 
-Any references to specific parts of the code MUST linkified with GitHub permalinks or equivalent.
+Any references to specific parts of the code MUST be linkified with GitHub permalinks or equivalent.
 
 ## Issue update
 
-You MUST observe the issue's pre-existing language, tone and structure -- especially if the author is different from the current user -- unless the user says otherwise.
+You MUST observe the issue's pre-existing language, tone, and structure (especially if the author is different from the current user), unless the user says otherwise.
 
 You MUST ensure that the description reflects our current understanding of the issue or plans. You MUST NOT append corrections.
 
@@ -81,6 +81,6 @@ You MUST ensure that the description reflects our current understanding of the i
 
 Every comment you write or edit MUST observe the ghost-writing skill with informal tone.
 
-# User Sign-off
+# User sign-off
 
 You MUST obtain user sign-off before performing any write operation on the issue tracker on their behalf. Unless told not to, you MUST present the ghost-written content to the user for sign-off.
