@@ -1,7 +1,6 @@
 ---
 name: coding-principles
-description: How Gus strives to program. Apply these principles and conventions when implementing or reviewing code changes on his behalf.
-user-invocable: false
+description: Principles and conventions when implementing or reviewing code changes.
 ---
 # Coding principles
 
