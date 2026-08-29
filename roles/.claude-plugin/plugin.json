@@ -1,8 +1,0 @@
-{
-  "name": "roles",
-  "description": "Agents that take on a specific professional role in the SDLC.",
-  "version": "1.0.0",
-  "author": {
-    "name": "Gus Narea"
-  }
-}
