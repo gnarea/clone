@@ -1,6 +1,8 @@
-My goal is to offload as much as I can to the LLM, so I can operate a "dark software factory" where I play the roles of Product Manager, Program Manager, Project Manager and ultimate Systems Architect.
+# Endgame
 
-## Structure/template
+To offload as much as I can to the LLM, so I can operate a "dark software factory" where I play the roles of Product Manager, Program Manager, Project Manager, and ultimate Systems Architect.
+
+## Structure/template of every agent
 
 Broadly speaking, the primary content is about priorities (what to strive for / maximise / minimise) and principles (_how_ to deliver on those priorities in broad terms). Maybe think of this as a job description/spec?
 
