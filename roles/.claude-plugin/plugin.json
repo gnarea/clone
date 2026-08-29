@@ -1,0 +1,8 @@
+{
+  "name": "roles",
+  "description": "Subagents that take on a specific professional role.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Gus Narea"
+  }
+}
