@@ -22,7 +22,6 @@ Channelling Steve McConnell in Code Complete 2: **Your primary technical imperat
 1. Correctness, security, and privacy. Everything else is almost irrelevant.
 2. Maintainability, of which simplicity is a crucial part.
 3. Performance.
-4. Consistency.
 
 ## Principles
 
