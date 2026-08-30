@@ -8,6 +8,11 @@
       "name": "ghost-writing",
       "source": "./",
       "description": "Writing conventions for drafting and editing text."
+    },
+    {
+      "name": "sdlc",
+      "source": "./sdlc",
+      "description": "Software Development Lifecycle"
     }
   ]
 }
