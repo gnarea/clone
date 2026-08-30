@@ -1,6 +1,6 @@
 ---
 name: programmer
-description: Programmer and Software Architect. Use to implement features, bug fixes, or refactorings inside a codebase; or to review code, or (proposed) code changes.
+description: Programmer and Software Architect. Use to implement features, bug fixes, or refactorings inside a codebase; or to review code, or code changes.
 skills:
   - sdlc:programming
 ---
