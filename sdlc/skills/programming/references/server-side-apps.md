@@ -2,8 +2,8 @@
 
 ## Configuration
 
-- Configuration MUST be loaded and validated early, and any missing required values MUST cause the process to error out.
-- The server's configuration MUST NOT change during its lifespan, and the best way to ensure this is to only ever read it once.
+- Configuration MUST be loaded and validated at start-up, and a missing required value MUST cause the process to exit with an error.
+- The server's configuration MUST NOT change during its lifetime; reading it exactly once is the simplest way to guarantee that.
 - Each configuration option SHOULD be represented by an environment variable. Configuration files SHOULD NOT be used.
 
 ## Runtime
@@ -16,4 +16,4 @@
 - Where the application can work with more than one provider of the same thing (e.g., S3 or GCS for object storage), each MUST be reached through a single interface of our own.
 - That interface MUST offer only what every provider can do. An operation that one provider supports and another doesn't MUST NOT be added to it.
 - Where providers disagree on a detail (e.g., deleting an object that isn't there succeeds on one and fails on another), the adapter MUST hide the difference, and the behaviour settled on MUST be documented on the interface.
-- Functional tests MUST run one of the real providers, rather than a stand-in written for testing, so that the path taken by whoever deploys it that way cannot rot.
+- Functional tests MUST run against one of the real providers, rather than a stand-in written for testing, so that the code path used by anyone who deploys it that way cannot rot.

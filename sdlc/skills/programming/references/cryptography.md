@@ -5,7 +5,7 @@ Generally, there MUST be a high-level wrapper that makes every unsafe use of a c
 - Algorithms, curves, modes, and parameters MUST be selected from an enumerated set that omits everything deprecated or broken, so that a weak choice cannot be spelt.
 - Where only one choice is defensible, it MUST be a constant rather than a parameter.
 - Where interoperability forces a weak algorithm, it MUST be reachable only through a separately named operation whose name says so.
-- A verification step MUST NOT be made optional. Where skipping it would be legitimate, offer a narrower operation rather than a flag, and record the refusal along with what would change our mind.
+- A verification step MUST NOT be made optional. Where skipping it would be legitimate, offer a narrower operation rather than a flag, and record the refusal, along with what would change our mind.
 - An empty or absent set of trust anchors MUST fail verification. The code MUST NOT guess whether the caller made a mistake or meant to skip the check.
 - Private key material MUST NOT leave the store that holds it: sign and decrypt through the store's interface, never through an accessor that returns the key.
 - Every key MUST have exactly one declared purpose, and MUST NOT be used for another.

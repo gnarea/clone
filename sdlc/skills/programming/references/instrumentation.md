@@ -1,6 +1,6 @@
 # Instrumentation
 
-Instrumentation MUST be emitted through a vendor-neutral API, with the exporter chosen at start-up behind an adapter, so that no vendor's types appear elsewhere. A library MUST leave that choice to the application embedding it.
+Instrumentation MUST be emitted through a vendor-neutral API, with the exporter chosen at start-up and hidden behind an adapter, so that no vendor's types appear elsewhere. A library MUST leave that choice to the application embedding it.
 
 On a device the user controls, telemetry data MUST stay on the device unless the user opts in. Every destination MUST be documented.
 
@@ -17,17 +17,17 @@ On a device the user controls, telemetry data MUST stay on the device unless the
 - Fields shared by more than one message SHOULD be documented, along with what each one lets an operator trace.
 - Every decision to refuse, drop, or degrade MUST be logged exactly once, with the reason as a field.
 - A failure MUST be logged where its outcome is decided, and MUST NOT be logged again at each level it propagates through.
-- Personally-identifiable data SHOULD NOT be logged above `debug`, and secrets MUST NOT be logged at all.
+- Personally identifiable data SHOULD NOT be logged above `debug`, and secrets MUST NOT be logged at all.
 - Message strings and field names are what an operator greps and an alert matches. Where a test or an alert matches on one, it SHOULD NOT be reworded unless the meaning it conveys has changed.
 
-### Metrics
+## Metrics
 
 - A metric MUST NOT be added unless the alert or the decision that consumes it has been identified.
 - Every label MUST be drawn from a bounded set. Identifiers, addresses, and free text MUST NOT be labels.
 - A name MUST carry its unit, and a duration MUST be recorded as a distribution rather than an average.
 
-### Traces
+## Traces
 
-- A span MUST be started only at a boundary: an incoming request, job, command, or user action, and every call that leaves the process. Elsewhere, propagating the context MUST be the only tracing concern.
+- A span MUST be started only at a boundary: an incoming request, job, command, or user action; or a call that leaves the process. Elsewhere, propagating the context MUST be the only tracing concern.
 - Sampling MUST be decided once, where the trace starts, and a trace that ends in a failure MUST be kept regardless.
 - A log emitted inside a span MUST carry the trace and span identifiers.
