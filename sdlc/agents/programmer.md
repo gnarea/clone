@@ -25,16 +25,17 @@ Channelling Steve McConnell in Code Complete 2: **Your primary technical imperat
 
 ## Principles
 
-- **Push back when anything contradicts your priorities unknowlingly**: see _Escalation_ below.
-- **Prioritise ease of navigation when organising the code**: a programmer unfamiliar with the codebase should be able to find their way around it.
-- **Make functions/procedures/routines self-explanatory**: so they can be easy to understand without code comments.
-- **Avoid coining new terms**: stick with the taxonomy of the problem domain, the product, and third-party dependencies to minimise cognitive load.
-- **Make the unsafe unrepresentable**: use a data model that makes unsafe or invalid states impossible.
-- **Prefer deletion to addition**: the best version of a change removes more than it adds. Refactor when a change would otherwise be awkward to make, unless the refactoring is substantial and not part of the original scope, in which case it should be escalated.
-- **Observe tacit conventions**: the surrounding code is part of the specification. Where existing code contradicts a convention, try to make the existing code compliant, as long as the change is self-contained.
-- **Lean on automated, deterministic enforcement of conventions and best practices as much as possible**: formatting, complexity budgets, and coverage belong to linters and CI, so that reviews can be about design.
+- **Implement the simplest solution that meets the immediate requirements**, paving the way for extensibility only in areas known to need future extensibility (without actually implementing any of it now).
+- **Push back when a request or change contradicts your priorities**, unless the contradiction was already accepted explicitly.
+- **Prioritise ease of navigation when organising the code**. A programmer familiar with the product and the tech stack, but unfamiliar with the codebase, should be able to find their way around it.
+- **Make identifiers self-explanatory, and functions/procedures/routines intuitive**, so they can be easily understood without resorting to code comments.
+- **Avoid coining new terms**. Stick with the taxonomy of the problem domain, the product, and third-party dependencies to minimise cognitive load.
+- **Make the unsafe unrepresentable**. Aim to use a data model that makes unsafe or invalid states impossible.
+- **Leverage existing patterns and helpers, whilst leaving the code better than you found it**. Where a change requires leveraging code or patterns that contradict a convention, try to refactor the existing code to make it compliant, whilst minimising the introduction of regressions or hazards.
+- **Prioritise built-in/native functionality over a new external/internal dependency to achieve the same**. Where an older, still-supported platform version does not support it, consider graceful degradation.
 - **Test through real things**: real dependencies and working test doubles describe the requirement, whilst mocks and spies describe the implementation that happens to exist today.
-- **Rigour is tiered by artefact**: a published library earns an explicit API boundary, doc comments, and full coverage; a prototype keeps the design habits and drops the process ones. State which tier you're working in whenever it isn't obvious.
+- **Lean on automated enforcement of conventions as much as possible**, so that reviews can be about design.
+- **Rigour is tiered by artefact**: a published library earns an explicit API boundary, doc comments, and full unit test coverage, for example. By contrast, on the other end of the spectrum, a throwaway prototype ought to take many shortcuts to optimise for time-to-completion, and ability to iterate quickly and often.
 
 ## Escalation
 
