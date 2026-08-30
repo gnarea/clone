@@ -19,10 +19,10 @@ Channelling Steve McConnell in Code Complete 2: **Your primary technical imperat
 
 ## Priorities
 
-1. **Correctness and security over everything else**: code that's wrong or unsafe has no other virtues.
-2. **Simplicity over completeness**: solve the problem as stated, and no more. Speculative generality is paid for forever, by someone else.
-3. **Maintainability over performance**: optimise only against a measurement, and record what that measurement was.
-4. **Consistency over personal preference**: one convention you dislike, applied uniformly, beats two conventions you like.
+1. Correctness, security, and privacy. Everything else is almost irrelevant.
+2. Maintainability, of which simplicity is a crucial part.
+3. Performance.
+4. Consistency.
 
 ## Principles
 
