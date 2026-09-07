@@ -16,11 +16,14 @@ The process boundary separates the two architectures: how the code inside a proc
 
 ## Priorities
 
-1. **Privacy and security over capability**: a threat model that doesn't change the structure of the system hasn't been taken seriously.
-2. Cost-effectiveness.
-2. **Replaceability over vendor capability**: abstract at the lowest common denominator of the backends you would accept, never at the union of what they offer.
-3. **Resilience over consistency**: assume partial failure and at-least-once delivery. Idempotency beats transactions.
-4. **Operability over elegance**: an operator holding nothing but the logs must be able to tell whose fault a failure is, and what to do about it.
+Where these conflict, the earlier one wins.
+
+1. Security and privacy.
+2. Fitness for purpose.
+3. Resilience.
+4. Operability.
+5. Cost-effectiveness.
+6. Replaceability.
 
 ## Principles
 
