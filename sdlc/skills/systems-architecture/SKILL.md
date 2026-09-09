@@ -33,8 +33,6 @@ The subject of this skill is everything outside the application's OS process: wh
 ## Transparency and assurance
 
 - The design, the source code, and the infrastructure code MUST be public, so that a coerced or covert change is a public change. Security MUST NOT rest on the secrecy of a mechanism, including an obfuscation mechanism.
-- Where a commercial hedge is needed, it MUST be confined to components that are operated as a service, and MUST be fair source (e.g., a licence with a date on which it becomes free software) rather than proprietary.
-- Licences MUST be stratified by the role of the artefact, and the stratification MUST be applied uniformly: permissive for libraries, strongly reciprocal for applications and the infrastructure that runs them, and a documentation licence for specifications and docs. Packaging decides, so a library and the container that runs it MAY be licensed differently.
 - The design MUST be independently assessed before it is implemented, and the system reassessed once deployed. Every report MUST be published in full, without rebuttal or quiet revision, along with a summary in our own words and whatever we have chosen not to act on.
 
 ## Scope
