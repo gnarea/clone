@@ -12,7 +12,7 @@ TODO: notes carried over from the architect agent, pending a decision on whether
 
 ## Scope
 
-Anything that goes outside the program's process:
+Anything that goes outside the application's OS process:
 
 - IPC (e.g., UNIX domain sockets, TCP/HTTP/gRPC, data serialisation).
 - Ephemeral storage (e.g., caching).
