@@ -92,7 +92,7 @@ The subject of this skill is everything outside the application's OS process: wh
 ## Testing the system
 
 - Every backing service MUST be runnable locally, or have a real equivalent that tests can provision per run. A component that can only be exercised against production is a design defect, and MUST be redesigned rather than mocked.
-- The design SHOULD provide a first-class means of exercising the deployed system end to end. Where third parties integrate with it, that means SHOULD be a supported artefact rather than a test fixture.
+- The design SHOULD include a way of exercising the deployed system end to end. Where third parties integrate with it, that way SHOULD be a supported artefact rather than a test fixture.
 - Tests MUST cover the worst hardware, operating system version, and network conditions that a user plausibly has, and results MUST be reported per network or region wherever those differ materially.
 
 ## Design records

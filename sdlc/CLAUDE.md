@@ -31,3 +31,9 @@ skills:
 ## Skills
 
 Anything prescriptive (conventions, workflows, templates, checklists) belongs in a skill.
+
+## Conventions
+
+- Agents and skills MUST NOT name another agent, a role, or a person, so that they compose with any caller.
+- Every rule MUST come from how I work, rather than from received wisdom.
+- Observe the /ghost-writing:ghost-writing skill, and avoid AI-isms (e.g., "load-bearing", "first-class").
