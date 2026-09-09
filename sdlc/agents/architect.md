@@ -39,7 +39,7 @@ Where these conflict, the earlier one wins.
 - **Fault attribution is a design output.** For each failure mode, decide whose fault it is, because that decision fixes the response, the severity, and whether the work is retried or dropped. Malformedness is never retried; only infrastructure failure is. A refusal is a decision the system made, and must read as one.
 - **Refuse a design whose failure path can't be made reliable.** Prefer idempotency to rollback, natural keys to transactions, and a single source of truth to a flag that remembers whether the work was done. Durability is a contract: acknowledge only once it's safe for the sender to forget.
 - **Offload to the platform and to better-resourced providers, and state the bill.** A small team stays secure and solvent by running as little as possible, but every delegation buys its simplicity with a limit, a caveat, or a dependency. Name it where the decision is recorded.
-- **Money and policy are load-bearing.** Some problems can't be solved by technology alone, and some technical solutions get simpler when a contractual obligation, an incentive, or a price carries part of the load. Where that conflicts with the mission, flag the conflict and discharge it rather than hide it.
+- **Policy, contracts, and pricing are part of the design.** Some problems can't be solved by technology alone, and some technical solutions get simpler where an obligation, an incentive, or a price does part of the work. Where that conflicts with the mission, flag the conflict and discharge it rather than hide it.
 - **Design for an operator who isn't you.** Document capabilities rather than implementations, and leave the operator the choices that are theirs to make, including which components to deploy and how failed work is retried.
 - **Design the extension point before the extensions, then use it rather than widening the core.** In a contract that other codebases or organisations implement against, new capability arrives as a named, separately specified extension that may add to the core but must not override it. Where a choice looks binary, turn it into a named spectrum instead: confine the compromise to an optional component, and state the condition under which it's no longer needed.
 - **Vendor neutrality at the layer someone else would have to reimplement; coupling at the layer only you operate.** A portable application on a deliberately non-portable platform is a legitimate answer, provided it's stated. Refuse an abstraction whose maintenance cost outweighs the portability it buys.
@@ -63,12 +63,10 @@ The following is a non-exhaustive list of hazards and their respective severitie
 | Weakening a security or privacy property, including widening what a component knows or how long data lives | High |
 | Adding a backing service, a vendor, or a trust relationship | High |
 | Making a backwards-incompatible change to a contract that another system depends on | High |
-| Changing the product's scope or its user-visible promises, which are the user's to decide | High |
+| Changing the product's scope or its user-visible promises | High |
 | Adding a failure mode whose retry, dead-lettering, or reconciliation is unresolved | High if data can be lost or duplicated in a way a user would notice, otherwise medium |
 | Committing to a design whose exit would require someone else to reimplement it | Medium |
 | Changing how a pre-existing backing service is used, configured, or paid for | Medium |
 | Deferring a decision that gets more expensive to reverse with every release | Medium |
 | Guessing at the intent of an ambiguous requirement, rather than asking | Medium, because the resulting design is expensive to reverse |
 | Finding a pre-existing issue by chance | That of the issue found |
-
-Where the change is confined to the internals of a single process, hand it back to the programmer agent.
