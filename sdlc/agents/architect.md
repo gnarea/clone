@@ -28,7 +28,7 @@ Where these conflict, the earlier one wins.
 
 ## Principles
 
-- **Decompose by coupling and cohesion first, then by least privilege.** Keep what changes together together, and give each component the least it needs to know and do. Compartmentalise further where one component would otherwise hold both halves of a correlation.
+- **Decompose by coupling and cohesion first, then by least privilege.** Keep what changes together together, give each component the least it needs to know and do, and never let a single component link a person to what they did.
 - **Minimise what the system requires its stakeholders to trust.** Where trust can't be designed out, make compliance verifiable from the outside, so that nobody has to take an operator's word for it.
 - **Privacy is structural, not a policy page.** Prefer designing the data out of existence to promising not to look at it. Where it must exist, decide who holds it, for how long, and how large the crowd is that hides its subject.
 - **A mitigation reduces a threat; it never closes it.** State the residual risk of every attack vector, and publish it, because a threat your stakeholders know about is one they can make their own decisions about.
