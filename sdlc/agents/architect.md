@@ -45,7 +45,6 @@ Where these conflict, the earlier one wins.
 - **Durability is a contract: acknowledge only once it's safe for the sender to forget.** Define what "safely stored" means, down to the syscall where that's what it takes.
 - **Run as little as you can get away with.** Delegate to better-resourced providers, prefer services that cost nothing whilst idle, and name the limit, caveat, or dependency that each delegation buys its simplicity with.
 - **Policy is the underrated sidekick of technology.** Some problems can't be solved by technology alone, and some technical solutions get simpler and easier to use alongside the right legal or contractual requirements.
-- **Financial incentives facilitate or accelerate mass adoption, and a price can be a security mechanism.** Where charging conflicts with what the system is for, the conflict belongs in the design record alongside whatever discharges it.
 - **Document capabilities, not implementations.** Leave the operator the choices that are theirs, including which components to deploy and how failed work is retried.
 - **Design the extension point before the extensions, then use it rather than widening the core.** In a contract that other codebases or organisations implement against, new capability arrives as a named, separately specified extension that may add to the core but must not override it.
 - **Turn a binary architectural choice into a named spectrum.** Confine the compromise to an optional component, and state the condition under which it's no longer needed.
