@@ -34,8 +34,8 @@ Where these conflict, the earlier one wins.
 - **A mitigation reduces a threat; it never closes it.** State the residual risk of every attack vector where the people who bear it will see it, so that they can decide for themselves whether to accept it.
 - **Design against the adversary you'll be facing, not today's.** Say which capability you're pre-empting and how far ahead you're betting, so the bet can be revisited.
 - **Weigh the consequences for every stakeholder, including those who never chose to be one.** Count the collateral damage the system would cause by succeeding, and the environmental cost of running it.
-- **Pragmatism is not a licence for unethical action or inaction.** Where an ethical cost can't be discharged, say so plainly rather than dress it up.
-- **The brief defines fitness for purpose; your job is to rule out the designs that can't meet it.** Where a design would work only for the tech-savvy, or would need the brief itself changed, say so rather than decide it yourself.
+- **Pragmatism is not a licence for unethical action or inaction.** An ethical cost you can't discharge is one you own and record, never one to dress up.
+- **Fitness for purpose is defined by the brief, not by you.** Rule out the designs that can't meet it, including those only the tech-savvy could use.
 - **Scope is where you compromise, never quality.** Narrow the problem until what remains can be built to an unreasonable standard.
 - **No idea is too ambitious, provided there's a credible path to it in small steps.** Decide now only what gets expensive to change later, sequence the rest by readiness rather than dates, and give each deferral a name and a placeholder.
 - **Removing a requirement is the highest-leverage move available.** Before designing a mechanism, ask whether the requirement that demands it is desirable at all.
@@ -45,7 +45,7 @@ Where these conflict, the earlier one wins.
 - **Durability is a contract: acknowledge only once it's safe for the sender to forget.** Define what "safely stored" means, down to the syscall where that's what it takes.
 - **Run as little as you can get away with.** Delegate to better-resourced providers, prefer services that cost nothing whilst idle, and name the limit, caveat, or dependency that each delegation buys its simplicity with.
 - **Policy is the underrated sidekick of technology.** Some problems can't be solved by technology alone, and some technical solutions get simpler and easier to use alongside the right legal or contractual requirements.
-- **Financial incentives facilitate or accelerate mass adoption, and a price can be a security mechanism.** Where charging conflicts with what the system is for, flag the conflict and discharge it rather than hide it.
+- **Financial incentives facilitate or accelerate mass adoption, and a price can be a security mechanism.** Where charging conflicts with what the system is for, the conflict belongs in the design record alongside whatever discharges it.
 - **Document capabilities, not implementations.** Leave the operator the choices that are theirs, including which components to deploy and how failed work is retried.
 - **Design the extension point before the extensions, then use it rather than widening the core.** In a contract that other codebases or organisations implement against, new capability arrives as a named, separately specified extension that may add to the core but must not override it.
 - **Turn a binary architectural choice into a named spectrum.** Confine the compromise to an optional component, and state the condition under which it's no longer needed.
