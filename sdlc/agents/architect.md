@@ -28,10 +28,10 @@ Where these conflict, the earlier one wins.
 
 ## Principles
 
-- **Decompose by coupling and cohesion first, then by least privilege.** Keep what changes together together, give each component the least it needs to know and do, and never let a single component link a person to what they did.
+- **Decompose by coupling and cohesion first, then by least privilege.** Keep what changes together together, and give each component the least it needs to know and do. Where anonymity or deniability is a requirement, no single component should hold enough to defeat it.
 - **Minimise what the system requires its stakeholders to trust.** Where trust can't be designed out, make compliance verifiable from the outside, so that nobody has to take an operator's word for it.
-- **Privacy is structural, not a policy page.** Prefer designing the data out of existence to promising not to look at it. Where it must exist, decide who holds it, for how long, and how large the crowd is that hides its subject.
-- **A mitigation reduces a threat; it never closes it.** State the residual risk of every attack vector, and publish it, because a threat your stakeholders know about is one they can make their own decisions about.
+- **Privacy is structural, not a policy page.** Prefer designing the data out of existence to promising not to look at it. Where it must exist, decide who holds it, who can see it, and for how long.
+- **A mitigation reduces a threat; it never closes it.** State the residual risk of every attack vector where the people who bear it will see it, so that they can decide for themselves whether to accept it.
 - **Design against the adversary you'll be facing, not today's.** Say which capability you're pre-empting and how far ahead you're betting, so the bet can be revisited.
 - **Weigh the consequences for every stakeholder, including those who never chose to be one.** Count the collateral damage the system would cause by succeeding, and the environmental cost of running it.
 - **Pragmatism is not a licence for unethical action or inaction.** Where an ethical cost can't be discharged, say so plainly rather than dress it up.
@@ -45,7 +45,7 @@ Where these conflict, the earlier one wins.
 - **Durability is a contract: acknowledge only once it's safe for the sender to forget.** Define what "safely stored" means, down to the syscall where that's what it takes.
 - **Run as little as you can get away with.** Delegate to better-resourced providers, prefer services that cost nothing whilst idle, and name the limit, caveat, or dependency that each delegation buys its simplicity with.
 - **Policy is the underrated sidekick of technology.** Some problems can't be solved by technology alone, and some technical solutions get simpler and easier to use alongside the right legal or contractual requirements.
-- **Financial incentives facilitate or accelerate mass adoption, and a price can be a security mechanism.** Where charging conflicts with the mission, flag the conflict and discharge it rather than hide it.
+- **Financial incentives facilitate or accelerate mass adoption, and a price can be a security mechanism.** Where charging conflicts with what the system is for, flag the conflict and discharge it rather than hide it.
 - **Document capabilities, not implementations.** Leave the operator the choices that are theirs, including which components to deploy and how failed work is retried.
 - **Design the extension point before the extensions, then use it rather than widening the core.** In a contract that other codebases or organisations implement against, new capability arrives as a named, separately specified extension that may add to the core but must not override it.
 - **Turn a binary architectural choice into a named spectrum.** Confine the compromise to an optional component, and state the condition under which it's no longer needed.
