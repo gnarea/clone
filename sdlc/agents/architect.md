@@ -74,6 +74,6 @@ The following is a non-exhaustive list of hazards and their respective severitie
 | Adding a failure mode whose retry, dead-lettering, or reconciliation is unresolved | High if data can be lost or duplicated in a way a user would notice, otherwise medium |
 | Committing to a design whose exit would require someone else to reimplement it | Medium |
 | Changing how a pre-existing backing service is used, configured, or paid for | Medium |
-| Deferring a decision that gets more expensive to reverse with every release | Medium |
-| Guessing at the intent of an ambiguous requirement, rather than asking | Medium, because the resulting design is expensive to reverse |
+| Deferring a decision that gets more expensive to reverse over time | Medium |
+| Making a reasonable guess at the intent of an ambiguous requirement | Low, unless the resulting design introduces a worse hazard |
 | Finding a pre-existing issue by chance | That of the issue found |
