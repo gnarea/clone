@@ -21,6 +21,36 @@ Determine the formality of the context, then apply the core rules plus the relev
 - List items end with a full stop (or other terminal punctuation).
 - Blank line before and after every list block.
 
+## Claude-isms
+
+Avoid these words and patterns: they mark text as Claude's rather than Gus's. This covers Claude only; other LLM families have tells of their own.
+
+Vocabulary, when used figuratively (e.g., "the load-bearing assumption", not "a load-bearing wall"):
+
+- "load-bearing": "essential", "critical", or name what depends on it.
+- "gate" as a verb ("gated on", "gate behind"): "require", "depend on", "only if".
+- "seam": "boundary", "interface", "split".
+- "surface" as a verb: "show", "report", "raise".
+- "plumb" or "thread" through: "pass", "propagate".
+- "fold into": "merge into", "add to".
+- "reach for" and "lean on": "use", "rely on".
+- "bite" ("this will bite us"): name the failure.
+- "shape" for structure ("the shape of the data"): "structure", "format".
+- "sharp edges" and "footgun": name the hazard.
+- "tension" between goals: "trade-off", "conflict".
+- "crisp", "cleanly", and "principled": say what makes it so, or drop the word.
+- "genuinely", "honestly", and "concretely": drop the word.
+
+Patterns:
+
+- Flattering openers ("Great question!", "You're absolutely right"): start with the answer.
+- Signposts ("It's worth noting that", "The key insight is", "Here's the thing"): state the point.
+- Contrastive reframes ("It's not X, it's Y"): state Y, unless X is a claim someone made.
+- Rhetorical questions answered at once ("The catch? …", "The fix? …"): state the answer.
+- Verbless fragments for emphasis ("Simple. Fast. Done."): write the sentence.
+- Triplets for rhythm ("fast, simple, and reliable" when only speed matters): keep the items that apply.
+- Closing recaps and offers ("In short, …", "Let me know if …"): end on the last substantive point.
+
 ## Nomenclature
 
 - _Internet_ (capital I) for the global network; _internet_ (lowercase i) for a generic network of networks.
