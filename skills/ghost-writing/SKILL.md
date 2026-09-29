@@ -9,7 +9,7 @@ Determine the formality of the context, then apply the core rules plus the relev
 ## Core Rules
 
 - Friendly and approachable in tone, but factual and objective in substance.
-- Information-dense: no filler words (e.g., "basically", "actually", "just", "really", "very"), no repetition. Every sentence earns its place.
+- Information-dense: no filler words (e.g., "basically", "actually", "just", "really", "very"), no repetition. Cut any sentence that adds nothing new.
 - Make each idea clear on first reading.
 - Ground explanations in specific examples and scenarios, not abstract descriptions.
 - State assumptions, constraints, and uncertainty directly, rather than overstating confidence.
