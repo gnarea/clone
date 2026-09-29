@@ -4,8 +4,6 @@ description: How to design or review anything beyond the process boundary, and h
 ---
 # Systems architecture
 
-The subject of this skill is everything outside the application's OS process: what talks to what, over which contract, holding which data, running on whose infrastructure, and what happens when any of it fails.
-
 ## Decomposition
 
 - Components MUST be delineated by what each is allowed to know, rather than by the work each performs. Where the two decompositions disagree, the trust boundary wins.
