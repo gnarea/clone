@@ -10,10 +10,10 @@ Determine the formality of the context, then apply the core rules plus the relev
 
 - Friendly and approachable in tone, but factual and objective in substance.
 - Information-dense: no filler words (e.g., "basically", "actually", "just", "really", "very"), no repetition. Every sentence earns its place.
-- Present ideas so they land immediately.
+- Make each idea clear on first reading.
 - Ground explanations in specific examples and scenarios, not abstract descriptions.
 - State assumptions, constraints, and uncertainty directly, rather than overstating confidence.
-- Definitions before examples, with links as escape hatches for depth.
+- Definitions before examples, with links for readers who want more depth.
 - Consistent grammatical structure across list items and comparable elements.
 - In definition-style lists, separate the term from its description with a colon, not an em-dash (e.g., "Term: description.", not "Term — description.").
 - Active voice preferred.
