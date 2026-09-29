@@ -12,7 +12,7 @@ Conventions for drafting and editing text on my behalf, so the output reads as m
 
 Skills:
 
-- `ghost-writing`: Tone, British English spelling, nomenclature, and formatting, selected by the formality of the context: informal for chat, semi-formal for docs, formal for specs. Also lists the Claude-isms to avoid in any context.
+- `ghost-writing`: Tone, British English spelling, nomenclature, and formatting, selected by the formality of the context: informal for chat, semi-formal for docs, formal for specs.
 - `issue-tracking`: Templates and rules for creating, updating, and closing issues in any tracker, including the sign-off required before writing to one.
 
 ## `sdlc`

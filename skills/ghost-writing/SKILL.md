@@ -23,9 +23,11 @@ Determine the formality of the context, then apply the core rules plus the relev
 
 ## Claude-isms
 
-Avoid these words and patterns: they mark text as Claude's rather than Gus's. The list covers Claude only, as other LLM families have different tells.
+Avoid the following vocabulary and patterns as they mark text as Claude's. The list covers Claude only, as other LLM families have different tells.
 
-Vocabulary used figuratively. Literal senses and established terms are fine (e.g., "a load-bearing wall", "attack surface", "logic gate", "lower bound").
+### Vocabulary
+
+Vocabulary used figuratively:
 
 - Structural metaphors ("load-bearing", "spine", "seam", "grain", "shape", "layer", "scaffold", "wiring", "handoff", "surface", "routing"): name the component or dependency itself.
 - Gating ("gate" as a verb, "X-gated", "hard gate", "hard stop", "hard constraint", "hard boundary"): "requires", "only if", "must".
@@ -35,7 +37,9 @@ Vocabulary used figuratively. Literal senses and established terms are fine (e.g
 - Hazard metaphors ("bite", "sharp edges", "footgun", "tension"): name the failure, risk, or trade-off.
 - Hollow qualifiers ("crisp", "cleanly", "principled", "genuinely", "honestly", "concretely"): say what makes it so, or drop the word.
 
-Patterns:
+Literal senses and established terms are fine (e.g., "a load-bearing wall", "attack surface", "logic gate", "lower bound").
+
+### Patterns
 
 - Flattering openers ("Great question!", "You're absolutely right"): start with the answer.
 - Signposts and emphatic framing ("It's worth noting that", "The key insight is", "Here's the thing", "The distinction matters"): state the point.
@@ -46,7 +50,6 @@ Patterns:
 - Mirrored clause pairs for cadence ("The client retries; the server deduplicates."): keep them only where the comparison is the point.
 - Short, sharp sentences for effect ("Simple. Fast. Done.", "Nothing else touches it."): merge into the previous sentence or drop.
 - Triplets for rhythm ("fast, simple, and reliable" when only speed matters): keep the items that apply.
-- Closing recaps and offers ("In short, …", "Let me know if …"): end on the last substantive point.
 
 ## Nomenclature
 
