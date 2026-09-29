@@ -9,11 +9,11 @@ Determine the formality of the context, then apply the core rules plus the relev
 ## Core Rules
 
 - Friendly and approachable in tone, but factual and objective in substance.
-- Information-dense: no filler words (e.g., "basically", "actually", "just", "really", "very"), no repetition. Every sentence earns its place.
-- Present ideas so they land immediately.
+- Information-dense: no filler words (e.g., "basically", "actually", "just", "really", "very"), no repetition. Cut any sentence that adds nothing new.
+- Make each idea clear on first reading.
 - Ground explanations in specific examples and scenarios, not abstract descriptions.
 - State assumptions, constraints, and uncertainty directly, rather than overstating confidence.
-- Definitions before examples, with links as escape hatches for depth.
+- Definitions before examples, with links for readers who want more depth.
 - Consistent grammatical structure across list items and comparable elements.
 - In definition-style lists, separate the term from its description with a colon, not an em-dash (e.g., "Term: description.", not "Term — description.").
 - Active voice preferred.
@@ -92,3 +92,33 @@ Applies to specs, RFDs, Internet-Drafts, and similar contexts.
 - No emojis.
 - Formal but accessible tone.
 - [See DomainAuth I-D exemplar](https://raw.githubusercontent.com/CheVeraId/domainauth-spec/main/draft-narea-domainauth.md).
+
+## Claude-isms
+
+Avoid the following as they mark text as Claude's. The list covers Claude only, as other LLM families have different tells.
+
+### Vocabulary
+
+Vocabulary used figuratively:
+
+- Structural metaphors ("load-bearing", "spine", "seam", "grain", "shape", "layer", "scaffold", "wiring", "handoff", "surface", "routing"): name the component or dependency itself.
+- Gating ("gate" as a verb, "X-gated", "hard gate", "hard stop", "hard constraint", "hard boundary"): "requires", "only if", "must".
+- Movement verbs ("plumb" or "thread" through, "fold into", "reach for", "lean on"): "pass", "merge", "use", "rely on".
+- Process jargon ("canonical", "drift", "parity", "probe", "landed", "verdict", "audited", "provenance", "lineage", "calibrated"): the everyday word (e.g., "merged" for "landed", "result" for "verdict").
+- Research register ("frontier", "horizon", "floor", "regime", "trajectory", "slice", "headline", "exchange rate", "clears", "survives", "implicates"): the everyday word, without implying a measurement nobody took.
+- Hazard metaphors ("bite", "sharp edges", "footgun", "tension"): name the failure, risk, or trade-off.
+- Hollow qualifiers ("crisp", "cleanly", "principled", "genuinely", "honestly", "concretely"): say what makes it so, or drop the word.
+
+Literal senses and established terms are fine (e.g., "a load-bearing wall", "attack surface", "logic gate", "lower bound").
+
+### Patterns
+
+- Flattering openers ("Great question!", "You're absolutely right"): start with the answer.
+- Signposts and emphatic framing ("It's worth noting that", "The key insight is", "Here's the thing", "The distinction matters"): state the point.
+- Contrastive reframes ("X, not Y", "not X but Y", "less X than Y", "It's not X, it's Y"): state Y, unless X is a claim someone made.
+- Plain relationships named as concepts ("the ownership boundary", "the approval path"): describe the relationship.
+- Coined hyphenated compounds ("owner-gated", "config-backed", "caller-first"): use a clause (e.g., "only the owner can approve it").
+- Rhetorical questions answered at once ("The catch? …", "The fix? …"): state the answer.
+- Mirrored clause pairs for cadence ("The client retries; the server deduplicates."): keep them only where the comparison is the point.
+- Short, sharp sentences for effect ("Simple. Fast. Done.", "Nothing else touches it."): merge into the previous sentence or drop.
+- Triplets for rhythm ("fast, simple, and reliable" when only speed matters): keep the items that apply.
