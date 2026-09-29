@@ -23,31 +23,28 @@ Determine the formality of the context, then apply the core rules plus the relev
 
 ## Claude-isms
 
-Avoid these words and patterns: they mark text as Claude's rather than Gus's. This covers Claude only; other LLM families have tells of their own.
+Avoid these words and patterns: they mark text as Claude's rather than Gus's. The list covers Claude only, as other LLM families have different tells.
 
-Vocabulary, when used figuratively (e.g., "the load-bearing assumption", not "a load-bearing wall"):
+Vocabulary used figuratively. Literal senses and established terms are fine (e.g., "a load-bearing wall", "attack surface", "logic gate", "lower bound").
 
-- "load-bearing": "essential", "critical", or name what depends on it.
-- "gate" as a verb ("gated on", "gate behind"): "require", "depend on", "only if".
-- "seam": "boundary", "interface", "split".
-- "surface" as a verb: "show", "report", "raise".
-- "plumb" or "thread" through: "pass", "propagate".
-- "fold into": "merge into", "add to".
-- "reach for" and "lean on": "use", "rely on".
-- "bite" ("this will bite us"): name the failure.
-- "shape" for structure ("the shape of the data"): "structure", "format".
-- "sharp edges" and "footgun": name the hazard.
-- "tension" between goals: "trade-off", "conflict".
-- "crisp", "cleanly", and "principled": say what makes it so, or drop the word.
-- "genuinely", "honestly", and "concretely": drop the word.
+- Structural metaphors ("load-bearing", "spine", "seam", "grain", "shape", "layer", "scaffold", "wiring", "handoff", "surface", "routing"): name the component or dependency itself.
+- Gating ("gate" as a verb, "X-gated", "hard gate", "hard stop", "hard constraint", "hard boundary"): "requires", "only if", "must".
+- Movement verbs ("plumb" or "thread" through, "fold into", "reach for", "lean on"): "pass", "merge", "use", "rely on".
+- Process jargon ("canonical", "drift", "parity", "probe", "landed", "verdict", "audited", "provenance", "lineage", "calibrated"): the everyday word (e.g., "merged" for "landed", "result" for "verdict").
+- Research register ("frontier", "horizon", "floor", "regime", "trajectory", "slice", "headline", "exchange rate", "clears", "survives", "implicates"): the everyday word, without implying a measurement nobody took.
+- Hazard metaphors ("bite", "sharp edges", "footgun", "tension"): name the failure, risk, or trade-off.
+- Hollow qualifiers ("crisp", "cleanly", "principled", "genuinely", "honestly", "concretely"): say what makes it so, or drop the word.
 
 Patterns:
 
 - Flattering openers ("Great question!", "You're absolutely right"): start with the answer.
-- Signposts ("It's worth noting that", "The key insight is", "Here's the thing"): state the point.
-- Contrastive reframes ("It's not X, it's Y"): state Y, unless X is a claim someone made.
+- Signposts and emphatic framing ("It's worth noting that", "The key insight is", "Here's the thing", "The distinction matters"): state the point.
+- Contrastive reframes ("X, not Y", "not X but Y", "less X than Y", "It's not X, it's Y"): state Y, unless X is a claim someone made.
+- Plain relationships named as concepts ("the ownership boundary", "the approval path"): describe the relationship.
+- Coined hyphenated compounds ("owner-gated", "config-backed", "caller-first"): use a clause (e.g., "only the owner can approve it").
 - Rhetorical questions answered at once ("The catch? …", "The fix? …"): state the answer.
-- Verbless fragments for emphasis ("Simple. Fast. Done."): write the sentence.
+- Mirrored clause pairs for cadence ("The client retries; the server deduplicates."): keep them only where the comparison is the point.
+- Short, sharp sentences for effect ("Simple. Fast. Done.", "Nothing else touches it."): merge into the previous sentence or drop.
 - Triplets for rhythm ("fast, simple, and reliable" when only speed matters): keep the items that apply.
 - Closing recaps and offers ("In short, …", "Let me know if …"): end on the last substantive point.
 
