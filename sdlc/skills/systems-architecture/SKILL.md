@@ -122,7 +122,7 @@ Read a reference below where its condition holds; its rules apply in addition to
 
 ### By concern
 
-- `references/api-design.md`: The change defines or alters a contract that another codebase, team, or organisation depends on.
+- `references/contracts.md`: The change defines or alters a contract that another codebase, team, or organisation depends on.
 - `references/cloud-infrastructure.md`: The change provisions or alters infrastructure at a cloud provider.
 - `references/design-records.md`: The change is being proposed, or the product's standing architecture document is being written or revised.
 - `references/prototyping.md`: The artefact is a prototype or a proof of concept, built to answer a design question.
