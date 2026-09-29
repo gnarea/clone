@@ -4,112 +4,91 @@ description: How to design systems beyond the process boundary. Decomposition, d
 ---
 # Systems architecture
 
-The sections below follow the order of the priorities they serve, so where two rules conflict, the earlier one wins.
+Sections follow the order of the priorities they serve: where two rules conflict, the earlier one wins.
 
 ## Security and privacy
 
-### Decomposition
-
-- Components MUST be delineated by coupling and cohesion first, so that what changes together lives together. Each component MUST then be given the least data, authority, and reach that its job requires.
-- The design MUST state what each component knows about the people it serves, and where a component exists only to broker between two others, what it may observe about the traffic it brokers.
+- Components MUST be delineated by coupling and cohesion first, and then given the least data, authority, and reach that their job requires.
+- The design MUST state what each component knows about the people it serves, including what a broker may observe about the traffic it relays.
+- Data the system doesn't need MUST be designed out, rather than collected and protected by a promise not to look at it.
+- Every component that stores anything MUST document what, why, who can see it, and for how long, even where the answer is "nothing".
+- Personal data MUST NOT be replicated to a system with weaker retention, access control, or jurisdiction than its source.
+- The design MUST name every party that stakeholders must trust, and with what, and MUST minimise both. Where trust can't be designed out, compliance MUST be verifiable from outside.
+- Unsafe use of an API, a wire format, or a deployment's configuration MUST be impossible: no skipping a check, turning off a security property, or downgrading. Where a choice is unavoidable, offer a few named options, all of them safe.
 - Where anonymity or deniability is a requirement:
-  - A single component MUST NOT hold enough to defeat it. Two pieces of data that identify someone by being held together (e.g., an address and the traffic sent to it) MUST be split across components under separate control, or one of them dropped.
-  - The design MUST state what each component's operator could be compelled to disclose, alter, or block, and MUST prefer a design in which the answer is "nothing".
-  - Where anonymity depends on a crowd, the design MUST state how large that crowd is, and MUST warn against deployments that shrink it (e.g., a single-user instance).
-
-### Data
-
-- Data that the system doesn't need MUST be designed out, rather than collected and then protected by a promise not to look at it.
-- Every component that stores anything MUST document what it stores, why, who can see it, and for how long, even where the answer is "nothing".
-- Personal data MUST NOT be replicated to a system whose retention, access control, or jurisdiction is weaker than that of the system it came from.
-
-### Trust
-
-- The design MUST name every party that stakeholders are required to trust, and what each is trusted with, and MUST minimise both.
-- Where trust can't be designed out, compliance MUST be verifiable from outside, rather than rest on an operator's word.
-- The unsafe use of an API, a wire format, or a deployment's configuration MUST be impossible, rather than merely discouraged. There MUST be no way to skip a check, turn off a security property, or downgrade to a weaker option. Where a choice is unavoidable, the design MUST offer a few named options, all of them safe.
+  - A single component MUST NOT hold enough to defeat it (e.g., both an address and the traffic sent to it).
+  - The design MUST state what each operator could be compelled to disclose, alter, or block, and SHOULD make the answer "nothing".
+  - Where anonymity depends on a crowd, the design MUST state its size, and warn against deployments that shrink it.
 
 ### Threats
 
-- Every system MUST have a threat model that names its adversaries and their capabilities.
-- Each attack vector MUST state its impact, how likely it is to be attempted, the attack method, the mitigations, and the residual risks. Vectors SHOULD be ordered by attempt likelihood.
-- A vector MUST NOT have an empty residual risk. Where a mitigation is believed to be complete, the entry MUST say what would defeat it.
-- Residual risks MUST be stated where the people who bear them will see them.
-- Where the design pre-empts a capability that the adversary doesn't have yet, it MUST name that capability and how far ahead the bet is, so that the bet can be revisited.
+- Every system MUST have a threat model naming its adversaries and their capabilities.
+- Each attack vector MUST state its impact, attempt likelihood, method, mitigations, and residual risks, and vectors SHOULD be ordered by likelihood.
+- A vector MUST NOT have an empty residual risk: where a mitigation seems complete, say what would defeat it. Residual risks MUST be stated where those who bear them will see them.
+- Where the design pre-empts a capability the adversary doesn't have yet, it MUST name it and how far ahead the bet is.
 
 ## Ethics
 
-- The design MUST weigh its consequences for every stakeholder, including those who never chose to be one, and MUST account for the collateral damage the system would cause by succeeding.
-- The environmental cost of running the system MUST be estimated, and weighed like any other cost.
-- An ethical cost that the design can't discharge MUST be recorded against the design as such, and MUST NOT be presented as anything else.
+- The design MUST weigh its consequences for every stakeholder, including those who never chose to be one, the collateral damage of its success, and its environmental cost.
+- An ethical cost the design can't discharge MUST be recorded as such.
 
 ## Fitness for purpose
 
-### Scope
-
-- A requirement MUST be challenged before a mechanism is designed to satisfy it. Where dropping one is proposed, the proposal MUST enumerate every simplification it buys and every capability it costs.
-- Where quality can't be afforded, the scope MUST be narrowed until what remains can be built without compromising on quality.
+- A requirement MUST be challenged before a mechanism is designed for it. A proposal to drop one MUST enumerate every simplification it buys and every capability it costs.
+- Where quality can't be afforded, the scope MUST be narrowed instead.
 - The problem MUST be stated separately from the design, so that either can be falsified without the other.
-- The non-goals MUST be stated at the start of the design, and repeated wherever adoption is decided.
-- Where a leading alternative serves some users better, the design MUST say so, name those users, and describe what the system offers them instead.
-- Only what is expensive to reverse later (e.g., identifiers, wire formats, and data schemas) MUST be decided up front. Everything else SHOULD be deferred until evidence arrives.
-
-### Constraints
-
-- The design MUST name the most constrained environment the system must run in, whether the constraint is hardware, connectivity, power, budget, or a platform that can't be upgraded, and MUST work there. Anything better MUST be treated as an optimisation.
-- Where policy (e.g., a legal or contractual requirement) makes a technical problem simpler or solves it outright, the design MUST say so, and MUST state what happens where the policy is breached.
+- Non-goals MUST be stated at the start of the design, and wherever adoption is decided.
+- Where a leading alternative serves some users better, the design MUST say so, and what it offers them instead.
+- Only what is expensive to reverse (e.g., identifiers, wire formats, and schemas) MUST be decided up front. The rest SHOULD wait for evidence.
+- The design MUST name the most constrained environment it must work in (e.g., hardware, connectivity, power, budget, or a platform that can't be upgraded), and treat anything better as an optimisation.
+- Where policy (e.g., a legal or contractual requirement) does technical work, the design MUST say so, and what happens if the policy is breached.
 
 ## Resilience
 
-### Communication
-
-- Every exchange MUST be designed to survive the other party being unreachable. Messages that can be stored and retried SHOULD be preferred to request-response, which ties each component's availability to that of the others.
-- The design MUST state what the system does when each of its dependencies is unavailable, and degraded operation MUST be a modelled state rather than an error.
-
-### Failure
-
-- For each failure mode, the design MUST attribute the fault to the sender, to the system itself, or to the infrastructure, and that attribution MUST determine the response returned, the severity logged, and whether the work is retried or dropped. Only what a later attempt could survive MUST be retried.
-- Retries and dead-lettering MUST be left to the broker or platform, configured by the operator. The application MUST only report whether a later attempt could succeed.
-- An acknowledgement MUST be sent only once the work is safe for the sender to forget: durably stored and flushed (e.g., `fdatasync`, or `FlushFileBuffers`), not merely received or parsed.
-- A design whose failure path can't be made reliable MUST be rejected. Where two stores would have to be updated together, the design MUST be changed so that a partial failure is safe to repeat, unless the platform makes the write atomic.
-- Idempotency MUST be achieved with natural keys and a uniqueness constraint, rather than with a record of what has already been done.
+- Every exchange MUST survive the other party being unreachable. Messages that can be stored and retried SHOULD be preferred to request-response.
+- The design MUST state what happens when each dependency is unavailable, and degraded operation MUST be a modelled state, not an error.
+- Each failure mode MUST be attributed to the sender, the system, or the infrastructure, and the attribution MUST determine the response, the severity, and whether to retry. Only what a later attempt could survive MUST be retried.
+- Retries and dead-lettering MUST be left to the broker or platform. The application MUST only report whether a later attempt could succeed.
+- An acknowledgement MUST be sent only once the work is safe for the sender to forget: durably stored and flushed (e.g., `fdatasync`), not merely received or parsed.
+- A design whose failure path can't be made reliable MUST be rejected: where two stores would be updated together, a partial failure MUST be safe to repeat, unless the platform makes the write atomic.
+- Idempotency MUST come from natural keys and a uniqueness constraint, rather than a record of what was done.
 
 ## Cost
 
-- The system MUST run as little as it can. A managed service SHOULD be preferred to one that we would operate, and compute SHOULD cost nothing whilst idle. Anything that must stand idle MUST be justified by a requirement that scaling to zero would break.
-- Every delegation to a provider, to the platform, or to third-party software MUST state the limit, caveat, or dependency that it imposes.
-- Where the cost scales with something that an attacker controls, the design MUST bound it and state the bound.
+- The system MUST run as little as it can: managed services SHOULD be preferred, and compute SHOULD cost nothing whilst idle unless a requirement rules that out.
+- Every delegation (to a provider, the platform, or third-party software) MUST state the limit, caveat, or dependency it imposes.
+- Where cost scales with something an attacker controls, the design MUST bound it and state the bound.
 
 ## Operability
 
-- An operator MUST be able to tell what the system is doing, how well, and whose fault it is when something goes wrong, without a developer to hand. Every behaviour observable from outside MUST be visible in logs, metrics, or traces.
-- The severity of every signal MUST be set by who has to act, and how soon.
-- Where privacy is a requirement, the observability policy MUST be derived from the threat model: whatever an operator needs in order to detect and troubleshoot abuse MUST be recorded, and anything that could identify a user MUST NOT be.
-- Every deployment-time choice MUST be documented, and a component SHOULD run with no configuration at all where its defaults can serve every deployment.
-- A component that some deployments don't need MUST be deployable independently, and the documentation MUST say which deployments those are.
+- An operator MUST be able to tell what the system is doing, how well, and whose fault a failure is, without a developer. Every behaviour observable from outside MUST be visible in logs, metrics, or traces.
+- Severity MUST be set by who has to act, and how soon.
+- Where privacy is a requirement, observability MUST be derived from the threat model: record what's needed to detect and troubleshoot abuse, and nothing that could identify a user.
+- Every deployment-time choice MUST be documented, and defaults SHOULD serve every deployment.
+- A component that some deployments don't need MUST be independently deployable.
 
 ## Replaceability
 
-- An abstraction over interchangeable providers MUST be justified by who would otherwise have to reimplement the system. Where the answer is nobody outside the team, the design SHOULD couple to one provider, and MUST say so.
-- Where an abstraction is warranted, the design MUST state which layers are portable and which are deliberately not, and MUST refuse an abstraction whose upkeep costs more than the portability it buys.
-- Documentation MUST name capabilities rather than implementations (e.g., "an S3-compatible object store"), so that an operator reads what they must supply, rather than what we run.
-- An established standard SHOULD be adopted where one covers the problem, and declining it MUST be recorded with the reason.
-- A contract that another system depends on MUST be versioned from its first release, MUST evolve by addition, and MUST NOT be broken for anything less than a correctness or security fix.
+- An abstraction over interchangeable providers MUST be justified by who would otherwise have to reimplement the system. Where nobody outside the team would, the design SHOULD couple to one provider, and MUST say so.
+- Where an abstraction is warranted, the design MUST state which layers are deliberately not portable, and MUST refuse one whose upkeep outweighs the portability it buys.
+- Documentation MUST name capabilities rather than implementations (e.g., "an S3-compatible object store").
+- An established standard SHOULD be adopted where one fits, and declining it MUST be recorded with the reason.
+- A contract that another system depends on MUST be versioned from its first release, MUST evolve by addition, and MUST NOT break except to fix correctness or security.
 
 ## Testing the system
 
-- Every backing service MUST be runnable locally, or have a real equivalent that tests can provision per run. A component that can only be exercised against production is a design defect, and MUST be redesigned rather than mocked.
-- The provider that a real deployment would use MUST be exercised by automated tests.
-- The design SHOULD include a way of exercising the deployed system end to end. Where third parties integrate with it, that SHOULD be a supported artefact rather than a test fixture.
-- Tests MUST cover the most constrained environment named by the design.
+- Every backing service MUST be runnable locally, or have a real equivalent provisioned per test run. A component that can only be exercised in production MUST be redesigned rather than mocked.
+- The provider a real deployment would use MUST be exercised by automated tests.
+- The deployed system SHOULD be testable end to end, through a supported artefact where third parties integrate with it.
+- Tests MUST cover the most constrained environment the design names.
 
 ## Design records
 
-- Every architectural decision MUST be proposed and argued in the issue tracker before it is implemented, using the template in `references/design-records.md`.
-- Each decision MUST state what it optimises for and at the expense of what, following it through to its second-order consequences.
-- Open questions MUST be published next to the decision they block, rather than tracked out of sight.
-- A rejected option MUST keep its reasoning, marked as rejected, rather than be deleted.
-- Where the author has a stake in the outcome, or a preference they can't fully justify, they MUST flag it in the document itself.
+- Every architectural decision MUST be argued in the issue tracker before it's implemented, per `references/design-records.md`.
+- Each decision MUST state what it optimises for, at the expense of what, and its second-order consequences.
+- Open questions MUST sit next to the decision they block.
+- A rejected option MUST be kept, with its reasoning, rather than deleted.
+- An author with a stake in the outcome, or a preference they can't justify, MUST say so in the document.
 
 ## Additional guidelines
 
@@ -124,5 +103,5 @@ Read a reference below where its condition holds; its rules apply in addition to
 
 - `references/contracts.md`: The change defines or alters a contract that another codebase, team, or organisation depends on.
 - `references/cloud-infrastructure.md`: The change provisions or alters infrastructure at a cloud provider.
-- `references/design-records.md`: The change is being proposed, or the product's standing architecture document is being written or revised.
-- `references/prototyping.md`: The artefact is a prototype or a proof of concept, built to answer a design question.
+- `references/design-records.md`: The change is being proposed, or the product's architecture document is being written or revised.
+- `references/prototyping.md`: The artefact is a prototype built to answer a design question.
