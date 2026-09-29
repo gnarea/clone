@@ -95,7 +95,7 @@ Applies to specs, RFDs, Internet-Drafts, and similar contexts.
 
 ## Claude-isms
 
-Avoid the following vocabulary and patterns as they mark text as Claude's. The list covers Claude only, as other LLM families have different tells.
+Avoid the following as they mark text as Claude's. The list covers Claude only, as other LLM families have different tells.
 
 ### Vocabulary
 
