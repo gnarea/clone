@@ -9,8 +9,8 @@
 
 ## Health checks
 
-- A liveness check MUST NOT probe a backing service, because a restart can't fix a dependency.
-- A readiness check MAY probe only what is local to the instance.
+- A liveness check MUST NOT check a backing service, because a restart can't fix a dependency.
+- A readiness check MAY check only what is local to the instance.
 - A check of shared dependencies MAY be exposed for monitoring, but MUST NOT be able to restart the instance or take it out of rotation.
 
 ## Data
