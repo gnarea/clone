@@ -11,7 +11,6 @@
 - A reliable connection MUST NOT be taken for granted. Work that needs the network MUST be queued durably, and the interface MUST present it as pending rather than failed, with no timeout or retry for the user to manage.
 - What the user sees MUST be recomputed from durable state, rather than driven by whichever event arrived, so that late and out-of-order updates converge.
 
-## Distribution and disclosure
+## Distribution
 
-- Distribution MUST be part of the threat model: the design MUST state what happens if a channel (e.g., an app store) removes or blocks the application.
-- Known limitations MUST be published to end users in plain language, including where there is no workaround.
+- Distribution MUST be part of the threat model, including a channel (e.g., an app store) removing or blocking the application.

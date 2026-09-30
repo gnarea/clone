@@ -2,7 +2,7 @@
 
 ## Provisioning
 
-- Every resource MUST be declared as code and applied from a repository. Anything provisioned by hand MUST be documented, with the reason and the ticket tracking its removal.
+- Every resource MUST be declared as code and applied from a repository. Anything provisioned by hand MUST have tracked work to codify or remove it.
 - Infrastructure code MUST be partitioned by domain (e.g., `iam`, `network`, `alerts`), never by construct type.
 - Continuous integration MUST validate the code, but MUST NOT apply it. Applying MUST be a human act.
 - Promotion to production MUST be a deliberate act, separate from merging or building.
