@@ -109,16 +109,14 @@ description: How code should be written regardless of language. Code organisatio
 
 ## Additional guidelines
 
-Read a reference below where its condition holds; its rules apply in addition to the ones above.
-
 ### By artefact
 
 - `references/libraries.md`: The repository publishes a package that other codebases depend on.
-- `references/server-side-apps.md`: The repository produces a service that runs on infrastructure we operate, reached over a network.
-- `references/end-user-apps.md`: The repository produces an application installed on a device the user controls, whether desktop or mobile.
+- `references/server-side-apps.md`: The repository produces an application that runs on servers.
+- `references/end-user-apps.md`: The repository produces an application installed on a device the user controls.
 
 ### By concern
 
-- `references/instrumentation.md`: The change adds, removes, or alters a diagnostic signal that the running process emits.
-- `references/cryptography.md`: The change selects, configures, or invokes a cryptographic primitive, or handles a key, a credential, or a token.
+- `references/instrumentation.md`: The change affects a diagnostic signal that the process emits.
+- `references/cryptography.md`: The change uses a cryptographic primitive, or handles a key, a credential, or a token.
 - `references/prototyping.md`: The artefact is a throwaway prototype.
