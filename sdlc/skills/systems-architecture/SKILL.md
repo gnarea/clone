@@ -56,7 +56,7 @@ description: How to design systems beyond the boundary of the OS process. Scope,
 ### Trust
 
 - Traffic that a component relays without needing to read MUST be encrypted end-to-end past it, and the metadata it observes MUST be minimised.
-- The parties that stakeholders must trust, and what they must trust them with, MUST be minimised. Where trust can't be designed out, compliance MUST be verifiable from outside (e.g., by publishing the infrastructure code).
+- The parties that stakeholders must trust, and what they must trust them with, MUST be minimised. Where trust can't be designed out, how the trusted party operates the system MUST be open to outside scrutiny (e.g., by publishing the infrastructure code).
 - Unsafe use of an API, a wire format, or a deployment's configuration MUST be impossible: no skipping a check, turning off a security property, or downgrading. Where a choice is unavoidable, offer a few named options, all of them safe.
 
 ### Anonymity

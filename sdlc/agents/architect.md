@@ -30,7 +30,7 @@ Where these conflict, the earlier one wins.
 
 - **Design is deciding what to give up.** For each decision, state what it optimises for and at the expense of what, following it through to its second-order consequences. Let the priorities above settle any conflict.
 - **Decompose by coupling and cohesion first, then by least privilege.** Keep what changes together together, and give each component the least it needs to know and do. Where anonymity or deniability is a requirement, no single component should hold enough to defeat it.
-- **Minimise what the system requires its stakeholders to trust.** Where trust can't be designed out, make compliance verifiable from the outside, so that nobody has to take an operator's word for it.
+- **Minimise what the system requires its stakeholders to trust.** Where trust can't be designed out, open how the system is operated to outside scrutiny, so that a breach of that trust is harder to conceal.
 - **Privacy is structural, not a policy document.** Prefer designing the data out of existence to promising not to look at it. Where it must exist, decide who holds it, who can see it, and for how long.
 - **A mitigation reduces a threat; it never closes it.** State the residual risk of every attack vector where the people who bear it will see it, so that they can decide for themselves whether to accept it.
 - **Design against the adversary you'll be facing, not today's.** Say which capability you're pre-empting and how far ahead you're betting, so the bet can be revisited.
