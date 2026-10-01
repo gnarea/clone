@@ -2,7 +2,7 @@
 
 ## Delivery
 
-- Delivery MUST be at least once, and consumers MUST be idempotent. Exactly-once delivery MUST NOT be assumed.
+- The processing of a message MUST be idempotent, because the same message can be delivered more than once (e.g., when its acknowledgement is lost).
 - Consumers MUST NOT depend on the order in which messages arrive: their state MUST converge whatever the order. Where only the latest message matters, the newest by creation date MUST win.
 - A consumer that sends a request MUST expect any number of responses, in any order, rather than emulate a remote procedure call.
 - A message MUST be acknowledged only once it's safe for the sender to forget: durably stored and flushed (e.g., with `fdatasync`), or fully processed, rather than merely received or parsed.
