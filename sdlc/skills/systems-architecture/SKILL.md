@@ -55,7 +55,7 @@ description: How to design systems beyond the boundary of the OS process. Scope,
 
 ### Trust
 
-- Traffic that a component relays without needing to read MUST be encrypted end to end past it, and the metadata it observes MUST be minimised.
+- Traffic that a component relays without needing to read MUST be encrypted end-to-end past it, and the metadata it observes MUST be minimised.
 - The parties that stakeholders must trust, and what they must trust them with, MUST be minimised. Where trust can't be designed out, compliance MUST be verifiable from outside (e.g., by publishing the infrastructure code).
 - Unsafe use of an API, a wire format, or a deployment's configuration MUST be impossible: no skipping a check, turning off a security property, or downgrading. Where a choice is unavoidable, offer a few named options, all of them safe.
 
@@ -94,7 +94,7 @@ Where anonymity or deniability is a requirement:
 
 - Tests SHOULD use a real instance of every backing service, run locally or provisioned per test run. Where no such instance can be run (e.g., a proprietary service without an emulator), a test double MAY be used instead.
 - Where tests use a substitute for the provider that a real deployment uses (e.g., an emulator, or a compatible alternative), the real provider MUST also be exercised on a schedule (e.g., weekly), rather than on every change, to catch drift and breaking changes.
-- The deployed system SHOULD be testable end to end, through a supported artefact where third parties integrate with it.
+- The deployed system SHOULD be testable end-to-end, through a supported artefact where third parties integrate with it.
 - Tests MUST cover the most constrained environment that the design supports.
 
 ## Additional guidelines
