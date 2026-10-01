@@ -33,7 +33,7 @@ description: How to design systems beyond the boundary of the OS process. Scope,
 
 - Asynchronous messaging MUST be the default, because a message that is durably stored can be retried, redelivered, or dead-lettered after any failure, whereas request-response ties each component's availability to the others'. Request-response MUST be used only where the exchange can't be made asynchronous (e.g., a third-party API that only offers it).
 - Every exchange MUST survive the other party being unreachable.
-- Every message, whether exchanged synchronously or asynchronously, MUST carry the version of its format from its first release, because a version can't be retrofitted once messages are in use. The version MAY travel as metadata rather than in the payload (e.g., in the media type, such as `application/vnd.example.order.v1+json`, or in the event type).
+- Every message, whether exchanged synchronously or asynchronously, MUST carry the version of its format from its first release, because a version can't be retrofitted once messages are in use. The version MAY travel as metadata rather than in the payload (e.g., in the media type, such as `application/vnd.example.order.v1+json`).
 - Work that many parties start at once (e.g., on a schedule, or in response to the same event) MUST be spread with random jitter, so that they don't act in lockstep.
 
 ## Failure
