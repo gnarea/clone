@@ -10,6 +10,7 @@ description: How to design systems beyond the process boundary. Scope, decomposi
 - Before a mechanism is designed for a requirement, the requirement MUST be challenged: dropping one can remove a cascade of mechanisms (e.g., dropping peer authentication can remove a handshake, and a bespoke protocol). Every capability that the drop costs MUST be weighed against every simplification it buys.
 - Where time or resources fall short, the problem MUST be narrowed (e.g., fewer use cases, platforms, or features), and the standard to which the rest is built MUST NOT be lowered.
 - Non-goals MUST be decided before the design, and a mechanism that only serves a non-goal MUST NOT be built.
+- Where an established standard does the job (e.g., a protocol, a data format, or a cryptographic scheme), it SHOULD be adopted in place of a bespoke mechanism. It SHOULD be declined only where it lacks a production-ready implementation in a language or on a platform that the system must support.
 - The design MUST be compared against the leading alternative for each group of users it targets. Where the alternative serves a group better, the design MUST close the gap, or concede that group and decide what it offers them instead.
 - The design MUST work in the most constrained environment it must support (e.g., hardware, connectivity, power, budget, or a platform that can't be upgraded), and treat anything better as an optimisation.
 - Where a problem can't be solved by technical means alone, or a technical solution would be much simpler alongside a legal or contractual obligation (e.g., a no-logs clause for third-party operators), the design SHOULD rely on such an obligation, and MUST limit the damage should it be breached.
@@ -33,7 +34,6 @@ description: How to design systems beyond the process boundary. Scope, decomposi
 - Every exchange MUST survive the other party being unreachable.
 - Every message, whether exchanged synchronously or asynchronously, MUST carry the version of its format from its first release, because a version can't be retrofitted once messages are in use. The version MAY travel as metadata rather than in the payload (e.g., in the media type, such as `application/vnd.example.order.v1+json`, or in the event type).
 - Work that many parties start at once (e.g., on a schedule, or in response to the same event) MUST be spread with random jitter, so that they don't act in lockstep.
-- An established standard SHOULD be adopted where one fits, and SHOULD be declined only where no production-ready implementation exists for a platform the system must support.
 
 ## Failure
 
