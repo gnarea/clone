@@ -19,6 +19,7 @@ description: How to design systems beyond the process boundary. Scope, decomposi
 ## Decomposition
 
 - Components MUST be delineated by coupling and cohesion first, and then given the least data, authority, and reach that their job requires.
+- Two parts of the system MUST be separate components where different organisations operate them, or where they must start, stop, or scale independently (e.g., video transcoding that needs many more servers than the website that takes the uploads). They MUST also be separate where one must not hold data or authority that the other has. Otherwise, they SHOULD be one component.
 - A component that some deployments don't need MUST be independently deployable.
 
 ## Data
