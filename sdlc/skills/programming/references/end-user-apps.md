@@ -13,7 +13,7 @@ Software installed on a device that the user controls. The device is neither tru
 - The application MUST declare the fewest platform permissions it can function with, each justified in the README, and MUST NOT declare one for a capability delegated to another application.
 - Automatic backup of application data MUST be disabled wherever that data includes keys or personal data.
 - Telemetry, analytics, and crash reporting SHOULD NOT be compiled in by default.
-- Encryption at rest MUST cover keys and credentials, rooted in the platform's keystore. It MUST also cover payloads, except where they are already encrypted end to end.
+- Encryption at rest MUST cover keys and credentials, rooted in the platform's keystore. It MUST also cover payloads, except where they are already encrypted end-to-end.
 - Other processes on the device MUST be treated as untrusted, even where the user owns the device.
 
 ## Robustness
