@@ -29,4 +29,4 @@ Agents:
 Skills:
 
 - `programming`: How to write and review code in any language.
-- `systems-architecture`: How to design and review anything beyond the process boundary.
+- `systems-architecture`: How to design and review anything beyond the boundary of the OS process.
