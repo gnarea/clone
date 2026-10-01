@@ -56,4 +56,4 @@ What those affected by the design need in order to decide whether to adopt it MU
 - Where a leading alternative serves some users better, and what the system offers them instead.
 - The residual risks, to those who bear them.
 - Known limitations, in plain language, including where there's no workaround.
-- Every configuration option, to operators.
+- Every configuration option, and every mitigation that falls to them, to operators.

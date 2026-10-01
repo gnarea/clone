@@ -15,7 +15,7 @@
 - A service that no external client needs to reach MUST be unreachable from the Internet.
 - Servers SHOULD be immutable, with no interactive access.
 
-## Cost and abuse
+## Cost
 
 - Every estate MUST have a budget, with alerts on both actual and forecast spend.
-- Denial-of-service mitigations MUST be layered by who is best placed to bear them: volumetric attacks to the hosting provider, protocol attacks to a mainstream reverse proxy, and application attacks to our own code.
+- A service that is billed before any limit of ours can apply (e.g., inbound traffic at a proxy, or DNS lookups) MUST be unmetered.

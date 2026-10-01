@@ -26,9 +26,9 @@ Request-response is the exception, for exchanges that can't be made asynchronous
 ## The server
 
 - An operation that isn't safe (e.g., `POST`) MUST be idempotent, through a natural or client-supplied identifier and a uniqueness constraint, rather than an idempotency key.
-- A client that the server doesn't need to identify MUST NOT be required to authenticate. Abusive clients MUST be throttled instead.
+- A client that the server doesn't need to identify MUST NOT be required to create an account or to supply personal data. Abusive clients MUST be throttled instead.
 - Where a client must authenticate, the request MUST carry a short-lived credential bound to the exact endpoint (e.g., a JWT whose audience is the request URL), and the server MUST NOT keep a session.
-- Rate limits MUST apply per client identity as well as per IP address, because one attacker can spread their requests across many addresses (e.g., through residential proxies).
+- Rate limits MUST apply per client identity as well as per IP address, because one attacker can spread their requests across many addresses (e.g., through residential proxies), and many legitimate clients can share one (e.g., behind a carrier's NAT).
 - The number of instances MUST be capped, so that an attack can't scale the bill without bound.
 
 ## Long-lived connections

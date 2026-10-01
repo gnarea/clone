@@ -71,14 +71,13 @@ Where anonymity or deniability is a requirement:
 
 - Every system MUST be designed against a threat model naming its adversaries and their capabilities, including those that are feasible today but not yet in use.
 - The threat model MUST include the system's own users and operators as adversaries of other users (e.g., a stalker abusing location sharing).
-- A mitigation MUST NOT be assumed complete: for each, the design MUST identify what would defeat it, and whether those who bear that residual risk can accept it.
-- Every entry point reachable by untrusted parties MUST be rate-limited per client.
-- A rate limit only caps what one identity can do. Where an attacker can come by identities cheaply (e.g., IP addresses through residential proxies, or accounts that are free to create), each request or identity MUST also cost them something (e.g., a proof-of-work challenge, a humanity check, or a payment). Legitimate clients and the environment bear that cost too, so it SHOULD rise with the system's load and fall with the client's reputation.
-- Where the cost of running the system scales with something an attacker controls, the design MUST bound it.
+- Where others would deploy the system themselves, the threat model MUST cover the adversaries that their deployments would face, and the design MUST say which mitigations fall to the operator.
+- A mitigation MUST NOT be assumed complete: for each, the design MUST identify what would defeat it, what that would cost the attacker (where it can be estimated), and whether those who bear that residual risk can accept it.
 
 ## Impact beyond the system
 
 - The system MUST NOT be able to overwhelm another system, whether ours or anyone else's, through abuse, a bug, or a misconfiguration, including at the scale the design targets. Every outbound flow MUST be capped per destination, and an input MUST NOT be able to trigger more outbound work than its sender could have done directly (e.g., through a webhook, a link preview, or a fan-out that turns one request into many).
+- The system MUST NOT send more to a source address than it received from it until the address is verified, so that it can't be used to amplify an attack on a third party.
 - The system's environmental cost MUST be factored in: where providers or regions are otherwise comparable, the one powered by cleaner energy SHOULD be chosen, and work that can be deferred (e.g., batch jobs) SHOULD run where and when energy is cleanest.
 - Resources the system consumes on devices it doesn't own (e.g., mobile data, battery, and storage) are a cost to their owners, and MUST NOT be spent on work that doesn't serve them unless they consent to it (e.g., relaying other users' traffic).
 - Users MUST be able to leave with their data, in a documented format that another implementation could import.
@@ -88,6 +87,7 @@ Where anonymity or deniability is a requirement:
 
 - An operator MUST be able to tell what the system is doing, how well, and whose fault a failure is, without a developer. Every behaviour observable from outside MUST be visible in logs, metrics, or traces.
 - Severity MUST be set by who has to act, and how soon.
+- Every operation that the threat model expects to be abused MUST be measured in the product's own terms (e.g., accounts created per hour), with an alert on departures from the norm.
 - Where privacy is a requirement, observability MUST be derived from the threat model: record what's needed to detect and troubleshoot abuse, and nothing that could identify a user.
 - Configuration options SHOULD be kept to a minimum, and each default MUST be safe for every deployment.
 
@@ -109,6 +109,7 @@ Where anonymity or deniability is a requirement:
 
 - `references/asynchronous-messaging.md`: The design involves a broker, a queue, or any other exchange where the sender doesn't wait for the outcome.
 - `references/synchronous-messaging.md`: The design involves request-response, whether as the client or the server.
+- `references/abuse.md`: An entry point is reachable by untrusted parties.
 - `references/contracts.md`: The change defines or alters a contract that another codebase, team, or organisation depends on.
 - `references/cloud-infrastructure.md`: The change provisions or alters infrastructure at a cloud provider.
 - `references/documentation.md`: The design, or a change to it, is being documented or proposed.

@@ -28,7 +28,7 @@
 
 # Residual risks
 
-(What remains after the change, including what would defeat each mitigation.)
+(What remains after the change, including what would defeat each mitigation, and at what cost to the attacker.)
 
 # Ethical considerations
 

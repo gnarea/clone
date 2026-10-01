@@ -63,7 +63,7 @@ description: How code should be written regardless of language. Code organisatio
 ### Trust boundaries
 
 - Input crossing a trust boundary MUST be validated before use, including the responses of services we operate and of those we don't.
-- Every untrusted input MUST have an explicit size limit, and every outbound call MUST have a timeout. Both MUST be named constants, and where the figure was derived rather than chosen, the derivation MUST be commented.
+- Every untrusted input MUST have an explicit size limit and a deadline for arriving in full, and every outbound call MUST have a timeout. Each MUST be a named constant, and where the figure was derived rather than chosen, the derivation MUST be commented.
 - A value that a security decision depends on MUST be re-validated wherever it re-enters the code, even where it was validated when it was issued.
 - Where the input or the configuration is ambiguous or incomplete, the code MUST fail closed and refuse to proceed, rather than guess what was intended.
 - A security control MUST NOT have an off switch. Where skipping it would be legitimate, offer a narrower operation that does less, rather than a flag that checks less.

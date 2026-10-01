@@ -7,6 +7,7 @@
 - A consumer that sends a request MUST expect any number of responses, in any order, rather than emulate a remote procedure call.
 - A message MUST be acknowledged only once it's safe for the sender to forget: durably stored and flushed (e.g., with `fdatasync`), or fully processed, rather than merely received or parsed.
 - The origin MUST keep a message until its final recipient acknowledges it. An intermediary's acknowledgement MUST NOT release it.
+- Where a message must cost its sender something (per `abuse.md`), the cost MUST be payable without a challenge from the recipient (e.g., a proof of work over public randomness).
 - Acknowledgements MUST reference the individual delivery (e.g., a per-delivery identifier), rather than the message, and an acknowledgement for an unknown delivery MUST be treated as a protocol violation.
 
 ## Expiry
