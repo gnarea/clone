@@ -100,12 +100,10 @@ Where anonymity or deniability is a requirement:
 
 ## Additional guidelines
 
-Read a reference below where its condition holds; its rules apply in addition to the ones above.
-
 ### By artefact
 
-- `references/server-side-systems.md`: The system runs on infrastructure that we or an operator run, and is reached over a network.
-- `references/end-user-systems.md`: The system includes software installed on a device the user controls.
+- `references/server-side-systems.md`: Part of the system runs on servers that we or another operator run.
+- `references/end-user-systems.md`: Part of the system is installed on a device the user controls.
 
 ### By concern
 
