@@ -72,8 +72,9 @@ Where anonymity or deniability is a requirement:
 - Every system MUST be designed against a threat model naming its adversaries and their capabilities, including those that are feasible today but not yet in use.
 - The threat model MUST include the system's own users and operators as adversaries of other users (e.g., a stalker abusing location sharing).
 - A mitigation MUST NOT be assumed complete: for each, the design MUST identify what would defeat it, and whether those who bear that residual risk can accept it.
-- Every entry point reachable by untrusted parties MUST be rate-limited.
-- Where cost scales with something an attacker controls, the design MUST bound it.
+- Every entry point reachable by untrusted parties MUST be rate-limited per client.
+- A rate limit only caps what one identity can do. Where an attacker can come by identities cheaply (e.g., IP addresses through residential proxies, or accounts that are free to create), each request or identity MUST also cost them something (e.g., a proof-of-work challenge, a humanity check, or a payment). Legitimate clients and the environment bear that cost too, so it SHOULD rise with the system's load and fall with the client's reputation.
+- Where the cost of running the system scales with something an attacker controls, the design MUST bound it.
 
 ## Impact beyond the system
 
