@@ -41,7 +41,7 @@ description: How to design systems beyond the boundary of the OS process. Scope,
 - The design MUST decide how the system behaves when each dependency is unavailable, and degraded operation MUST be a modelled state, not an error.
 - Each failure mode MUST be attributed to the sender, the system, or the infrastructure, and the attribution MUST determine the response, the severity, and whether to retry. A failure that a later attempt can't overcome (e.g., malformed input) MUST NOT be retried.
 - Every retry policy MUST be capped, by attempts or by elapsed time, and MUST space attempts with exponential backoff and jitter.
-- A design whose failure path can't be made reliable MUST be rejected: where two stores would be updated together, a partial failure MUST be safe to repeat, unless the platform makes the write atomic.
+- Where an operation updates more than one store, the platform MUST make the update atomic, or the operation MUST be safe to repeat after failing partway.
 
 ## Backing services and providers
 
