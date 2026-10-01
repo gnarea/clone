@@ -89,7 +89,7 @@ Where anonymity or deniability is a requirement:
 - An operator MUST be able to tell what the system is doing, how well, and whose fault a failure is, without a developer. Every behaviour observable from outside MUST be visible in logs, metrics, or traces.
 - Severity MUST be set by who has to act, and how soon.
 - Where privacy is a requirement, observability MUST be derived from the threat model: record what's needed to detect and troubleshoot abuse, and nothing that could identify a user.
-- Deployment configuration options SHOULD be kept to a minimum, and each default MUST be safe for every deployment.
+- Configuration options SHOULD be kept to a minimum, and each default MUST be safe for every deployment.
 
 ## Tests
 
