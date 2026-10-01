@@ -1,19 +1,18 @@
 ---
 name: systems-architecture
-description: How to design systems beyond the process boundary. Scope, decomposition, data, messaging, failure, backing services, security and privacy, operability, and tests. Use when designing, changing, or reviewing a system's architecture or its infrastructure code.
+description: How to design systems beyond the process boundary. Scope, decomposition, data, messaging, failure, backing services, security and privacy, impact on others, operability, and tests. Use when designing, changing, or reviewing a system's architecture or its infrastructure code.
 ---
 # Systems architecture
 
 ## Problem and scope
 
-- Before a mechanism is designed for a requirement, the requirement MUST be challenged: dropping one can remove a cascade of mechanisms (e.g., dropping peer authentication can remove a handshake, the certificates it needs, and a bespoke protocol). Every capability that the drop costs MUST be weighed against every simplification it buys.
-- Where time or resources fall short, the problem MUST be narrowed (e.g., fewer use cases, platforms, or features), and the standard to which the rest is built MUST NOT be lowered.
 - The problem MUST be analysed independently of any solution to it (e.g., by surveying known approaches and their weaknesses) before a design is chosen.
+- Before a mechanism is designed for a requirement, the requirement MUST be challenged: dropping one can remove a cascade of mechanisms (e.g., dropping peer authentication can remove a handshake, and a bespoke protocol). Every capability that the drop costs MUST be weighed against every simplification it buys.
+- Where time or resources fall short, the problem MUST be narrowed (e.g., fewer use cases, platforms, or features), and the standard to which the rest is built MUST NOT be lowered.
 - Non-goals MUST be decided before the design, and a mechanism that only serves a non-goal MUST NOT be built.
 - The design MUST be compared against the leading alternative for each group of users it targets. Where the alternative serves a group better, the design MUST close the gap, or concede that group and decide what it offers them instead.
 - The design MUST work in the most constrained environment it must support (e.g., hardware, connectivity, power, budget, or a platform that can't be upgraded), and treat anything better as an optimisation.
 - Where a problem can't be solved by technical means alone, or a technical solution would be much simpler alongside a legal or contractual obligation (e.g., a no-logs clause for third-party operators), the design SHOULD rely on such an obligation, and MUST limit the damage should it be breached.
-- The design MUST weigh its consequences for every stakeholder, including those who never chose to be one, the collateral damage of its success, and its environmental cost. Where it imposes a cost it can't avoid, it MUST offset what it can for those who bear it.
 - Only what is expensive to reverse (e.g., identifiers, wire formats, and schemas) MUST be decided up front. The rest SHOULD wait for evidence.
 
 ## Decomposition
@@ -23,7 +22,7 @@ description: How to design systems beyond the process boundary. Scope, decomposi
 
 ## Data
 
-- Data the system doesn't need MUST be designed out, rather than collected and protected by a promise not to look at it.
+- Data the system doesn't need MUST be designed out, rather than collected and protected by a promise not to look at it. This includes data about people who aren't users (e.g., the contacts in an uploaded address book).
 - Every piece of data that is stored MUST have a purpose, a set of readers, and a retention period, and the store MUST enforce the retention period (e.g., with a TTL index).
 - Personal data MUST NOT be replicated to a system with weaker retention, access control, or jurisdiction than its source.
 - Idempotency MUST come from natural keys and a uniqueness constraint, rather than a record of what was done.
@@ -70,9 +69,18 @@ Where anonymity or deniability is a requirement:
 ### Threat model
 
 - Every system MUST be designed against a threat model naming its adversaries and their capabilities, including those that are feasible today but not yet in use.
+- The threat model MUST include the system's own users and operators as adversaries of other users (e.g., a stalker abusing location sharing).
 - A mitigation MUST NOT be assumed complete: for each, the design MUST identify what would defeat it, and whether those who bear that residual risk can accept it.
 - Every entry point reachable by untrusted parties MUST be rate-limited.
 - Where cost scales with something an attacker controls, the design MUST bound it.
+
+## Impact beyond the system
+
+- The system MUST NOT be able to overwhelm another system, whether ours or anyone else's, through abuse, a bug, or a misconfiguration, including at the scale the design targets. Every outbound flow MUST be capped per destination, and an input MUST NOT be able to trigger more outbound work than its sender could have done directly (e.g., through a webhook, a link preview, or a fan-out that turns one request into many).
+- The system's environmental cost MUST be factored in: where providers or regions are otherwise comparable, the one powered by cleaner energy SHOULD be chosen, and work that can be deferred (e.g., batch jobs) SHOULD run where and when energy is cleanest.
+- Resources the system consumes on devices it doesn't own (e.g., mobile data, battery, and storage) are a cost to their owners, and MUST NOT be spent on work that doesn't serve them unless they consent to it (e.g., relaying other users' traffic).
+- Users MUST be able to leave with their data, in a documented format that another implementation could import.
+- What runs on a user's device MUST keep doing whatever doesn't inherently need our servers when they're unreachable, including after the service shuts down.
 
 ## Operability
 
