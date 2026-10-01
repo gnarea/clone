@@ -1,6 +1,6 @@
 ---
 name: systems-architecture
-description: How to design systems beyond the process boundary. Scope, decomposition, data, messaging, failure, backing services, security and privacy, impact on others, operability, and tests. Use when designing, changing, or reviewing a system's architecture or its infrastructure code.
+description: How to design systems beyond the boundary of the OS process. Scope, decomposition, data, messaging, failure, backing services, security and privacy, impact on others, operability, and tests. Use when designing, changing, or reviewing a system's architecture or its infrastructure code.
 ---
 # Systems architecture
 
