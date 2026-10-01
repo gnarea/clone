@@ -15,7 +15,7 @@ Each product MUST have a standing architecture document that every change is jud
 - Each backing service, named by the capability it provides (e.g., "an S3-compatible object store") rather than by product, wherever someone else could deploy the system. Where the system is coupled to one provider, it MUST say so, along with the layers that are deliberately not portable.
 - The limit, caveat, or dependency that each delegation (to a provider, the platform, or third-party software) imposes.
 - Each legal or contractual obligation that the design relies on, and what happens if it's breached.
-- Every deployment-time choice, and its default.
+- Every deployment configuration option, and its default.
 - Each standard that was declined where one fitted, and why.
 - The threat model: the adversaries and their capabilities, including any capability that the design pre-empts and how far ahead that bet is. Each attack vector MUST state its impact, attempt likelihood, method, mitigations, and residual risks, and vectors SHOULD be ordered by likelihood.
 - Each ethical cost that the design can't discharge.
@@ -56,4 +56,4 @@ What those affected by the design need in order to decide whether to adopt it MU
 - Where a leading alternative serves some users better, and what the system offers them instead.
 - The residual risks, to those who bear them.
 - Known limitations, in plain language, including where there's no workaround.
-- Every deployment-time choice, to operators.
+- Every deployment configuration option, to operators.
