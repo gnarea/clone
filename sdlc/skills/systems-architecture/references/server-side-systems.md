@@ -2,15 +2,14 @@
 
 ## Topology
 
-- One image SHOULD serve every process type, with the role selected on the command line.
 - Instances MUST be stateless and interchangeable, so that the platform can start and stop them at will.
-- Administrative tasks MUST run as isolated instances of the app, with the same configuration, rather than by hand against production.
+- Administrative tasks MUST run in dedicated instances of the component that are unreachable from the Internet.
 
 ## Health checks
 
 - A liveness check MUST NOT check a backing service, because a restart can't fix a dependency.
-- A readiness check MAY check only what is local to the instance.
-- A check of shared dependencies MAY be exposed for monitoring, but MUST NOT be able to restart the instance or take it out of rotation.
+- A readiness check MUST check only what is local to the instance, because a failed shared dependency would take every instance out of rotation at once.
+- A check of shared dependencies SHOULD be exposed for monitoring, but MUST NOT be able to restart the instance or take it out of rotation.
 
 ## Denial of service
 
@@ -18,7 +17,13 @@
 - Where a proxy shields a server, the server MUST be reachable only through it. Where the server can't be taken off the Internet, it MUST accept traffic only from the proxy, and its address MUST be hard to guess.
 - A rate limit MUST hold across instances: enforce it where all the traffic passes (e.g., a gateway), or count in a store that the instances share.
 - Content that is the same for every client SHOULD be served from a managed store (e.g., an object store) and cached at the proxy, so that a flood of requests never reaches our compute.
+- The number of instances MUST be capped, so that an attack can't scale the bill without bound.
 
 ## Data
 
 - Indices MUST be specified with the schema, including the uniqueness constraints that make retries safe and the expiry that enforces retention.
+- A write MUST rely on the uniqueness constraint to reject a duplicate, rather than check for an existing record first, because two matching requests can arrive at once.
+
+## Keys
+
+- A long-term private key MUST be generated and used inside a key management service, backed by hardware where the provider offers it, so that the key never reaches an instance.
