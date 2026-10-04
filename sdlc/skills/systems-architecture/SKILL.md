@@ -1,6 +1,6 @@
 ---
 name: systems-architecture
-description: How to design systems beyond the boundary of the OS process. Scope, decomposition, data, messaging, failure, backing services, security and privacy, impact on others, operability, and tests. Use when designing, changing, or reviewing a system's architecture or its infrastructure code.
+description: How to design systems beyond the boundary of the OS process. Scope, decomposition, data, messaging, failure, backing services, security and privacy, impact on others, operability, and integration testing. Use when designing, changing, or reviewing a system's architecture or its infrastructure code.
 ---
 # Systems architecture
 
@@ -13,7 +13,7 @@ description: How to design systems beyond the boundary of the OS process. Scope,
 - Where an established standard does the job (e.g., a protocol, a data format, or a cryptographic scheme), it SHOULD be adopted in place of a bespoke mechanism. It SHOULD be declined only where it lacks a production-ready implementation in a language or on a platform that the system must support.
 - The design MUST be compared against the leading alternative for each group of users it targets. Where the alternative serves a group better, the design MUST close the gap, or concede that group and decide what it offers them instead.
 - The design MUST work in the most constrained environment it must support (e.g., hardware, connectivity, power, budget, or a platform that can't be upgraded), and treat anything better as an optimisation.
-- Where a problem can't be solved by technical means alone, or a technical solution would be much simpler alongside a legal or contractual obligation (e.g., a no-logs clause for third-party operators), the design SHOULD rely on such an obligation, and MUST limit the damage should it be breached.
+- Where a problem can't be solved by technical means alone, or a technical solution would be much simpler alongside a legal or contractual obligation (e.g., a no-logs clause in the Terms of Service), the design SHOULD rely on such an obligation, and MUST limit the damage should it be breached.
 - Only what is expensive to reverse (e.g., identifiers, wire formats, and schemas) MUST be decided up front. The rest SHOULD wait for evidence.
 
 ## Decomposition
@@ -32,15 +32,16 @@ description: How to design systems beyond the boundary of the OS process. Scope,
 ## Messaging
 
 - Asynchronous messaging MUST be the default, because a message that is durably stored can be retried, redelivered, or dead-lettered after any failure, whereas request-response ties each component's availability to the others'. Request-response MUST be used only where the exchange can't be made asynchronous (e.g., a third-party API that only offers it).
-- Every exchange MUST survive the other party being unreachable.
+- Every exchange MUST tolerate the other party being unreachable.
 - Every message, whether exchanged synchronously or asynchronously, MUST carry the version of its format from its first release, because a version can't be retrofitted once messages are in use. The version MAY travel as metadata rather than in the payload (e.g., in the media type, such as `application/vnd.example.order.v1+json`).
 - Work that many parties start at once (e.g., on a schedule, or in response to the same event) MUST be spread with random jitter, so that they don't act in lockstep.
 
 ## Failure
 
 - The design MUST decide how the system behaves when each dependency is unavailable, and degraded operation MUST be a modelled state, not an error.
-- Each failure mode MUST be attributed to the sender, the system, or the infrastructure, and the attribution MUST determine the response, the severity, and whether to retry. A failure that a later attempt can't overcome (e.g., malformed input) MUST NOT be retried.
+- Each failure mode MUST be attributed to the sender, the system, or the infrastructure, and the attribution MUST determine the response, the severity, and whether to retry.
 - Every retry policy MUST be capped, by attempts or by elapsed time, and MUST space attempts with exponential backoff and jitter.
+- A failure that a later attempt can't overcome (e.g., malformed input) MUST NOT be retried.
 - Where an operation updates more than one store, the platform MUST make the update atomic, or the operation MUST be safe to repeat after failing partway.
 
 ## Backing services and providers
@@ -91,7 +92,7 @@ Where anonymity or deniability is a requirement:
 - Where privacy is a requirement, observability MUST be derived from the threat model: record what's needed to detect and troubleshoot abuse, and nothing that could identify a user.
 - Configuration options SHOULD be kept to a minimum, and each default MUST be safe for every deployment.
 
-## Tests
+## Integration testing
 
 - Tests SHOULD use a real instance of every backing service, run locally or provisioned per test run. Where no such instance can be run (e.g., a proprietary service without an emulator), a test double MAY be used instead.
 - Where tests use a substitute for the provider that a real deployment uses (e.g., an emulator, or a compatible alternative), the real provider MUST also be exercised on a schedule (e.g., weekly), rather than on every change, to catch drift and breaking changes.
