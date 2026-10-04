@@ -3,7 +3,7 @@
 ## Topology
 
 - Long-running work MUST live in a headless component that survives the user interface being closed, with the interface as its client.
-- Where the interface reaches that component over a network interface, the channel MUST be authenticated with a credential generated per run and never written to disc, and MUST refuse web origins.
+- Where the interface reaches that component over a network interface, the channel MUST be authenticated with a credential generated per run and never written to disc. Where the channel runs over HTTP, including WebSocket, it MUST also refuse web origins.
 - Data MUST stay on the device unless a stated requirement needs it elsewhere.
 
 ## Connectivity
