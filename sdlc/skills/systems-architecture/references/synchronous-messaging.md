@@ -1,29 +1,20 @@
 # Synchronous messaging
 
-Request-response is the exception, for exchanges that can't be made asynchronous.
+Request-response MUST be limited to operations that complete within seconds. Anything slower MUST be handed to a broker, with the response saying only that the request was accepted (e.g., `202 Accepted`).
 
-## When to use it
+## Responses
 
-- Request-response MUST be limited to operations that complete within seconds. Anything slower, or anything that must survive the other party being down, MUST be handed to a broker, with the response saying only that the request was accepted (e.g., `202 Accepted`).
-- It MUST run over a standard protocol (e.g., HTTP or gRPC), so that off-the-shelf load balancers and proxies can front it.
-
-## Status codes
-
-- The status code MUST tell the client whether to retry: 4xx means the same request will never succeed, 5xx means it may succeed later, and 2xx means it succeeded or was deliberately dropped.
-- A 4xx MUST mean the caller is at fault, and a 5xx that we or our infrastructure are. A failed upstream dependency MUST be reported as `503 Service Unavailable`.
-- A 5xx response MUST NOT reveal anything about the server's internals.
+- A response MUST tell the client whether to retry: the request succeeded or was deliberately dropped, the same request will never succeed, or it may succeed later (e.g., 2xx, 4xx, and 5xx respectively in HTTP).
+- A failed upstream dependency MUST be reported as our failure, and as one that may succeed later (e.g., `503 Service Unavailable` in HTTP).
+- A failure that is ours MUST NOT reveal anything about the server's internals.
 
 ## The client
 
-- Every request MUST have a short, explicit timeout, measured in seconds, that the caller can override. A client's timeout MUST be shorter than that of whoever called it.
-- Only a 5xx, a timeout, or a lost connection MAY be retried. Retries MUST follow the retry policy in `SKILL.md`. Where the request carries a message that expires, they MUST stop once it has.
-- A client MUST honour `429 Too Many Requests` and `Retry-After`, because retrying blindly deepens the outage it's retrying against.
+- Every request MUST have a short, explicit timeout that the caller can override. A client's timeout MUST be shorter than that of whoever called it.
+- A client MUST honour a server's instruction to slow down, including for how long (e.g., `429 Too Many Requests` and `Retry-After` in HTTP).
 - A client that calls the same dependency repeatedly SHOULD stop calling it after consecutive failures, and probe it at intervals until it recovers (aka _circuit breaking_), so that a struggling dependency isn't overwhelmed and callers fail fast.
-- A client library MUST leave retries to its caller. Instead, the type of each error it raises MUST tell the caller whether retrying could help.
 
 ## The server
 
-- An operation that isn't safe (e.g., `POST`) MUST be idempotent, through a natural or client-supplied identifier and a uniqueness constraint, rather than an idempotency key.
-- A client that the server doesn't need to identify MUST NOT be required to create an account or to supply personal data. Abusive clients MUST be throttled instead.
-- Where a client must authenticate, the request MUST carry a short-lived credential bound to the exact endpoint (e.g., a JWT whose audience is the request URL), and the server MUST NOT keep a session.
-- Rate limits MUST apply per client identity as well as per IP address, because one attacker can spread their requests across many addresses (e.g., through residential proxies), and many legitimate clients can share one (e.g., behind a carrier's NAT).
+- An operation that changes state (e.g., a `POST` in HTTP) MUST be idempotent, because the client may retry it.
+- Where a client must authenticate, the request MUST carry a short-lived credential bound to the server (e.g., a JWT whose audience is the server URL), and the server MUST NOT keep a session.

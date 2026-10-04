@@ -2,7 +2,7 @@
 
 ## Rate limits
 
-- Every entry point reachable by untrusted parties MUST be rate-limited per client.
+- Every entry point reachable by untrusted parties MUST be rate-limited per client. The limit MUST apply per client identity as well as per IP address, because one attacker can spread their requests across many addresses (e.g., through residential proxies), and many legitimate clients can share one (e.g., behind a carrier's NAT).
 - An abusive client MUST be throttled first, and MAY be blocked if the abuse persists.
 - Where a client needn't be identified but its limits and reputation must follow it across addresses, they SHOULD be keyed on a pseudonym derived from a key pair that the client generates for this system alone, unless unlinkability is a requirement.
 - Where the client is itself a server acting for an organisation, limits and blocks SHOULD be keyed on the organisation's domain name.

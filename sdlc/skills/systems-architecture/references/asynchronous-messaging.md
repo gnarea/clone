@@ -5,7 +5,6 @@
 - The processing of a message MUST be idempotent, because the same message can be delivered more than once (e.g., when its acknowledgement is lost).
 - Consumers MUST NOT depend on the order in which messages arrive: their state MUST converge whatever the order. Where only the latest message matters, the newest by creation date MUST win.
 - Remote procedure calls MUST NOT be emulated. Where a sender needs the outcome of a message (e.g., the identifier of the account it asked for), the outcome MUST travel as a message of its own, and the sender MUST cope with it arriving late, more than once, out of order, or never.
-- A message MUST be acknowledged only once it's safe for the sender to forget: durably stored and flushed (e.g., with `fdatasync`), or fully processed, rather than merely received or parsed.
 - Where a message must cost its sender something (per `abuse.md`), the cost MUST be payable without a challenge from the recipient (e.g., a proof of work over public randomness).
 
 ## Expiry
@@ -16,13 +15,12 @@
 
 ## Failure
 
-- Retries and dead-lettering MUST be configured on the broker, rather than implemented by the consumer. The consumer MUST only report whether a later attempt could succeed (e.g., `2xx` to acknowledge, and `5xx` to have the broker redeliver).
+- Retries and dead-lettering MUST be configured on the broker, rather than implemented by the consumer. The consumer MUST only report whether a later attempt could succeed (e.g., in HTTP, `2xx` to acknowledge and `5xx` to have the broker redeliver).
 - A message that can never be processed MUST be acknowledged, recorded, and discarded, so that its redelivery can't block the queue. In a batch, it MUST NOT prevent the rest from being processed.
 - Duplicates are expected, and MUST be ignored without raising a warning.
 
 ## Brokers
 
-- The consumer SHOULD be an HTTP server that the broker pushes messages to, rather than a client of a particular broker, so that the choice of broker stays with the operator.
 - Messages SHOULD follow a standard envelope (e.g., CloudEvents), with an event type per meaning, even where two payloads happen to share a structure. Consumers SHOULD subscribe only to the types they handle.
 - The broker SHOULD be the simplest one that meets the requirements, weighed against its operational burden, cost, and quotas.
 - A message MUST fit in memory. Where a payload could exceed the broker's limit, it MUST be split, or kept in durable storage with only a reference sent through the broker.

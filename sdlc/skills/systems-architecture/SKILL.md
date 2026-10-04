@@ -27,12 +27,13 @@ description: How to design systems beyond the boundary of the OS process. Scope,
 - Data the system doesn't need MUST be designed out, rather than collected and protected by a promise not to look at it. This includes data about people who aren't users (e.g., the contacts in an uploaded address book).
 - Every piece of data that is stored MUST have a purpose, a set of readers, and a retention period, and the store MUST enforce the retention period (e.g., with a TTL index).
 - Personal data MUST NOT be replicated to a system with weaker retention, access control, or jurisdiction than its source.
-- Idempotency MUST come from natural keys and a uniqueness constraint, rather than a record of what was done.
+- Idempotency SHOULD come from natural keys and a uniqueness constraint. Where the work has no natural key (e.g., a payment), or is too costly to repeat, a record of what was already done (e.g., the identifiers of the messages processed) MAY be kept instead.
 
 ## Messaging
 
 - Asynchronous messaging MUST be the default, because a message that is durably stored can be retried, redelivered, or dead-lettered after any failure, whereas request-response ties each component's availability to the others'. Request-response MUST be used only where the exchange can't be made asynchronous (e.g., a third-party API that only offers it).
 - Every exchange MUST tolerate the other party being unreachable.
+- Whatever is acknowledged (e.g., a message, or an item in a stream) MUST be acknowledged only once it's safe for the sender to forget: durably stored and flushed (e.g., with `fdatasync`), or fully processed, rather than merely received or parsed.
 - Every message, whether exchanged synchronously or asynchronously, MUST carry the version of its format from its first release, because a version can't be retrofitted once messages are in use. The version MAY travel as metadata rather than in the payload (e.g., in the media type, such as `application/vnd.example.order.v1+json`).
 - Work that many parties start at once (e.g., on a schedule, or in response to the same event) MUST be spread with random jitter, so that they don't act in lockstep.
 
@@ -40,7 +41,7 @@ description: How to design systems beyond the boundary of the OS process. Scope,
 
 - The design MUST decide how the system behaves when each dependency is unavailable, and degraded operation MUST be a modelled state, not an error.
 - Each failure mode MUST be attributed to the sender, the system, or the infrastructure, and the attribution MUST determine the response, the severity, and whether to retry.
-- Every retry policy MUST be capped, by attempts or by elapsed time, and MUST space attempts with exponential backoff and jitter.
+- Every retry policy MUST be capped, by attempts or by elapsed time, and MUST space attempts with exponential backoff and jitter. Where the message being sent expires, retries MUST also stop once it has.
 - A failure that a later attempt can't overcome (e.g., malformed input) MUST NOT be retried.
 - Where an operation updates more than one store, the platform MUST make the update atomic, or the operation MUST be safe to repeat after failing partway.
 
