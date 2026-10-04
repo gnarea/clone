@@ -22,7 +22,7 @@
 ## Data
 
 - Indices MUST be specified with the schema, including the uniqueness constraints that make retries safe and the expiry that enforces retention.
-- A write MUST rely on the uniqueness constraint to reject a duplicate, rather than check for an existing record first, because two matching requests can arrive at once.
+- A write MUST rely on the uniqueness constraint to reject a duplicate, rather than check for an existing record first, because two matching writes can happen at once.
 
 ## Keys
 
