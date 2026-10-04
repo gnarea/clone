@@ -4,10 +4,8 @@ Request-response is the exception, for exchanges that can't be made asynchronous
 
 ## When to use it
 
-- Request-response MUST be limited to operations that complete within seconds. Anything slower, or anything that must survive the other party being down, MUST be handed to a broker, and the request acknowledged as accepted (e.g., `202 Accepted`).
-- It MUST run over a standard protocol (e.g., HTTP, WebSocket, or gRPC), so that off-the-shelf load balancers and proxies can front it.
-- A stream (e.g., a WebSocket or a gRPC stream) MUST be used only where the server pushes to the client. One-shot operations MUST be plain requests.
-- A mobile client MUST NOT hold a connection open or poll in the background. The server SHOULD wake it (e.g., with a push notification), and the client then pulls.
+- Request-response MUST be limited to operations that complete within seconds. Anything slower, or anything that must survive the other party being down, MUST be handed to a broker, with the response saying only that the request was accepted (e.g., `202 Accepted`).
+- It MUST run over a standard protocol (e.g., HTTP or gRPC), so that off-the-shelf load balancers and proxies can front it.
 
 ## Status codes
 
@@ -18,7 +16,7 @@ Request-response is the exception, for exchanges that can't be made asynchronous
 ## The client
 
 - Every request MUST have a short, explicit timeout, measured in seconds, that the caller can override. A client's timeout MUST be shorter than that of whoever called it.
-- Only a 5xx, a timeout, or a lost connection MAY be retried. Retries MUST follow the retry policy in `SKILL.md`, and MUST be capped by the message's expiry, where it has one.
+- Only a 5xx, a timeout, or a lost connection MAY be retried. Retries MUST follow the retry policy in `SKILL.md`. Where the request carries a message that expires, they MUST stop once it has.
 - A client MUST honour `429 Too Many Requests` and `Retry-After`, because retrying blindly deepens the outage it's retrying against.
 - A client that calls the same dependency repeatedly SHOULD stop calling it after consecutive failures, and probe it at intervals until it recovers (aka _circuit breaking_), so that a struggling dependency isn't overwhelmed and callers fail fast.
 - A client library MUST leave retries to its caller. Instead, the type of each error it raises MUST tell the caller whether retrying could help.
@@ -29,10 +27,3 @@ Request-response is the exception, for exchanges that can't be made asynchronous
 - A client that the server doesn't need to identify MUST NOT be required to create an account or to supply personal data. Abusive clients MUST be throttled instead.
 - Where a client must authenticate, the request MUST carry a short-lived credential bound to the exact endpoint (e.g., a JWT whose audience is the request URL), and the server MUST NOT keep a session.
 - Rate limits MUST apply per client identity as well as per IP address, because one attacker can spread their requests across many addresses (e.g., through residential proxies), and many legitimate clients can share one (e.g., behind a carrier's NAT).
-
-## Long-lived connections
-
-- The server MUST ping the client at a fixed interval, and each side MUST drop the connection once it has missed pings for longer than it expected to, with the client giving up sooner than the server.
-- Each reason to close MUST have its own close code, including one that tells the client to reconnect immediately. A connection that closes before the operation is complete MUST close with an error, so that the client doesn't assume the operation succeeded.
-- Each item received MUST be acknowledged explicitly, and only once it's durably stored. The number of unacknowledged items in flight MUST be capped.
-- An item that can never be processed MUST be acknowledged and dropped, so that it can't block the stream.

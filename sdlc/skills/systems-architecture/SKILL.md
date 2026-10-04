@@ -110,6 +110,7 @@ Where anonymity or deniability is a requirement:
 
 - `references/asynchronous-messaging.md`: The design involves a broker, a queue, or any other exchange where the sender doesn't wait for the outcome.
 - `references/synchronous-messaging.md`: The design involves request-response, whether as the client or the server.
+- `references/streams.md`: The design involves a long-lived connection that carries a series of items (e.g., a WebSocket or a gRPC stream).
 - `references/abuse.md`: An entry point is reachable by untrusted parties.
 - `references/contracts.md`: The change defines or alters a contract that another codebase, team, or organisation depends on.
 - `references/cloud-infrastructure.md`: The change provisions or alters infrastructure at a cloud provider.

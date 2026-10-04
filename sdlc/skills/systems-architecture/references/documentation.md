@@ -25,7 +25,7 @@ Each product MUST have a standing architecture document that every change is jud
 A proposal MUST use the medium that suits the change (e.g., an issue, a pull request, or an RFC), structured per `assets/design-proposal.md`.
 
 - The proposed design MUST specify every element it introduces or changes in enough detail to be built and reviewed without guesswork. For example:
-  - For each exchange: whether it's synchronous or asynchronous (and, if synchronous, why it can't be asynchronous), the protocol, the message schema, authentication, size limits, timeouts, the retry policy (backoff, jitter, and whether it's capped by attempts or by time), and what happens once retries are exhausted.
+  - For each exchange: whether it's asynchronous, synchronous, or a stream (and, if synchronous, why it can't be asynchronous), the protocol, the message schema, authentication, size limits, timeouts, the retry policy (backoff, jitter, and whether it's capped by attempts or by time), and what happens once retries are exhausted.
   - For each endpoint that accepts traffic: rate limits, quotas, and other protections against abuse.
   - For each store: the schema, indices, uniqueness constraints, retention and what enforces it, and who can read it.
   - For each component: its identity and permissions, and how it's deployed and scaled.

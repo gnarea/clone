@@ -4,11 +4,9 @@
 
 - The processing of a message MUST be idempotent, because the same message can be delivered more than once (e.g., when its acknowledgement is lost).
 - Consumers MUST NOT depend on the order in which messages arrive: their state MUST converge whatever the order. Where only the latest message matters, the newest by creation date MUST win.
-- A consumer that sends a request MUST expect any number of responses, in any order, rather than emulate a remote procedure call.
+- Remote procedure calls MUST NOT be emulated. Where a sender needs the outcome of a message (e.g., the identifier of the account it asked for), the outcome MUST travel as a message of its own, and the sender MUST cope with it arriving late, more than once, out of order, or never.
 - A message MUST be acknowledged only once it's safe for the sender to forget: durably stored and flushed (e.g., with `fdatasync`), or fully processed, rather than merely received or parsed.
-- The origin MUST keep a message until its final recipient acknowledges it. An intermediary's acknowledgement MUST NOT release it.
 - Where a message must cost its sender something (per `abuse.md`), the cost MUST be payable without a challenge from the recipient (e.g., a proof of work over public randomness).
-- Acknowledgements MUST reference the individual delivery (e.g., a per-delivery identifier), rather than the message, and an acknowledgement for an unknown delivery MUST be treated as a protocol violation.
 
 ## Expiry
 
@@ -29,7 +27,6 @@
 - The broker SHOULD be the simplest one that meets the requirements, weighed against its operational burden, cost, and quotas.
 - A message MUST fit in memory. Where a payload could exceed the broker's limit, it MUST be split, or kept in durable storage with only a reference sent through the broker.
 - Where the broker doesn't persist messages (e.g., a non-durable pub/sub), it MUST only signal that new data is available. The subscriber MUST then fetch what's stored before following new signals.
-- The number of messages awaiting acknowledgement from a consumer MUST be capped, and a peer that exceeds the cap MAY be disconnected.
 
 ## Scheduled work
 
