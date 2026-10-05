@@ -115,5 +115,5 @@ Where anonymity or deniability is a requirement:
 - `references/abuse.md`: An entry point is reachable by untrusted parties.
 - `references/contracts.md`: The change defines or alters a contract that another codebase, team, or organisation depends on.
 - `references/cloud-infrastructure.md`: The change provisions or alters infrastructure at a cloud provider.
-- `references/documentation.md`: The design, or a change to it, is being documented or proposed.
+- `references/documentation.md`: The design, or a change to it, is being documented or specified.
 - `references/prototyping.md`: The artefact is a prototype built to answer a design question.
