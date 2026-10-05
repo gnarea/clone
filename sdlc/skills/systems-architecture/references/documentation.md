@@ -4,20 +4,21 @@ An architecture is documented so that another architect can assess it. What the 
 
 ## The architecture document
 
-The architecture document is the system's constitution: the considerations, desiderata, and trade-offs that its design answers to, written up front to guide every later decision and change. A system designed from scratch MUST have one before it's built, and any other system SHOULD have one. Every change MUST comply with it. Reversing anything in it MUST rest on evidence that the problem has changed or that the document was wrong, never on the convenience of the change at hand, and MUST be argued as a reversal (see below).
+**The architecture document is the system's _constitution_**: the considerations, desiderata, and trade-offs that its design answers to, written up front to guide every later decision and change. A system designed from scratch MUST have one before it's built, and any other system SHOULD have one. Every change MUST comply with it. It SHOULD rarely be amended, and each amendment MUST be justified on its own merits, never by the change that prompted it.
 
-It covers:
+The document MUST cover:
 
 - The problem, stated separately from the design, so that either can be falsified without the other.
+- The groups of users (e.g., staff and external users), followed by the other stakeholders (e.g., operators).
 - The non-goals, and the deferred decisions.
-- The leading alternative for each group of users that the design targets and, where it serves a group better, what the system offers them instead.
-- The most constrained environment the system must run in.
-- The components, what each knows about the people it serves (including what a broker can observe about the traffic it relays), and whom each trusts with what.
+- The leading alternative for each group of users and, where it serves a group better, what the system offers them instead.
+- The most constrained environment the system must run in, and the users or other stakeholders that each constraint comes from (e.g., external users on a five-year-old Android version, or operators who must deploy on-premises).
+- The components, which groups of users interact with each, what each knows about the people it serves (including what a broker can observe about the traffic it relays), and whom each trusts with what.
 - Every party that stakeholders must trust, and with what. Where anonymity or deniability is a requirement, what each operator could be compelled to disclose, alter, or block, and the size of any crowd that anonymity depends on.
 - Each backing service, named by the capability it provides (e.g., "an S3-compatible object store") rather than by product, wherever someone else could deploy the system. Where the system is coupled to one provider, it MUST say so, along with the layers that are deliberately not portable.
 - The limit, caveat, or dependency that each delegation (to a provider, the platform, or third-party software) imposes.
 - Each legal or contractual obligation that the design relies on, and what happens if it's breached.
-- Each standard that was declined where one fitted, and why.
+- Each existing standard that could serve part of the design, whether it's adopted, and why.
 - The threat model: the adversaries and their capabilities, including any capability that the design pre-empts and how far ahead that bet is. Each attack vector MUST state its impact, attempt likelihood, method, mitigations, and residual risks, and vectors SHOULD be ordered by likelihood. It MUST also say who bears each residual risk, and which mitigations fall to whoever deploys the system.
 - Known limitations, including where there's no workaround.
 - Each ethical cost that the design can't discharge.
