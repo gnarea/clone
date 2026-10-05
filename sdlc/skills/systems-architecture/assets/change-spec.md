@@ -30,7 +30,7 @@
 
 # Residual risks
 
-(What remains after the change, including what would defeat each mitigation, and at what cost to the attacker.)
+(What remains after the change, including what would defeat each mitigation, and at what cost to the attacker. The threat model is updated to match.)
 
 # Ethical considerations
 

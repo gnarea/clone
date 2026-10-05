@@ -4,13 +4,14 @@ An architecture is documented so that another architect, who could be a person, 
 
 ## The architecture document
 
-**The architecture document is the system's _constitution_**: the considerations, desiderata, and trade-offs that its design answers to, written up front to guide every later decision and change. A system designed from scratch MUST have one before it's built, and any other system SHOULD have one. Every change MUST comply with it. It SHOULD rarely be amended, and each amendment MUST be justified on its own merits, never by the change that prompted it.
+**The architecture document is the system's _constitution_**: the considerations, desiderata, and trade-offs that its design answers to, written up front to guide every later decision and change. A system designed from scratch MUST have one before it's built, and any other system SHOULD have one. Every change MUST comply with it. It SHOULD rarely be amended, and each amendment MUST be justified on its own merits, never by the change that prompted it. When writing one, `assets/architecture.md` SHOULD be used as a guide, not as a strict template.
 
 The document MUST cover:
 
 - The problem, stated separately from the design, so that either can be falsified without the other.
 - The groups of users (e.g., staff, external users), followed by the other stakeholders (e.g., operators).
 - The non-goals, and the deferred decisions.
+- The principles that every change must comply with, in order of priority, each with what it optimises for and at the expense of what.
 - The leading alternative for each group of users and, where it serves a group better, what the system offers them instead.
 - The most constrained environment the system must run in, and the users or other stakeholders that each constraint comes from (e.g., external users on a five-year-old Android version, operators who must deploy on-premises).
 - The components, which groups of users interact with each, what each knows about the people it serves (including what a broker can observe about the traffic it relays), and whom each trusts with what.
@@ -19,9 +20,15 @@ The document MUST cover:
 - The limit, caveat, or dependency that each delegation (to a provider, the platform, or third-party software) imposes.
 - Each legal or contractual obligation that the design relies on, and what happens if it's breached.
 - Each existing standard that could serve part of the design, whether it's adopted, and why.
-- The threat model: the adversaries and their capabilities, including any capability that the design pre-empts and how far ahead that bet is. Each attack vector MUST state its impact, attempt likelihood, method, mitigations, and residual risks, and vectors SHOULD be ordered by likelihood. It MUST also say who bears each residual risk, and which mitigations fall to whoever deploys the system.
+- A reference to the threat model.
 - Known limitations, including where there's no workaround.
 - Each ethical cost that the design can't discharge.
+
+## The threat model
+
+The threat model is a living document of its own: a change MUST update whatever it makes stale in it. When writing one, `assets/threat-model.md` SHOULD be used as a guide, not as a strict template.
+
+It MUST cover the adversaries and their capabilities, including any capability that the design pre-empts and how far ahead that bet is. Each attack vector MUST state its impact, attempt likelihood, method, mitigations, and residual risks, and vectors SHOULD be ordered by likelihood. It MUST also say who bears each residual risk, and which mitigations fall to whoever deploys the system.
 
 ## The change spec
 
@@ -47,4 +54,4 @@ A change spec specifies a delta to the system's architecture: what the change ad
 
 ## Diagrams
 
-Either document SHOULD use a diagram wherever it conveys at a glance what prose would take longer to say (e.g., an overview of the system early in the document, a sequence diagram of a protocol's exchanges). A diagram MAY replace prose. Where more prescription is needed than a diagram can carry and stay simple, prose SHOULD complement it, and MUST NOT repeat what it already shows.
+Any of these documents SHOULD use a diagram wherever it conveys at a glance what prose would take longer to say (e.g., an overview of the system early in the document, a sequence diagram of a protocol's exchanges). A diagram MAY replace prose. Where more prescription is needed than a diagram can carry and stay simple, prose SHOULD complement it, and MUST NOT repeat what it already shows.
