@@ -1,6 +1,6 @@
 # Streams
 
-A stream is a long-lived connection (e.g., a WebSocket or a gRPC stream) that carries a series of items.
+A stream is a long-lived connection (e.g., a WebSocket, a gRPC stream) that carries a series of items.
 
 A stream SHOULD be used only where latency matters and the underlying channel is reliable.
 

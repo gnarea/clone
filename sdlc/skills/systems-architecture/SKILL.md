@@ -8,13 +8,13 @@ description: How to design systems beyond the boundary of the OS process. Scope,
 
 - The problem MUST be analysed independently of any solution to it (e.g., by surveying known approaches and their weaknesses) before a design is chosen.
 - Before a mechanism is designed for a requirement, the requirement MUST be challenged: dropping one can remove a cascade of mechanisms (e.g., dropping peer authentication can remove a handshake, and a bespoke protocol). Every capability that the drop costs MUST be weighed against every simplification it buys.
-- Where time or resources fall short, the problem MUST be narrowed (e.g., fewer use cases, platforms, or features), and the standard to which the rest is built MUST NOT be lowered.
+- Where time or resources fall short, the problem MUST be narrowed (e.g., fewer use cases, platforms, features), and the standard to which the rest is built MUST NOT be lowered.
 - Non-goals MUST be decided before the design, and a mechanism that only serves a non-goal MUST NOT be built.
-- Where an established standard does the job (e.g., a protocol, a data format, or a cryptographic scheme), it SHOULD be adopted in place of a bespoke mechanism. It SHOULD be declined only where it lacks a production-ready implementation in a language or on a platform that the system must support.
+- Where an established standard does the job (e.g., a protocol, a data format, a cryptographic scheme), it SHOULD be adopted in place of a bespoke mechanism. It SHOULD be declined only where it lacks a production-ready implementation in a language or on a platform that the system must support.
 - The design MUST be compared against the leading alternative for each group of users it targets. Where the alternative serves a group better, the design MUST close the gap, or concede that group and decide what it offers them instead.
-- The design MUST work in the most constrained environment it must support (e.g., hardware, connectivity, power, budget, or a platform that can't be upgraded), and treat anything better as an optimisation.
+- The design MUST work in the most constrained environment it must support (e.g., hardware, connectivity, power, budget, a platform that can't be upgraded), and treat anything better as an optimisation.
 - Where a problem can't be solved by technical means alone, or a technical solution would be much simpler alongside a legal or contractual obligation (e.g., a no-logs clause in the Terms of Service), the design SHOULD rely on such an obligation, and MUST limit the damage should it be breached.
-- Only what is expensive to reverse (e.g., identifiers, wire formats, and schemas) MUST be decided up front. The rest SHOULD wait for evidence.
+- Only what is expensive to reverse (e.g., identifiers, wire formats, schemas) MUST be decided up front. The rest SHOULD wait for evidence.
 
 ## Decomposition
 
@@ -33,9 +33,9 @@ description: How to design systems beyond the boundary of the OS process. Scope,
 
 - Asynchronous messaging MUST be the default, because a message that is durably stored can be retried, redelivered, or dead-lettered after any failure, whereas request-response ties each component's availability to the others'. Request-response MUST be used only where the exchange can't be made asynchronous (e.g., a third-party API that only offers it).
 - Every exchange MUST tolerate the other party being unreachable.
-- Whatever is acknowledged (e.g., a message, or an item in a stream) MUST be acknowledged only once it's safe for the sender to forget: durably stored and flushed (e.g., with `fdatasync`), or fully processed, rather than merely received or parsed.
+- Whatever is acknowledged (e.g., a message, an item in a stream) MUST be acknowledged only once it's safe for the sender to forget: durably stored and flushed (e.g., with `fdatasync`), or fully processed, rather than merely received or parsed.
 - Every message, whether exchanged synchronously or asynchronously, MUST carry the version of its format from its first release, because a version can't be retrofitted once messages are in use. The version MAY travel as metadata rather than in the payload (e.g., in the media type, such as `application/vnd.example.order.v1+json`).
-- Work that many parties start at once (e.g., on a schedule, or in response to the same event) MUST be spread with random jitter, so that they don't act in lockstep.
+- Work that many parties start at once (e.g., on a schedule, in response to the same event) MUST be spread with random jitter, so that they don't act in lockstep.
 
 ## Failure
 
@@ -78,10 +78,10 @@ Where anonymity or deniability is a requirement:
 
 ## Impact beyond the system
 
-- The system MUST NOT be able to overwhelm another system, whether ours or anyone else's, through abuse, a bug, or a misconfiguration, including at the scale the design targets. Every outbound flow MUST be capped per destination, and an input MUST NOT be able to trigger more outbound work than its sender could have done directly (e.g., through a webhook, a link preview, or a fan-out that turns one request into many).
+- The system MUST NOT be able to overwhelm another system, whether ours or anyone else's, through abuse, a bug, or a misconfiguration, including at the scale the design targets. Every outbound flow MUST be capped per destination, and an input MUST NOT be able to trigger more outbound work than its sender could have done directly (e.g., through a webhook, a link preview, a fan-out that turns one request into many).
 - The system MUST NOT send more to a source address than it received from it until the address is verified, so that it can't be used to amplify an attack on a third party.
 - The system's environmental cost MUST be factored in: where providers or regions are otherwise comparable, the one powered by cleaner energy SHOULD be chosen, and work that can be deferred (e.g., batch jobs) SHOULD run where and when energy is cleanest.
-- Resources the system consumes on devices it doesn't own (e.g., mobile data, battery, and storage) are a cost to their owners, and MUST NOT be spent on work that doesn't serve them unless they consent to it (e.g., relaying other users' traffic).
+- Resources the system consumes on devices it doesn't own (e.g., mobile data, battery, storage) are a cost to their owners, and MUST NOT be spent on work that doesn't serve them unless they consent to it (e.g., relaying other users' traffic).
 - Users MUST be able to leave with their data, in a documented format that another implementation could import.
 - What runs on a user's device MUST keep doing whatever doesn't inherently need our servers when they're unreachable, including after the service shuts down.
 
@@ -96,7 +96,7 @@ Where anonymity or deniability is a requirement:
 ## Integration testing
 
 - Tests SHOULD use a real instance of every backing service, run locally or provisioned per test run. Where no such instance can be run (e.g., a proprietary service without an emulator), a test double MAY be used instead.
-- Where tests use a substitute for the provider that a real deployment uses (e.g., an emulator, or a compatible alternative), the real provider MUST also be exercised on a schedule (e.g., weekly), rather than on every change, to catch drift and breaking changes.
+- Where tests use a substitute for the provider that a real deployment uses (e.g., an emulator, a compatible alternative), the real provider MUST also be exercised on a schedule (e.g., weekly), rather than on every change, to catch drift and breaking changes.
 - The deployed system SHOULD be testable end-to-end, through a supported artefact where third parties integrate with it.
 - Tests MUST cover the most constrained environment that the design supports.
 
@@ -111,7 +111,7 @@ Where anonymity or deniability is a requirement:
 
 - `references/asynchronous-messaging.md`: The design involves a broker, a queue, or any other exchange where the sender doesn't wait for the outcome.
 - `references/synchronous-messaging.md`: The design involves request-response, whether as the client or the server.
-- `references/streams.md`: The design involves a long-lived connection that carries a series of items (e.g., a WebSocket or a gRPC stream).
+- `references/streams.md`: The design involves a long-lived connection that carries a series of items (e.g., a WebSocket, a gRPC stream).
 - `references/abuse.md`: An entry point is reachable by untrusted parties.
 - `references/contracts.md`: The change defines or alters a contract that another codebase, team, or organisation depends on.
 - `references/cloud-infrastructure.md`: The change provisions or alters infrastructure at a cloud provider.

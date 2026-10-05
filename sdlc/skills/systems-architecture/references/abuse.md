@@ -9,9 +9,9 @@
 
 ## Cheap identities
 
-- A rate limit only caps what one identity can do. Where an attacker can come by identities cheaply (e.g., IP addresses through residential proxies, accounts that are free to create, or peer identities that anyone can mint), each request or identity MUST also cost them something (e.g., a proof-of-work challenge, a humanity check, or a payment).
+- A rate limit only caps what one identity can do. Where an attacker can come by identities cheaply (e.g., IP addresses through residential proxies, accounts that are free to create, peer identities that anyone can mint), each request or identity MUST also cost them something (e.g., a proof-of-work challenge, a humanity check, a payment).
 - Legitimate clients and the environment bear that cost too, so it SHOULD rise with the system's load and fall with the reputation that the client has earned, and it MUST be affordable to the least capable client that the design supports (e.g., an old phone).
-- A check that some supported clients or people can't pass (e.g., device attestation, or a visual puzzle) MAY lower that cost, but MUST NOT be required.
+- A check that some supported clients or people can't pass (e.g., device attestation, a visual puzzle) MAY lower that cost, but MUST NOT be required.
 
 ## Exposure
 

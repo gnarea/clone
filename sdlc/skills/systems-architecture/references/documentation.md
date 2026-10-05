@@ -1,6 +1,6 @@
 # Documenting a system's architecture
 
-An architecture is documented so that another architect can assess it. What the design costs other stakeholders (e.g., a residual risk, or a limitation with no workaround) MUST be called out in the documents below.
+An architecture is documented so that another architect can assess it. What the design costs other stakeholders (e.g., a residual risk, a limitation with no workaround) MUST be called out in the documents below.
 
 ## The architecture document
 
@@ -9,10 +9,10 @@ An architecture is documented so that another architect can assess it. What the 
 The document MUST cover:
 
 - The problem, stated separately from the design, so that either can be falsified without the other.
-- The groups of users (e.g., staff and external users), followed by the other stakeholders (e.g., operators).
+- The groups of users (e.g., staff, external users), followed by the other stakeholders (e.g., operators).
 - The non-goals, and the deferred decisions.
 - The leading alternative for each group of users and, where it serves a group better, what the system offers them instead.
-- The most constrained environment the system must run in, and the users or other stakeholders that each constraint comes from (e.g., external users on a five-year-old Android version, or operators who must deploy on-premises).
+- The most constrained environment the system must run in, and the users or other stakeholders that each constraint comes from (e.g., external users on a five-year-old Android version, operators who must deploy on-premises).
 - The components, which groups of users interact with each, what each knows about the people it serves (including what a broker can observe about the traffic it relays), and whom each trusts with what.
 - Every party that stakeholders must trust, and with what. Where anonymity or deniability is a requirement, what each operator could be compelled to disclose, alter, or block, and the size of any crowd that anonymity depends on.
 - Each backing service, named by the capability it provides (e.g., "an S3-compatible object store") rather than by product, wherever someone else could deploy the system. Where the system is coupled to one provider, it MUST say so, along with the layers that are deliberately not portable.

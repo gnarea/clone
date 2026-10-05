@@ -17,4 +17,4 @@
 ## Cost
 
 - Every estate MUST have a budget, with alerts on both actual and forecast spend.
-- Usage that an attacker can drive up and that we can't cap (e.g., inbound traffic at a proxy, or DNS lookups) MUST be on an unmetered plan, so that a flood can't run up the bill.
+- Usage that an attacker can drive up and that we can't cap (e.g., inbound traffic at a proxy, DNS lookups) MUST be on an unmetered plan, so that a flood can't run up the bill.
