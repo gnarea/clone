@@ -4,6 +4,7 @@
 
 - Instances MUST be stateless and interchangeable, so that the platform can start and stop them at will.
 - Administrative tasks MUST run in dedicated instances of the component that are unreachable from the Internet.
+- Every instance MUST declare limits on the resources it can consume (e.g., CPU, memory), and MUST run with no more operating system privileges than it needs (e.g., as an unprivileged user, on a read-only filesystem).
 
 ## Health checks
 

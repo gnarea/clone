@@ -8,6 +8,7 @@
 
 ## Runtime
 
+- When the platform asks the process to stop (e.g., with `SIGTERM`), it MUST stop accepting work, finish what is in flight, and exit before the platform's deadline.
 - Every failure that crosses the network boundary MUST map to a stable problem identifier, and the mapping MUST be exhaustive, so that adding a failure mode fails the build until it's mapped.
 - Where the system ships a client library, functional tests MUST drive the system through it, so that they double as contract tests for that library.
 

@@ -5,6 +5,7 @@
 - Every resource MUST be declared as code and applied from a repository. Anything provisioned by hand MUST have tracked work to codify or remove it.
 - Infrastructure code MUST be partitioned by domain (e.g., `iam`, `network`, `alerts`), never by construct type.
 - Continuous integration MUST validate the code.
+- A rule about infrastructure that can be checked mechanically (e.g., no storage is public, no credential is long-lived) MUST be enforced as policy in continuous integration, rather than left to review.
 
 ## Least privilege
 

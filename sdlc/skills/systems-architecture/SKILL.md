@@ -27,6 +27,7 @@ description: How to design systems beyond the boundary of the OS process. Scope,
 - Data the system doesn't need MUST be designed out, rather than collected and protected by a promise not to look at it. This includes data about people who aren't users (e.g., the contacts in an uploaded address book).
 - Every piece of data that is stored MUST have a purpose, a set of readers, and a retention period, and the store MUST enforce the retention period (e.g., with a TTL index).
 - Personal data MUST NOT be replicated to a system with weaker retention, access control, or jurisdiction than its source.
+- A store that holds original data MUST be backed up. A store whose data can be rebuilt reliably and cheaply from original data (e.g., a search index) needn't be, unless a backup serves a purpose that rebuilding can't.
 - Idempotency SHOULD come from natural keys and a uniqueness constraint. Where the work has no natural key (e.g., a payment), or is too costly to repeat, a record of what was already done (e.g., the identifiers of the messages processed) MAY be kept instead.
 
 ## Messaging
@@ -87,8 +88,10 @@ Where anonymity or deniability is a requirement:
 
 ## Operability
 
-- An operator MUST be able to tell what the system is doing, how well, and whose fault a failure is, without a developer. Every behaviour observable from outside MUST be visible in logs, metrics, or traces.
+- An operator MUST be able to tell what the system is doing, how well, and whose fault a failure is, without a developer. Every behaviour observable from outside MUST be logged. Metrics and traces SHOULD cover it too, except where they don't apply or aren't desirable.
 - Severity MUST be set by who has to act, and how soon.
+- Whatever collects, stores, or alerts on telemetry (e.g., a log aggregator, a paging service) MUST be deemed a backing service.
+- The design MUST decide how telemetry leaves each process (e.g., written to standard output for the platform to collect, pushed to a collector), so that no component depends on where it ends up.
 - Every operation that the threat model expects to be abused MUST be measured in the product's own terms (e.g., accounts created per hour), with an alert on departures from the norm.
 - Where privacy is a requirement, observability MUST be derived from the threat model: record what's needed to detect and troubleshoot abuse, and nothing that could identify a user.
 - Configuration options SHOULD be kept to a minimum, and each default MUST be safe for every deployment.

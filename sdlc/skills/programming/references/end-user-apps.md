@@ -21,3 +21,4 @@ Software installed on a device that the user controls. The device is neither tru
 - The application MUST tolerate network delays and disruption. A user who is offline, or on an unreliable network, is the rule rather than the exception.
 - The device is hostile to long-running work: a wait MUST be implemented as a short, repeated poll rather than a single long timer, so that it survives suspension and restart. Clock jumps MUST be tolerated.
 - Durable state MUST be flushed to disc before the user is told that the work succeeded.
+- Logs kept on the device MUST be rotated and capped in size, so that they can't fill its storage.

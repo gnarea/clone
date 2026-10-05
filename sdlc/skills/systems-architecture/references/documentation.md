@@ -37,7 +37,7 @@ A change spec specifies a delta to the system's architecture: what the change ad
 - The spec MUST cover every element that the change adds or alters in enough detail to be built and reviewed without guesswork: everything about an element it adds, and only what changes about one it alters. For example:
   - For each exchange: whether it's asynchronous, synchronous, or a stream (and, if synchronous, why it can't be asynchronous), the protocol, the message schema, authentication, size limits, timeouts, the retry policy (backoff, jitter, and whether it's capped by attempts or by time), and what happens once retries are exhausted.
   - For each endpoint that accepts traffic: rate limits, quotas, and other protections against abuse.
-  - For each store: the schema, indices, uniqueness constraints, retention and what enforces it, and who can read it.
+  - For each store: the schema, indices, uniqueness constraints, retention and what enforces it, who can read it, and whether it's backed up.
   - For each component: its identity and permissions, and how it's deployed and scaled.
   - For each failure mode: whose fault it is, the response, and the severity.
   - For each dependency: how the system behaves when it's unavailable.
