@@ -10,7 +10,7 @@
 
 # Design
 
-(What changes, and any amendment to the architecture document that it requires. Cover every element the design introduces or changes, per `references/documentation.md`.)
+(What changes, and any amendment to the architecture document that it requires. Cover every element that the change adds or alters, per `references/documentation.md`.)
 
 (Decisions nest. Under each one, state what it optimises for, at the expense of what, and its second-order consequences; the alternatives considered, and why each was rejected; and any open question that blocks it.)
 
