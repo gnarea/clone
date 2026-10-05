@@ -4,7 +4,7 @@ An architecture is documented so that another architect, who could be a person, 
 
 ## The architecture document
 
-**The architecture document is the system's _constitution_**: the considerations, desiderata, and trade-offs that its design answers to, written up front to guide every later decision and change. A system designed from scratch MUST have one before it's built, and any other system SHOULD have one. Every change MUST comply with it. It SHOULD rarely be amended, and each amendment MUST be justified on its own merits, never by the change that prompted it. When writing one, `assets/architecture.md` SHOULD be used as a guide, not as a strict template.
+**The architecture document is the system's _constitution_**: the considerations, desiderata, and trade-offs that its design answers to, written up front to guide every later decision and change. A system designed from scratch MUST have one before it's built, and any other system SHOULD have one. Every change MUST comply with it. It SHOULD rarely be amended, and each amendment MUST be justified on its own merits, never by the change that prompted it. When writing one, the architecture document template SHOULD be used as a guide, not as a strict template.
 
 The document MUST cover:
 
@@ -26,13 +26,13 @@ The document MUST cover:
 
 ## The threat model
 
-The threat model is a living document of its own: a change MUST update whatever it makes stale in it. When writing one, `assets/threat-model.md` SHOULD be used as a guide, not as a strict template.
+The threat model is a living document of its own: a change MUST update whatever it makes stale in it. When writing one, the threat model template SHOULD be used as a guide, not as a strict template.
 
 It MUST cover the adversaries and their capabilities, including any capability that the design pre-empts and how far ahead that bet is. Each attack vector MUST state its impact, attempt likelihood, method, mitigations, and residual risks, and vectors SHOULD be ordered by likelihood. It MUST also say who bears each residual risk, and which mitigations fall to whoever deploys the system.
 
 ## The change spec
 
-A change spec specifies a delta to the system's architecture: what the change adds, alters, or removes. The starting point is the architecture as it stands, which is nothing in a new system. It MUST use the medium that suits the change (e.g., an issue, an RFC). When writing one, `assets/change-spec.md` SHOULD be used as a guide, not as a strict template. When reviewing one, it MUST be judged on whether it provides what's needed to assess the change, whatever its structure.
+A change spec specifies a delta to the system's architecture: what the change adds, alters, or removes. The starting point is the architecture as it stands, which is nothing in a new system. It MUST use the medium that suits the change (e.g., an issue, an RFC). When writing one, the change spec template SHOULD be used as a guide, not as a strict template. When reviewing one, it MUST be judged on whether it provides what's needed to assess the change, whatever its structure.
 
 - The spec MUST cover every element that the change adds or alters in enough detail to be built and reviewed without guesswork: everything about an element it adds, and only what changes about one it alters. For example:
   - For each exchange: whether it's asynchronous, synchronous, or a stream (and, if synchronous, why it can't be asynchronous), the protocol, the message schema, authentication, size limits, timeouts, the retry policy (backoff, jitter, and whether it's capped by attempts or by time), and what happens once retries are exhausted.

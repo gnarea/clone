@@ -104,16 +104,22 @@ Where anonymity or deniability is a requirement:
 
 ### By artefact
 
-- `references/server-side-systems.md`: Part of the system runs on servers that we or another operator run.
-- `references/end-user-systems.md`: Part of the system is installed on a device the user controls.
+- [Server-side systems](references/server-side-systems.md): Part of the system runs on servers that we or another operator run.
+- [End-user systems](references/end-user-systems.md): Part of the system is installed on a device the user controls.
 
 ### By concern
 
-- `references/asynchronous-messaging.md`: The design involves a broker, a queue, or any other exchange where the sender doesn't wait for the outcome.
-- `references/synchronous-messaging.md`: The design involves request-response, whether as the client or the server.
-- `references/streams.md`: The design involves a long-lived connection that carries a series of items (e.g., a WebSocket, a gRPC stream).
-- `references/abuse.md`: An entry point is reachable by untrusted parties.
-- `references/contracts.md`: The change defines or alters a contract that another codebase, team, or organisation depends on.
-- `references/cloud-infrastructure.md`: The change provisions or alters infrastructure at a cloud provider.
-- `references/documentation.md`: The design, or a change to it, is being documented or specified.
-- `references/prototyping.md`: The artefact is a prototype built to answer a design question.
+- [Asynchronous messaging](references/asynchronous-messaging.md): The design involves a broker, a queue, or any other exchange where the sender doesn't wait for the outcome.
+- [Synchronous messaging](references/synchronous-messaging.md): The design involves request-response, whether as the client or the server.
+- [Streams](references/streams.md): The design involves a long-lived connection that carries a series of items (e.g., a WebSocket, a gRPC stream).
+- [Denial of service and abuse](references/abuse.md): An entry point is reachable by untrusted parties.
+- [Contracts between systems](references/contracts.md): The change defines or alters a contract that another codebase, team, or organisation depends on.
+- [Cloud infrastructure](references/cloud-infrastructure.md): The change provisions or alters infrastructure at a cloud provider.
+- [Documenting a system's architecture](references/documentation.md): The design, or a change to it, is being documented or specified.
+- [Prototyping](references/prototyping.md): The artefact is a prototype built to answer a design question.
+
+### Templates
+
+- [Architecture document](assets/architecture.md)
+- [Threat model](assets/threat-model.md)
+- [Change spec](assets/change-spec.md)
