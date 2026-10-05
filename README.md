@@ -23,8 +23,10 @@ _Endgame:_ to offload as much as I can to the LLM, so I can operate a "dark soft
 
 Agents:
 
-- `programmer`: Programmer and Software Architect, owning the codebase, its data model, and its security and privacy guarantees, in that order of priority ahead of correctness, reliability, performance, and maintainability.
+- `architect`: Systems Architect, owning everything outside the OS process: inter-process contracts, backing services, and the deployment topology.
+- `programmer`: Programmer and Software Architect, owning the codebase, its data model, and its security and privacy guarantees.
 
 Skills:
 
-- `programming`: How to write and review code in any language, covering code organisation, naming, data modelling, failure paths, security and privacy, and tests, with references for libraries, server-side apps, end-user apps, cryptography, and instrumentation.
+- `programming`: How to write and review code in any language.
+- `systems-architecture`: How to design and review anything beyond the boundary of the OS process.
