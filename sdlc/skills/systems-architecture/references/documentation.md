@@ -1,6 +1,6 @@
 # Documenting a system's architecture
 
-An architecture is documented so that another architect can assess it. What the design costs other stakeholders (e.g., a residual risk, a limitation with no workaround) MUST be called out in the documents below.
+An architecture is documented so that another architect, who could be a person, can assess it. What the design costs other stakeholders (e.g., a residual risk, a limitation with no workaround) MUST be called out in the documents below.
 
 ## The architecture document
 
@@ -35,13 +35,16 @@ A change spec specifies a delta to the system's architecture: what the change ad
   - For each failure mode: whose fault it is, the response, and the severity.
   - For each dependency: how the system behaves when it's unavailable.
   - For each configuration option: its default.
+- A message format SHOULD be declared in the notation closest to its wire format (e.g., Protocol Buffers for gRPC, JSON for a JSON API, ASN.1 for DER), marking what the change adds, alters, or removes.
 - Decisions nest, and each MUST state what it optimises for, at the expense of what, and its second-order consequences.
 - Open questions MUST sit next to the decision they block.
-- A rejected option MUST be kept, with its reasoning, rather than deleted.
-- Where the author prefers an option for reasons they can't justify technically, the spec MUST say so, and MUST NOT turn that preference into a requirement (e.g., "I advise against alternative DNS roots, but I see no technical reason to ban them").
+- A rejected option MUST be documented with its reasoning, rather than deleted.
 - Where the change drops a requirement or reverses a decision, the spec MUST:
   1. Restate the current design in its own best terms.
   2. Say what was wrong with the original requirement, on its own terms.
   3. Enumerate every simplification that the reversal buys.
   4. Enumerate the capabilities it costs and the consequences being accepted, and say why the advantages still outweigh them.
-- The spec MUST be closed with the argument that settled it, including where the argument is that nothing was found to justify a change.
+
+## Diagrams
+
+Either document SHOULD use a diagram wherever it conveys at a glance what prose would take longer to say (e.g., an overview of the system early in the document, a sequence diagram of a protocol's exchanges). A diagram MAY replace prose. Where more prescription is needed than a diagram can carry and stay simple, prose SHOULD complement it, and MUST NOT repeat what it already shows.

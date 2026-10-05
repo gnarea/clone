@@ -1,6 +1,6 @@
 # Summary
 
-(For a technical reader who doesn't know the domain's vocabulary.)
+(For a technical reader who doesn't know the domain's vocabulary. Where a diagram would give the overview faster, lead with one.)
 
 # Problem
 
@@ -18,6 +18,8 @@
 
 ## Exchanges
 
+(A sequence diagram, where the order of the messages matters. Each message format declared in the notation closest to its wire format, marking what's added, altered, or removed.)
+
 ## Data
 
 ## Failure modes
@@ -33,3 +35,7 @@
 # Ethical considerations
 
 (Who is worse off if this succeeds, including people who aren't users, and the environmental cost.)
+
+# Outcome
+
+(Once it's settled: the argument that settled it, including where the argument is that nothing was found to justify a change.)
