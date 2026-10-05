@@ -6,6 +6,10 @@
 - Administrative tasks MUST run in dedicated instances of the component that are unreachable from the Internet.
 - Every instance MUST declare limits on the resources it can consume (e.g., CPU, memory), and MUST run with no more operating system privileges than it needs (e.g., as an unprivileged user, on a read-only filesystem).
 
+## Configuration
+
+- Each configuration option SHOULD reach an instance as an environment variable. Configuration files SHOULD NOT be used.
+
 ## Health checks
 
 - A liveness check MUST NOT check a backing service, because a restart can't fix a dependency.
@@ -23,7 +27,6 @@
 ## Data
 
 - Indices MUST be specified with the schema, including the uniqueness constraints that make retries safe and the expiry that enforces retention.
-- A write MUST rely on the uniqueness constraint to reject a duplicate, rather than check for an existing record first, because two matching writes can happen at once.
 
 ## Keys
 

@@ -54,9 +54,8 @@ description: How code should be written regardless of language. Code organisatio
 
 - Every operation that can be repeated MUST be safe to repeat.
 - Where a sequence of side effects cannot be atomic, it MUST be ordered so that a retry after any partial failure converges on the intended state, and a comment MUST explain why that order was chosen.
-- Input that can never be processed successfully MUST be dropped and recorded, never retried.
+- A write MUST rely on a uniqueness constraint in the store to reject a duplicate, rather than check for an existing record first, because two matching writes can happen at once.
 - The process MUST be able to die at any point without corrupting what it owns, and MUST recover from durable state rather than from anything held in memory.
-- Where the platform asks the process to stop (e.g., SIGTERM), the process MUST stop accepting work and exit within the grace period it's given.
 
 ## Security and privacy
 
@@ -72,11 +71,8 @@ description: How code should be written regardless of language. Code organisatio
 
 ### Personal data
 
-- Personal data MUST be collected only where a stated requirement needs it, and MUST be passed to the fewest modules that can do the job. It MUST NOT be carried in a context object that every layer can read.
-- Retention MUST be enforced by the store that holds the data, never by a routine that can silently stop running.
-- An identifier MUST NOT be given to a party that doesn't need it, especially where it would let that party correlate a person across contexts.
-- Identifiers exposed to third parties MUST NOT be guessable, and MUST NOT leak the time or the volume of what they identify (e.g., a UUIDv4, rather than a sequential or timestamp-derived database ID).
-- Telemetry, analytics, and crash reporting MUST NOT be added without explicit approval. Every host the software contacts MUST be enumerated in its documentation, with the reason.
+- Personal data MUST be passed to the fewest modules that can do the job, and MUST NOT be carried in a context object that every layer can read.
+- Telemetry, analytics, and crash reporting MUST NOT be added without explicit approval.
 
 ## Dependencies and performance
 
@@ -92,7 +88,7 @@ description: How code should be written regardless of language. Code organisatio
 - Tests of the same unit whose arrange, act, and assert (AAA) blocks overlap substantially MUST be generated dynamically from data (aka _parameterised testing_).
 - Where a parameterised suite supplies the unit under test as a case parameter, each case MUST assert something that distinguishes it from the others.
 - **Private/internal** functions, procedures, and the like SHOULD NOT be unit tested directly: test them through the public/exported counterparts that use them. Where visibility is widened for testability, that concession MUST be documented on the member.
-- Tests SHOULD use real dependencies, including databases and cryptographic operations, rather than test doubles. Where the real thing is used, each test run MUST get its own isolated instance or namespace.
+- Tests SHOULD use real dependencies, including cryptographic operations, rather than test doubles.
 - Test doubles MUST be confined to the I/O boundary and to sources of non-determinism. Mocks and spies MUST NOT be used to make one of our own units testable: a unit that needs them MUST be redesigned instead.
 - Where a double is unavoidable, it MUST be a working implementation whose failures are injected explicitly, and whose state is exposed so that tests assert on outcomes rather than on interactions.
 - A test that replaces a collaborator with a double MUST assert on the arguments that the double was given, because coverage doesn't check that a caller passes what the callee expects.

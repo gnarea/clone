@@ -25,8 +25,10 @@ description: How to design systems beyond the boundary of the OS process. Scope,
 ## Data
 
 - Data the system doesn't need MUST be designed out, rather than collected and protected by a promise not to look at it. This includes data about people who aren't users (e.g., the contacts in an uploaded address book).
-- Every piece of data that is stored MUST have a purpose, a set of readers, and a retention period, and the store MUST enforce the retention period (e.g., with a TTL index).
+- Every piece of data that is stored MUST have a purpose, a set of readers, and a retention period, and the store SHOULD enforce the retention period (e.g., with a TTL index).
 - Personal data MUST NOT be replicated to a system with weaker retention, access control, or jurisdiction than its source.
+- Personal data MUST NOT be shared with a party that doesn't need it, especially where it would let that party correlate a person across contexts.
+- Identifiers exposed to third parties MUST NOT be guessable, and MUST NOT leak the time or the volume of what they identify (e.g., a UUIDv4, rather than a sequential or timestamp-derived database ID).
 - A store that holds original data MUST be backed up. A store whose data can be rebuilt reliably and cheaply from original data (e.g., a search index) needn't be, unless a backup serves a purpose that rebuilding can't.
 - Idempotency SHOULD come from natural keys and a uniqueness constraint. Where the work has no natural key (e.g., a payment), or is too costly to repeat, a record of what was already done (e.g., the identifiers of the messages processed) MAY be kept instead.
 
@@ -41,7 +43,7 @@ description: How to design systems beyond the boundary of the OS process. Scope,
 ## Failure
 
 - The design MUST decide how the system behaves when each dependency is unavailable, and degraded operation MUST be a modelled state, not an error.
-- Each failure mode MUST be attributed to the sender, the system, or the infrastructure, and the attribution MUST determine the response, the severity, and whether to retry.
+- Each failure mode MUST be attributed to the sender, the system, or the infrastructure, and the attribution MUST determine the response, the severity, and whether to retry. Severity MUST be set by who has to act, and how soon.
 - Every retry policy MUST be capped, by attempts or by elapsed time, and MUST space attempts with exponential backoff and jitter. Where the message being sent expires, retries MUST also stop once it has.
 - A failure that a later attempt can't overcome (e.g., malformed input) MUST NOT be retried.
 - Where an operation updates more than one store, the platform MUST make the update atomic, or the operation MUST be safe to repeat after failing partway.
@@ -50,7 +52,7 @@ description: How to design systems beyond the boundary of the OS process. Scope,
 
 - The system MUST run as little as it can: managed services SHOULD be preferred, and compute SHOULD cost nothing whilst idle unless a requirement rules that out.
 - Every delegation (to a provider, the platform, or third-party software) MUST be weighed against the limit, caveat, or dependency it imposes.
-- Where others would deploy the system themselves, each backing service MUST be chosen by the capability it provides (e.g., an S3-compatible object store), behind an adapter that exposes only the operations that every supported backend offers in the same way.
+- Where others would deploy the system themselves, each backing service MUST be chosen by the capability it provides (e.g., an S3-compatible object store), rather than by product.
 - Where only we deploy the system, it SHOULD be coupled to a single provider.
 - An abstraction whose upkeep outweighs the portability it buys (e.g., a pluggable database) MUST be refused.
 
@@ -60,6 +62,7 @@ description: How to design systems beyond the boundary of the OS process. Scope,
 
 - Traffic that a component relays without needing to read MUST be encrypted end-to-end past it, and the metadata it observes MUST be minimised.
 - The parties that stakeholders must trust, and what they must trust them with, MUST be minimised. Where trust can't be designed out, how the trusted party operates the system MUST be open to outside scrutiny (e.g., by publishing the infrastructure code).
+- Every host that the system contacts MUST be enumerated in its documentation, with the reason.
 - Unsafe use of an API, a wire format, or a deployment's configuration MUST be impossible: no skipping a check, turning off a security property, or downgrading. Where a choice is unavoidable, offer a few named options, all of them safe.
 
 ### Anonymity
@@ -89,7 +92,7 @@ Where anonymity or deniability is a requirement:
 ## Operability
 
 - An operator MUST be able to tell what the system is doing, how well, and whose fault a failure is, without a developer. Every behaviour observable from outside MUST be logged. Metrics and traces SHOULD cover it too, except where they don't apply or aren't desirable.
-- Severity MUST be set by who has to act, and how soon.
+- Where the platform asks a process to stop (e.g., SIGTERM), it MUST stop accepting work and exit within the grace period it's given.
 - Whatever collects, stores, or alerts on telemetry (e.g., a log aggregator, a paging service) MUST be deemed a backing service.
 - The design MUST decide how telemetry leaves each process (e.g., written to standard output for the platform to collect, pushed to a collector), so that no component depends on where it ends up.
 - Every operation that the threat model expects to be abused MUST be measured in the product's own terms (e.g., accounts created per hour), with an alert on departures from the norm.
@@ -98,7 +101,7 @@ Where anonymity or deniability is a requirement:
 
 ## Integration testing
 
-- Tests SHOULD use a real instance of every backing service, run locally or provisioned per test run. Where no such instance can be run (e.g., a proprietary service without an emulator), a test double MAY be used instead.
+- Tests SHOULD use a real instance of every backing service, run locally or provisioned per test run, and each run MUST get its own isolated instance or namespace. Where no such instance can be run (e.g., a proprietary service without an emulator), a test double MAY be used instead.
 - Where operators choose the backend of a backing service at deployment time, every supported backend MUST be tested on every change, so that none can rot unnoticed.
 - Where tests use a substitute for a provider that real deployments use (e.g., an emulator, a compatible alternative), that provider MUST also be exercised on a schedule (e.g., weekly), to catch drift and breaking changes without the cost and risk of using it on every change.
 - The deployed system SHOULD be testable end-to-end, through a supported artefact where third parties integrate with it.
@@ -116,8 +119,9 @@ Where anonymity or deniability is a requirement:
 - [Asynchronous messaging](references/asynchronous-messaging.md): The design involves a broker, a queue, or any other exchange where the sender doesn't wait for the outcome.
 - [Synchronous messaging](references/synchronous-messaging.md): The design involves request-response, whether as the client or the server.
 - [Streams](references/streams.md): The design involves a long-lived connection that carries a series of items (e.g., a WebSocket, a gRPC stream).
+- [Telemetry](references/telemetry.md): The design affects a diagnostic signal that the system emits.
 - [Denial of service and abuse](references/abuse.md): An entry point is reachable by untrusted parties.
-- [Contracts between systems](references/contracts.md): The change defines or alters a contract that another codebase, team, or organisation depends on.
+- [Contracts between systems](references/contracts.md): The change defines or alters a contract that another system, team, or organisation depends on.
 - [Cloud infrastructure](references/cloud-infrastructure.md): The change provisions or alters infrastructure at a cloud provider.
 - [Documenting a system's architecture](references/documentation.md): The design, or a change to it, is being documented or specified.
 - [Prototyping](references/prototyping.md): The artefact is a prototype built to answer a design question.

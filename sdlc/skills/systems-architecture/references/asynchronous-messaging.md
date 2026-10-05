@@ -5,7 +5,7 @@
 - The processing of a message MUST be idempotent, because the same message can be delivered more than once (e.g., when its acknowledgement is lost).
 - Consumers MUST NOT depend on the order in which messages arrive: their state MUST converge whatever the order. Where only the latest message matters, the newest by creation date MUST win.
 - Remote procedure calls MUST NOT be emulated. Where a sender needs the outcome of a message (e.g., the identifier of the account it asked for), the outcome MUST travel as a message of its own, and the sender MUST cope with it arriving late, more than once, out of order, or never.
-- Where a message must cost its sender something (per `abuse.md`), the cost MUST be payable without a challenge from the recipient (e.g., a proof of work over public randomness).
+- Where a message must cost its sender something (per the rules on abuse), the cost MUST be payable without a challenge from the recipient (e.g., a proof of work over public randomness).
 
 ## Expiry
 
