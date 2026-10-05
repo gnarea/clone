@@ -46,6 +46,7 @@ description: How code should be written regardless of language. Code organisatio
 - Failures that the caller is expected to reason about MUST be returned as values (e.g., a result type carrying the reason). Programming errors and protocol violations MUST be raised.
 - The cause MUST always be chained. Discarding a cause MUST be syntactically deliberate.
 - Third-party errors MUST NOT escape the module that provoked them: catch them and re-raise them in the module's own vocabulary.
+- A failure MUST be logged where its outcome is decided, and MUST NOT be logged again at each level it propagates through.
 - The documentation of each error type MUST tell the caller what to do about it, starting with whether retrying is likely to help.
 - Messages MUST state the expectation and the offending value (e.g., "TTL exceeds the maximum (got 3600)"), and MUST NOT carry secrets or personal data.
 - Where a test asserts on the text of a message, that wording is part of what the module promises, and MUST NOT be reworded unless the meaning it conveys has changed.
@@ -67,17 +68,16 @@ description: How code should be written regardless of language. Code organisatio
 - Where the input or the configuration is ambiguous or incomplete, the code MUST fail closed and refuse to proceed, rather than guess what was intended.
 - A security control MUST NOT have an off switch. Where skipping it would be legitimate, offer a narrower operation that does less, rather than a flag that checks less.
 - Secrets MUST NOT be written to disc, nor interpolated into a message. A credential scoped to a single run MUST be generated per run and held in memory.
-- The software MUST request the fewest capabilities and permissions it can function with, and each MUST be justified in the README.
 
 ### Personal data
 
 - Personal data MUST be passed to the fewest modules that can do the job, and MUST NOT be carried in a context object that every layer can read.
-- Telemetry, analytics, and crash reporting MUST NOT be added without explicit approval.
 
 ## Dependencies and performance
 
 - A new dependency, internal or external, MUST be justified against what the platform already offers. Where only an older, still-supported platform version lacks it, the code SHOULD degrade gracefully rather than take the dependency.
 - The faster option MUST be taken where it costs nothing in clarity. Where clarity is traded away, the change MUST cite the measurement that justified it.
+- Instrumentation MUST be emitted through a vendor-neutral API, with the exporter chosen at start-up and hidden behind an adapter, so that no vendor's types appear elsewhere. A library MUST leave that choice to the application embedding it.
 - Synchronous I/O MUST NOT block a path that serves a request or a user interface.
 - Setup that only some code paths need MUST run when those paths run, rather than when the module loads. An implementation chosen at runtime, such as a storage or key-management adapter, MUST be loaded only after it has been chosen.
 
@@ -113,6 +113,5 @@ description: How code should be written regardless of language. Code organisatio
 
 ### By concern
 
-- [Instrumentation](references/instrumentation.md): The change affects a diagnostic signal that the process emits.
 - [Cryptography](references/cryptography.md): The change uses a cryptographic primitive, or handles a key, a credential, or a token.
 - [Prototyping](references/prototyping.md): The artefact is a throwaway prototype.

@@ -116,12 +116,13 @@ Where anonymity or deniability is a requirement:
 
 ### By concern
 
-- [Asynchronous messaging](references/asynchronous-messaging.md): The design involves a broker, a queue, or any other exchange where the sender doesn't wait for the outcome.
-- [Synchronous messaging](references/synchronous-messaging.md): The design involves request-response, whether as the client or the server.
-- [Streams](references/streams.md): The design involves a long-lived connection that carries a series of items (e.g., a WebSocket, a gRPC stream).
+- Inter-process communication:
+  - [Asynchronous messaging](references/asynchronous-messaging.md): The design involves a broker, a queue, or any other exchange where the sender doesn't wait for the outcome.
+  - [Synchronous messaging](references/synchronous-messaging.md): The design involves request-response, whether as the client or the server.
+  - [Streams](references/streams.md): The design involves a long-lived connection that carries a series of items (e.g., a WebSocket, a gRPC stream).
+  - [Contracts between systems](references/contracts.md): The change defines or alters a contract that another system, team, or organisation depends on.
 - [Telemetry](references/telemetry.md): The design affects a diagnostic signal that the system emits.
 - [Denial of service and abuse](references/abuse.md): An entry point is reachable by untrusted parties.
-- [Contracts between systems](references/contracts.md): The change defines or alters a contract that another system, team, or organisation depends on.
 - [Cloud infrastructure](references/cloud-infrastructure.md): The change provisions or alters infrastructure at a cloud provider.
 - [Documenting a system's architecture](references/documentation.md): The design, or a change to it, is being documented or specified.
 - [Prototyping](references/prototyping.md): The artefact is a prototype built to answer a design question.
