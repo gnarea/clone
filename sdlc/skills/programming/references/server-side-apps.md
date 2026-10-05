@@ -16,4 +16,3 @@
 - Where the application can work with more than one provider of the same thing (e.g., S3 or GCS for object storage), each MUST be reached through a single interface of our own.
 - That interface MUST offer only what every provider can do. An operation that one provider supports and another doesn't MUST NOT be added to it.
 - Where providers disagree on a detail (e.g., deleting an object that isn't there succeeds on one and fails on another), the adapter MUST hide the difference, and the behaviour settled on MUST be documented on the interface.
-- Functional tests MUST run against one of the real providers, rather than a stand-in written for testing, so that the code path used by anyone who deploys it that way cannot rot.

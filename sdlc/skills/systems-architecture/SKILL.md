@@ -96,7 +96,8 @@ Where anonymity or deniability is a requirement:
 ## Integration testing
 
 - Tests SHOULD use a real instance of every backing service, run locally or provisioned per test run. Where no such instance can be run (e.g., a proprietary service without an emulator), a test double MAY be used instead.
-- Where tests use a substitute for the provider that a real deployment uses (e.g., an emulator, a compatible alternative), the real provider MUST also be exercised on a schedule (e.g., weekly), rather than on every change, to catch drift and breaking changes.
+- Where operators choose the backend of a backing service at deployment time, every supported backend MUST be tested on every change, so that none can rot unnoticed.
+- Where tests use a substitute for a provider that real deployments use (e.g., an emulator, a compatible alternative), that provider MUST also be exercised on a schedule (e.g., weekly), to catch drift and breaking changes without the cost and risk of using it on every change.
 - The deployed system SHOULD be testable end-to-end, through a supported artefact where third parties integrate with it.
 - Tests MUST cover the most constrained environment that the design supports.
 
