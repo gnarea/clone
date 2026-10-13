@@ -8,7 +8,6 @@ Generally, there MUST be a high-level wrapper that makes every unsafe use of a c
 - A verification step MUST NOT be made optional. Where skipping it would be legitimate, offer a narrower operation rather than a flag, and record the refusal, along with what would change our mind.
 - An empty or absent set of trust anchors MUST fail verification. The code MUST NOT guess whether the caller made a mistake or meant to skip the check.
 - Private key material MUST NOT leave the store that holds it: sign and decrypt through the store's interface, never through an accessor that returns the key.
-- Every key MUST have exactly one declared purpose, and MUST NOT be used for another.
 - Keys, nonces, and identifiers MUST be drawn from the platform's cryptographic random source.
 - Comparisons of secrets, authentication tags, and digests MUST be constant-time.
 - A response from a cryptographic service MUST be verified before use: check integrity in both directions, and check that the answer refers to the key that was asked for.

@@ -65,6 +65,10 @@ description: How to design systems beyond the boundary of the OS process. Scope,
 - Every host that the system contacts MUST be enumerated in its documentation, with the reason.
 - Unsafe use of an API, a wire format, or a deployment's configuration MUST be impossible: no skipping a check, turning off a security property, or downgrading. Where a choice is unavoidable, offer a few named options, all of them safe.
 
+### Keys
+
+- Every key MUST have exactly one declared purpose, and MUST NOT be used for another.
+
 ### Anonymity
 
 Where anonymity or deniability is a requirement:
