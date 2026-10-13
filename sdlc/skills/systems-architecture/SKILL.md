@@ -28,6 +28,7 @@ description: How to design systems beyond the boundary of the OS process. Scope,
 - Every piece of data that is stored MUST have a purpose, a set of readers, and a retention period, and the store SHOULD enforce the retention period (e.g., with a TTL index).
 - Personal data MUST NOT be replicated to a system with weaker retention, access control, or jurisdiction than its source.
 - Personal data MUST NOT be shared with a party that doesn't need it, especially where it would let that party correlate a person across contexts.
+- Personal data MUST be passed to the fewest modules that can do the job, and MUST NOT be carried in a context object that every layer can read.
 - Identifiers exposed to third parties MUST NOT be guessable, and MUST NOT leak the time or the volume of what they identify (e.g., a UUIDv4, rather than a sequential or timestamp-derived database ID).
 - A store that holds original data MUST be backed up. A store whose data can be rebuilt reliably and cheaply from original data (e.g., a search index) needn't be, unless a backup serves a purpose that rebuilding can't.
 - Idempotency SHOULD come from natural keys and a uniqueness constraint. Where the work has no natural key (e.g., a payment), or is too costly to repeat, a record of what was already done (e.g., the identifiers of the messages processed) MAY be kept instead.
@@ -36,6 +37,7 @@ description: How to design systems beyond the boundary of the OS process. Scope,
 
 - Asynchronous messaging MUST be the default, because a message that is durably stored can be retried, redelivered, or dead-lettered after any failure, whereas request-response ties each component's availability to the others'. Request-response MUST be used only where the exchange can't be made asynchronous (e.g., a third-party API that only offers it).
 - Every exchange MUST tolerate the other party being unreachable.
+- Each party to an exchange MUST be strict about what it sends, and MUST validate and enforce the things that matter to it in what it receives, rather than everything that it can read.
 - Whatever is acknowledged (e.g., a message, an item in a stream) MUST be acknowledged only once it's safe for the sender to forget: durably stored and flushed (e.g., with `fdatasync`), or fully processed, rather than merely received or parsed.
 - Every message, whether exchanged synchronously or asynchronously, MUST carry the version of its format from its first release, because a version can't be retrofitted once messages are in use. The version MAY travel as metadata rather than in the payload (e.g., in the media type, such as `application/vnd.example.order.v1+json`).
 - Work that many parties start at once (e.g., on a schedule, in response to the same event) MUST be spread with random jitter, so that they don't act in lockstep.
@@ -64,10 +66,6 @@ description: How to design systems beyond the boundary of the OS process. Scope,
 - The parties that stakeholders must trust, and what they must trust them with, MUST be minimised. Where trust can't be designed out, how the trusted party operates the system MUST be open to outside scrutiny (e.g., by publishing the infrastructure code).
 - Every host that the system contacts MUST be enumerated in its documentation, with the reason.
 - Unsafe use of an API, a wire format, or a deployment's configuration MUST be impossible: no skipping a check, turning off a security property, or downgrading. Where a choice is unavoidable, offer a few named options, all of them safe.
-
-### Keys
-
-- Every key MUST have exactly one declared purpose, and MUST NOT be used for another.
 
 ### Anonymity
 
@@ -127,6 +125,7 @@ Where anonymity or deniability is a requirement:
   - [Contracts between systems](references/contracts.md): The change defines or alters a contract that another system, team, or organisation depends on.
 - [Telemetry](references/telemetry.md): The design affects a diagnostic signal that the system emits.
 - [Denial of service and abuse](references/abuse.md): An entry point is reachable by untrusted parties.
+- [Cryptography](references/cryptography.md): The design involves a cryptographic key, or a value that has to be unpredictable (e.g., a nonce).
 - [Cloud infrastructure](references/cloud-infrastructure.md): The change provisions or alters infrastructure at a cloud provider.
 - [Documenting a system's architecture](references/documentation.md): The design, or a change to it, is being documented or specified.
 - [Prototyping](references/prototyping.md): The artefact is a prototype built to answer a design question.

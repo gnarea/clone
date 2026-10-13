@@ -19,7 +19,7 @@ A specification is written for the implementer who'll get it wrong.
 
 - Every requirement MUST be expressed with the keywords of BCP 14 (e.g., MUST, SHOULD, MAY). Guidance that isn't a requirement MUST be marked as non-normative (e.g., in an appendix labelled as such).
 - Where an implementer could take a plausible shortcut that breaks a requirement (e.g., deleting a message once it's handed to a relay that may never deliver it), the specification MUST forbid the shortcut explicitly, and give the reason.
-- Requirements on what implementations show to users SHOULD be recommendations.
+- Whatever the specification says about user interfaces (e.g., how to present who vouches for a signature) SHOULD be a recommendation, rather than a requirement.
 - Every diagram MUST be published with its source.
 
 ## Vocabulary
@@ -31,4 +31,5 @@ A specification is written for the implementer who'll get it wrong.
 
 - Security considerations and privacy considerations MUST be separate sections. The privacy considerations MUST state what each party learns, including whatever the protocol can't keep from it.
 - The specification MUST state the protocol's limitations, including any use that it can't serve (e.g., one-way communication).
-- Where the specification departs from what's already deployed, it MUST list each departure. Any conflict of interest of its authors (e.g., leading an implementation, maintaining a competing protocol) MUST be declared.
+- Where the specification departs from what's already deployed, it MUST list each departure.
+- Any conflict of interest of its authors (e.g., leading an implementation, maintaining a competing protocol) MUST be declared.
