@@ -30,3 +30,4 @@ Skills:
 
 - `programming`: How to write and review code in any language.
 - `systems-architecture`: How to design and review anything beyond the boundary of the OS process.
+- `protocol-design`: How to design and review protocols and their specifications, on top of `systems-architecture`.
