@@ -4,24 +4,23 @@ description: How to design protocols, including cryptographic ones, as an extens
 ---
 # Protocol design
 
-A _protocol_ is the messages that two or more parties exchange, and the rules for exchanging them, whether the parties are our own components or implementations that others build. This skill extends the /sdlc:systems-architecture skill, which applies in full, and only covers what changes when the design subject is a protocol.
+A _protocol_ is the messages that two or more parties exchange, and the rules for exchanging them. This skill extends the /sdlc:systems-architecture skill, which applies in full, and only covers what changes when the design subject is a protocol.
 
 ## Scope
 
-- The protocol MUST only prescribe the interactions that need its parties to agree. Whatever happens amongst the parties that a single operator controls (e.g., between a provider's own servers) MUST be left to that operator.
+- The protocol MUST only prescribe the interactions that need its parties to agree.
 - Where the protocol leaves out a concern that it could be expected to cover (e.g., a limit on the size of a message, how a party obtains its credentials), the specification MUST say what covers it instead (e.g., the protocol that carries it, the protocols that run on top of it, each implementation).
 
 ## Layering
 
-A protocol usually runs on top of another, which carries its messages (aka its _underlying protocol_), and may carry the messages of others in turn (e.g., HTTP runs on top of TCP, a JSON API runs on top of HTTP). Every mechanism in the protocol, including authentication and key agreement, MUST work with the delay, loss, duplication, and reordering of the underlying protocol.
+A protocol usually runs on top of another, which carries its messages (aka its _underlying protocol_), and may carry the messages of others in turn (e.g., TCP runs on top of IP, HTTP runs on top of TCP). Every mechanism in the protocol, including authentication and key agreement, MUST work with the delay, loss, duplication, and reordering of the underlying protocol.
 
 Where the protocol has to run over more than one underlying protocol (e.g., HTTP, WebSocket, AMQP):
 
-- The rules for carrying its messages over each one (aka a _binding_) MUST be specified separately from the protocol itself.
-- The protocol MUST state what it requires from all of them (e.g., that messages arrive intact, in order, at the intended party alone), and MUST NOT rely on anything else about any one of them.
-- A binding SHOULD carry the protocol's messages as opaque bytes (e.g., a `bytes` field in Protocol Buffers), so that the format native to its underlying protocol never carries the protocol's semantics.
+- A separate protocol (aka a _binding_) MUST carry its messages over each one.
+- The protocol MUST state what it requires from every binding (e.g., that messages arrive intact, in order, at the intended party alone), and MUST NOT rely on anything else about any one of them.
 
-Where the protocol leaves anything for other specifications to define, whether they're its bindings or the protocols that run on top of it:
+Where the protocol leaves anything for other protocols to define (e.g., its bindings, the protocols that run on top of it):
 
 - The protocol MUST list everything that each of them has to define (e.g., how each binding acknowledges a message, which identifier each protocol on top uses to tell its messages apart).
 - Each of them MUST define everything on that list, and MUST NOT override anything that the protocol defines.
@@ -71,7 +70,7 @@ Where the protocol leaves anything for other specifications to define, whether t
 
 ## Intermediaries
 
-- Every party that handles a message, including one that only relays it, MUST validate what's relevant to it before processing or relaying the message.
+- Every party that handles a message, including one that only relays it, MUST validate whatever matters to it before processing or relaying the message.
 - Where messages pass through an intermediary (e.g., a broker), the protocol SHOULD let the parties detect a message that it dropped, or keep it from singling one out to drop (e.g., by hiding the type of each message from it).
 - An intermediary that isn't trusted MUST NOT be able to replay a message undetected (e.g., a sequence number inside the encrypted message, which the response echoes).
 - Where the parties at either end keep a session, it SHOULD outlive the connection that carries it, so that it can resume through another intermediary.
