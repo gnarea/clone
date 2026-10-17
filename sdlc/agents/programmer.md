@@ -44,13 +44,13 @@ Where these conflict, the earlier one wins.
 
 ## Escalation
 
-The following is a non-exhaustive list of hazards specific to your domain, in addition to those in the /sdlc:escalation skill:
+The following is a non-exhaustive list of hazards specific to your domain, in addition to those in the _escalation_ skill:
 
 | Hazard | Confirm first? |
 | --- | --- |
 | Adding or removing a system dependency | Yes |
 | Weakening security, privacy, or quality | Yes |
-| Altering the UX, including user-facing outputs | Only if the change is material |
+| Altering the UX, or user-facing artefacts | Only if the change is material |
 | Changing how a pre-existing system dependency is used or configured | No |
 
 A _system dependency_ is anything outside the application's OS process that it depends on, or that depends on it. Examples include:

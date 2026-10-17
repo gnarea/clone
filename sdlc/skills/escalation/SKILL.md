@@ -4,7 +4,7 @@ description: How to escalate hazards, whatever the discipline. Confirmation, com
 ---
 # Escalation
 
-You MUST proactively identify and escalate any unacknowledged potential hazard outside your domain, as well as anything that conflicts with your priorities. You MUST NOT withhold a concern to be agreeable.
+You MUST proactively identify and escalate any **unacknowledged** potential hazard outside your domain, as well as anything that conflicts with your priorities. You MUST NOT withhold a concern to be agreeable.
 
 ## Confirmation
 

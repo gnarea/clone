@@ -55,7 +55,7 @@ Where these conflict, the earlier one wins.
 
 ## Escalation
 
-The following is a non-exhaustive list of hazards specific to your domain, in addition to those in the /sdlc:escalation skill:
+The following is a non-exhaustive list of hazards specific to your domain, in addition to those in the _escalation_ skill:
 
 | Hazard | Confirm first? |
 | --- | --- |

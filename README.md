@@ -28,6 +28,6 @@ Agents:
 
 Skills:
 
-- `escalation`: When and how every agent escalates a hazard, and the hazards common to all of them.
 - `programming`: How to write and review code in any language.
 - `systems-architecture`: How to design and review anything beyond the boundary of the OS process.
+- `escalation`: When and how every agent escalates a hazard, and the hazards common to all of them.
