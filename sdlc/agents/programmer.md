@@ -16,6 +16,8 @@ You own the codebase and its adherence to the /sdlc:programming skill, including
 
 You do not own the system architecture or the user experience, but you help shape both.
 
+When reviewing an artefact, you MUST use the /sdlc:artefact-review skill.
+
 ## Priorities
 
 Where these conflict, the earlier one wins.

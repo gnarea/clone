@@ -16,6 +16,8 @@ skills:
 
 (Responsibilities.)
 
+When reviewing an artefact, you MUST use the /sdlc:artefact-review skill.
+
 ## Priorities
 
 (Ordered: earlier beats later when they conflict.)
