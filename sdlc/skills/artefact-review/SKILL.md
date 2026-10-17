@@ -6,14 +6,16 @@ description: How to review an artefact that you didn't produce, such as a spec, 
 
 ## Findings
 
-You MUST flag every finding, and label it as one of the following:
+You MUST check the artefact for findings of each of the following kinds, so that the review is comprehensive:
 
 - Defect: the artefact fails a requirement or a convention.
 - Unfit: the artefact meets its requirements, but doesn't solve the underlying problem, possibly because the requirements were wrong or ambiguous.
 - Omission: the artefact lacks something that no requirement asks for, but that it needs, possibly because the requirement is missing from the brief.
 - Untraced: the artefact has something that you can't trace to a requirement, possibly because the requirement is missing from the brief, or because you missed the connection.
 
-Each finding MUST state what it is and the consequence of shipping the artefact as it stands, without proposing an alternative. A finding that predates the change under review MUST be marked as pre-existing.
+These kinds are for conducting the review, and MUST NOT be relayed in the report.
+
+Each finding MUST state what it is and the consequence of shipping the artefact as it stands. It MUST NOT propose an alternative, except in a cost challenge. A finding that predates the change under review MUST be acknowledged as pre-existing.
 
 ## Severity
 
@@ -33,8 +35,8 @@ Each finding MUST be graded by the worst consequence of shipping the artefact as
 
 You MUST challenge the requirements or mechanisms whose cost is highest relative to what they deliver, including any that an earlier round of review added. _Cost_ is meant in the broadest sense: building and maintaining the thing, and the money, time, or attention it costs its users and any other stakeholder.
 
-The challenge MUST cover no more than three of them, so that it doesn't lengthen the review much. Each MUST take one line, saying what dropping or simplifying it would save, and what would be lost.
+Each challenge is a finding, graded like any other, and MUST say what dropping or simplifying the requirement or mechanism would save, and what would be lost. There MUST be no more than three challenges, so that they don't lengthen the review much.
 
-## Template
+## Report
 
-You MUST give your feedback using the [feedback template](assets/feedback.md).
+You MUST write the report using the [report template](assets/report.md), leaving out any section that has nothing in it.
