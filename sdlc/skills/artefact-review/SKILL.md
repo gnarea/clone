@@ -27,7 +27,6 @@ Each finding MUST be graded by the worst consequence of shipping the artefact as
   - Expose a secret or personal data.
   - Let someone do what they aren't authorised to (e.g., impersonate another party, get a change through without the required approval).
   - Break backwards compatibility with a system that depends on it.
-  - Spend money materially.
   - Impose a material cost on a stakeholder.
 - Medium: the artefact SHOULD NOT be shipped until the finding is addressed. This includes, but isn't limited to, any case where the behaviour is wrong, or where the finding is in something expensive to reverse once shipped (e.g., an identifier, a wire format, a schema).
 - Low: the artefact MAY still be shipped despite the finding.
