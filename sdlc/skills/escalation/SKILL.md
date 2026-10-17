@@ -22,7 +22,7 @@ The following is a non-exhaustive list of hazards common to every discipline, an
 | --- | --- |
 | Making a backwards-incompatible change | Yes |
 | Changing the product's scope or its user-visible promises | Yes |
-| Adding something that no stated requirement or convention calls for, such as a mechanism, a defence, a test tier, or another version of a format | Only if its cost is material |
+| Doing more than the requirements and conventions ask for (e.g., adding a cache, rate limiting, end-to-end tests, or support for a second version of a format) | Only if it adds a material cost |
 | Making a reasonable guess at the intent of an ambiguous requirement | No, unless it leads to a hazard that requires confirmation |
 | Finding a pre-existing issue by chance | Same as for the issue found |
 
