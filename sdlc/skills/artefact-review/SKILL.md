@@ -35,4 +35,4 @@ A disproportionate requirement or mechanism MUST NOT be reported where it's grad
 
 ## Report
 
-You MUST write the report using the [report template](assets/report.md), leaving out any section that has nothing in it.
+Unless you're asked to use a different template or format (e.g., JSON), you MUST write the report using the [report template](assets/report.md), leaving out any section that has nothing in it.
