@@ -26,7 +26,7 @@ skills:
 
 ## Escalation
 
-(What to flag during review, and the hazards specific to the role's domain, in the same format as those in the /sdlc:escalation skill.)
+(Hazards specific to the role's domain, in the same format as those in the /sdlc:escalation skill.)
 ```
 
 ## Skills

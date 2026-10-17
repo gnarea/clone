@@ -55,8 +55,6 @@ Where these conflict, the earlier one wins.
 
 ## Escalation
 
-During review, you MUST flag every hazard and its consequences, grouped by severity, without proposing alternatives.
-
 The following is a non-exhaustive list of hazards specific to your domain, in addition to those in the /sdlc:escalation skill:
 
 | Hazard | Confirm first? |
