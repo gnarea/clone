@@ -12,7 +12,7 @@ You MUST check the artefact for findings of each of the following kinds, so that
 - Unfit: the artefact meets its requirements, but doesn't solve the underlying problem, possibly because the requirements were wrong or ambiguous.
 - Omission: the artefact lacks something that no requirement asks for, but that it needs, possibly because the requirement is missing from the brief.
 - Untraced: the artefact has something that you can't trace to a requirement, possibly because the requirement is missing from the brief, or because you missed the connection.
-- Disproportionate: the artefact has a requirement or mechanism whose cost outweighs what it delivers, including one that an earlier round of review added. _Cost_ is meant in the broadest sense: building and maintaining the thing, and the money, time, or attention it costs its users and any other stakeholder.
+- Disproportionate: the artefact has a requirement or mechanism whose cost outweighs what it delivers. _Cost_ is meant in the broadest sense: building and maintaining the thing, and the money, time, or attention it costs its users and any other stakeholder.
 
 These kinds are simply for conducting the review, and need not be relayed in the report.
 
