@@ -1,6 +1,6 @@
 ---
 name: artefact-review
-description: How to review an artefact, such as a spec, a design, or a change.
+description: How to review an artefact that you didn't produce, such as a spec, a design, or a change.
 ---
 # Artefact review
 
