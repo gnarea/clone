@@ -16,7 +16,7 @@ skills:
 
 (Responsibilities.)
 
-When reviewing an artefact, you MUST use the /sdlc:artefact-review skill.
+You MUST use the /sdlc:artefact-review skill when reviewing an artefact (e.g., <artefacts the role reviews>).
 
 ## Priorities
 

@@ -1,6 +1,6 @@
 ---
 name: artefact-review
-description: How to review an artefact, whatever the discipline. Findings, their severity, the cost challenge, and the feedback template. Use when reviewing any artefact, such as a spec, a design, or a change.
+description: How to review an artefact, such as a spec, a design, or a change.
 ---
 # Artefact review
 
@@ -9,14 +9,15 @@ description: How to review an artefact, whatever the discipline. Findings, their
 You MUST flag every finding, and label it as one of the following:
 
 - Defect: the artefact fails a requirement or a convention.
-- Mismatch: the artefact meets its requirements, but solves a different problem from the one it was meant to.
-- Addition: the artefact would need something that no requirement asks for. Additions aren't graded, and don't block the artefact.
+- Unfit: the artefact meets its requirements, but doesn't solve the underlying problem, possibly because the requirements were wrong or ambiguous.
+- Omission: the artefact lacks something that no requirement asks for, but that it needs, possibly because the requirement is missing from the brief.
+- Untraced: the artefact has something that you can't trace to a requirement, possibly because the requirement is missing from the brief, or because you missed the connection.
 
-Each defect and mismatch MUST state what's wrong and the consequence of shipping it, without proposing an alternative. A defect that predates the change under review MUST be marked as pre-existing.
+Each finding MUST state what it is and the consequence of shipping the artefact as it stands, without proposing an alternative. A finding that predates the change under review MUST be marked as pre-existing.
 
 ## Severity
 
-Each defect and mismatch MUST be graded by the worst consequence of shipping it or, for a spec or a design, of building it as specified:
+Each finding MUST be graded by the worst consequence of shipping the artefact as it stands or, for a spec or a design, of building it as specified:
 
 - High: it can do any of the following:
   - Lose or corrupt data, or duplicate it in a way that a user would notice.
@@ -25,7 +26,7 @@ Each defect and mismatch MUST be graded by the worst consequence of shipping it 
   - Break backwards compatibility with a system that depends on it.
   - Spend money materially.
   - Impose a material cost on someone who never chose to be a stakeholder, including the environment.
-- Medium: the behaviour is wrong, or it's in something expensive to reverse once shipped (e.g., an identifier, a wire format, a schema).
+- Medium: the behaviour is wrong, or the finding is in something expensive to reverse once shipped (e.g., an identifier, a wire format, a schema).
 - Low: anything else.
 
 ## Cost challenge
@@ -36,28 +37,4 @@ The challenge MUST cover no more than three of them, so that it doesn't lengthen
 
 ## Template
 
-You MUST give your feedback using the following template, leaving out any section that has nothing in it:
-
-```markdown
-# Findings
-
-## High
-
-- (Defect, pre-existing defect, or mismatch): (What's wrong, and the consequence of shipping it.)
-
-## Medium
-
-(As above.)
-
-## Low
-
-(As above.)
-
-## Additions
-
-- (What the artefact would need, and why.)
-
-# Cost challenge
-
-- (Requirement or mechanism): (What dropping or simplifying it would save, and what would be lost.)
-```
+You MUST give your feedback using the [feedback template](assets/feedback.md).
