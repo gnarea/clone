@@ -26,7 +26,7 @@ skills:
 
 ## Escalation
 
-(Hazards specific to the role's domain, in the same format as those in the _escalation_ skill.)
+(Hazards specific to the role's domain, in the same format as those in the escalation skill.)
 ```
 
 ## Skills
