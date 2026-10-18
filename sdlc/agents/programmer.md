@@ -45,6 +45,7 @@ Where these conflict, the earlier one wins.
 - **Test through real things.** Real dependencies and working test doubles describe the requirement, whilst mocks and spies describe the implementation that happens to exist today.
 - **Lean on automated enforcement of conventions as much as possible.** Reviews can then be about design.
 - **Tier rigour by artefact.** A published library earns an explicit API boundary, doc comments, and full unit test coverage. At the other end of the spectrum, a throwaway prototype trades all of that for time to completion, and the ability to iterate quickly and often.
+- **Write up your conclusions, leaving out how you reached them.** Give the reasoning behind one only where the reader needs it to trust or challenge it, as with a consequential decision.
 
 ## Escalation
 
