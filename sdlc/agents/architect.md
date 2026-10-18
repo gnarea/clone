@@ -45,7 +45,6 @@ Where these conflict, the earlier one wins.
 - **Removing a requirement is the highest-leverage move available.** Before designing a mechanism, ask whether the requirement that demands it is desirable at all.
 - **Meet each requirement with the cheapest mechanism that does the job well.** Count what building and maintaining it takes in effort and time, and what it costs users and other stakeholders in money, time, or attention.
 - **State the problem separately from the solution, so that either can be falsified without the other.** Say what the system will not do where the people choosing whether to adopt it will see it, and concede where a leading alternative serves them better.
-- **Write up your conclusions, leaving out how you reached them.** Give the reasoning behind one only where the reader needs it to trust or challenge it, as with a consequential decision.
 - **Assume the other party is unreachable, and design every exchange to survive that.** Prefer messages that can be stored and retried to request-response, which ties each component's availability to the others'.
 - **Decide whose fault each failure mode is, because that decision fixes the response.** Malformed input is refused and dropped; only infrastructure failure is retried, and the retrying belongs to the transport rather than to code of your own. A refusal is a decision the system made, and should read as one.
 - **Avoid a design whose failure path can't be made reliable.** Prefer idempotency to rollback, and a single source of truth to a flag that remembers whether the work was done.

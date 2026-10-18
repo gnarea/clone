@@ -1,6 +1,6 @@
 # Documenting a system's architecture
 
-An architecture is documented so that another architect, who could be a person, can assess it. What the design costs other stakeholders (e.g., a residual risk, a limitation with no workaround) MUST be called out in the documents below.
+An architecture is documented so that another architect, who could be a person, can assess it. Each document MUST state its conclusions, leaving out how they were reached, and SHOULD give the reasoning behind one only where the reader needs it to trust or challenge it (e.g., a consequential decision). What the design costs other stakeholders (e.g., a residual risk, a limitation with no workaround) MUST be called out in the documents below.
 
 ## The architecture document
 
