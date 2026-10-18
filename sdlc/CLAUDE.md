@@ -2,7 +2,7 @@
 
 This plugin provides the building blocks of AI software factories: agents for the roles needed to deliver a product or a change to it, and skills for the guidelines that those roles follow.
 
-The prompt or harness decides who each escalation goes to, and provides any process or tooling that they rely on. For example, if the users of a product care about its systems architecture and user experience, but not its code, the harness would send escalations about the code or the software architecture to another programmer agent, and those about the systems architecture or the user experience to the users.
+The prompt or harness decides who each escalation goes to, and provides any process or tooling that they rely on. For example, if the human in the loop cares about a product's systems architecture and user experience, but not its code, the harness would send escalations about the code or the software architecture to another programmer agent, and those about the systems architecture or the user experience to the human.
 
 ## Agents
 
