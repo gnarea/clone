@@ -4,6 +4,13 @@ description: How to review an artefact that you didn't produce, such as a spec, 
 ---
 # Artefact review
 
+You MUST follow the guidelines for the task at hand:
+
+- [Reviewing an artefact](references/reviewing.md) that you didn't produce, using the [report template](assets/report.md).
+- [Processing feedback](references/processing-feedback.md) on an artefact that you produced, using the [reply template](assets/reply.md).
+
+Unless you're asked to use a different template or format, you MUST use the task's template, leaving out any section that has nothing in it.
+
 ## Severity
 
 Each finding MUST be graded by the worst consequence of shipping the artefact as it stands or, for a spec or a design, of building it as specified:
@@ -16,8 +23,3 @@ Each finding MUST be graded by the worst consequence of shipping the artefact as
   - Impose a material cost on a stakeholder.
 - Medium: the artefact SHOULD NOT be shipped until the finding is addressed. This includes, but isn't limited to, any case where the behaviour is wrong, or where the finding is in something expensive to reverse once shipped (e.g., an identifier, a wire format, a schema).
 - Low: the artefact MAY still be shipped despite the finding.
-
-## Additional guidelines
-
-- [Reviewing an artefact](references/reviewing.md): You're reviewing an artefact that you didn't produce.
-- [Processing feedback](references/processing-feedback.md): You've received feedback on an artefact that you produced.

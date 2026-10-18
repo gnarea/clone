@@ -1,7 +1,5 @@
 # Reviewing an artefact
 
-## Findings
-
 You MUST check the artefact for findings of each of the following kinds, so that the review is comprehensive:
 
 - Defect: the artefact fails a requirement or a convention.
@@ -14,8 +12,4 @@ These kinds are simply for conducting the review, and need not be relayed in the
 
 Each finding MUST state what it is and the consequence of shipping the artefact as it stands. It MUST NOT propose an alternative, unless it's disproportionate, in which case it MUST say what dropping or simplifying the requirement or mechanism would save, and what would be lost. A finding that predates the change under review SHOULD be acknowledged as pre-existing.
 
-## Report
-
 A disproportionate requirement or mechanism MUST NOT be reported where it's graded low.
-
-Unless you're asked to use a different template or format, you MUST write the report using the [report template](../assets/report.md), leaving out any section that has nothing in it.

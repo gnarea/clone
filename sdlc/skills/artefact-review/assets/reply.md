@@ -1,19 +1,15 @@
 # Reply to feedback on (artefact)
 
+I've addressed every finding, except any that I dispute below.
+
 ## Disputed
 
 I disagree with the following, so I haven't addressed it:
 
-- (Single-sentence description of the finding): (A longer, but still very succinct, explanation of why you disagree, including how to check your reasoning. If you only dispute its severity, state the severity you think it has.)
+- (Single-sentence description of the finding): (A longer, but still very succinct, explanation of why you disagree, including how to check your reasoning.)
 
-## Deferred
+## Ambiguous
 
-I agree with the following, but I've left it for later:
+I found the following ambiguous, so I addressed it as I interpreted it:
 
-- (Single-sentence description of the finding): (A very succinct explanation of why it can wait, and where it's tracked, if anywhere.)
-
-## Addressed
-
-I've addressed the following:
-
-- (Single-sentence description of the finding): (A very succinct description of how you addressed it, including how you interpreted the finding if it was ambiguous.)
+- (Single-sentence description of the finding): (A very succinct description of how you interpreted it.)
