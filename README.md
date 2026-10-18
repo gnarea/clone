@@ -19,6 +19,8 @@ Skills:
 
 The software development lifecycle, expressed as agents that carry a role's priorities and skills that carry its conventions.
 
+The agents and skills are building blocks: the prompt or harness that uses them decides who each escalation goes to, and provides any process or tooling that they rely on.
+
 _Endgame:_ to offload as much as I can to the LLM, so I can operate a "dark software factory" where I play the roles of Product Manager, Program Manager, Project Manager, and ultimate Systems Architect.
 
 Agents:

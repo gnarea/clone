@@ -4,13 +4,13 @@
 
 I disagree with the following, so I haven't addressed it:
 
-- (Single-sentence description of the finding): (A longer, but still very succinct, explanation of why you disagree.)
+- (Single-sentence description of the finding): (A very succinct explanation of why you disagree.)
 
-## Escalated
+## Escalation needed
 
-I agree with the following, but whether or when to address it isn't my decision to make:
+I agree with the following, but addressing it would change the brief, which probably isn't for either of us to decide:
 
-- (Single-sentence description of the finding): (A very succinct explanation of why the decision isn't yours.)
+- (Single-sentence description of the finding): (A very succinct description of what it would change in the brief.)
 
 ## Ambiguous
 

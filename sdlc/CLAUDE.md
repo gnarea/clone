@@ -1,6 +1,8 @@
 # Software Development Lifecycle (SDLC) Plugin
 
-This plugin provides the building blocks of AI software factories: agents for the roles needed to deliver a product or a change to it, and skills for the conventions that those roles follow. The harness that uses them, or the user's prompt where there's no harness, decides who each escalation goes to, and provides any process or tooling that they rely on. For example, if the users of a product care about its systems architecture and user experience, but not its code, the harness would send escalations about the code or the software architecture to another programmer agent, and those about the systems architecture or the user experience to the users.
+This plugin provides the building blocks of AI software factories: agents for the roles needed to deliver a product or a change to it, and skills for the guidelines that those roles follow.
+
+The prompt or harness decides who each escalation goes to, and provides any process or tooling that they rely on. For example, if the users of a product care about its systems architecture and user experience, but not its code, the harness would send escalations about the code or the software architecture to another programmer agent, and those about the systems architecture or the user experience to the users.
 
 ## Agents
 
@@ -40,7 +42,7 @@ Anything prescriptive (conventions, workflows, templates, checklists) belongs in
 ## Conventions
 
 - Agents and skills MUST NOT name another agent, a role, or a person, so that they compose with any caller.
-- Agents and skills MUST NOT assume any development practice or tooling (e.g., an issue tracker), so that they compose with any harness.
+- Agents and skills MUST NOT assume any development process or tooling, so that they compose with any harness.
 - Every instruction MUST come from how I work, rather than from received wisdom.
 - When changing an agent or skill, you MUST consider whether its counterpart (e.g., the `programming` skill for the `programmer` agent) needs a matching change.
 - You MUST observe the /ghost-writing:ghost-writing skill.
