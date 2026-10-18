@@ -32,9 +32,21 @@ It MUST cover the adversaries and their capabilities, including any capability t
 
 ## The change spec
 
-A change spec specifies a delta to the system's architecture: what the change adds, alters, or removes. The starting point is the architecture as it stands, which is nothing in a new system. It MUST use the medium that suits the change (e.g., an issue, an RFC). When writing one, the change spec template SHOULD be used as a guide, not as a strict template. When reviewing one, it MUST be judged on whether it provides what's needed to assess the change, whatever its structure.
+A change spec specifies a delta to the system's architecture: what the change adds, alters, or removes. The starting point is the architecture as it stands, which is nothing in a new system. It MUST use the medium that suits the change (e.g., an issue, an RFC). When writing one, the change spec template SHOULD be used as a guide, not as a strict template. When reviewing one, it MUST be judged on whether it provides what's needed to assess the change, whatever its structure, and on whether it says more than that.
 
-- The spec MUST cover every element that the change adds or alters in enough detail to be built and reviewed without guesswork: everything about an element it adds, and only what changes about one it alters. For example:
+### Length and style
+
+- The spec MUST be as short as the change allows: e.g., a bug fix within one component SHOULD fit on a page, and only a change that adds or reshapes components SHOULD take several.
+- The spec MUST stay at the level of the system, so that a reader who knows the system but not its code can follow it. How a process meets its contracts MUST be left to the software architecture and the code, including its functions, constants, source files, algorithms, and how it invokes the tools it runs (e.g., a command's flags, the condition on a CI job).
+- The spec MUST state the problem and the design as they stand, without recounting how they were found (e.g., the code that was read, what the environment didn't allow to be verified). An unverified assumption that the design relies on MUST be an open question next to the decision it affects.
+- Each point MUST be made once, in the section it belongs to, and referred to from anywhere else that needs it. For example, a risk that a rejected alternative would have closed is stated among the residual risks, and the alternative refers to it.
+- A rule that the change gives nothing to apply to MUST go unmentioned, and so MUST a section with nothing to say. For example, a table column with the same value in every row becomes a sentence.
+- A non-goal MUST be something that a reader could reasonably expect the change to do. It MUST NOT restate a decision, or rule out what nobody would expect.
+- Each sentence SHOULD carry one idea, and a list SHOULD replace any sentence that enumerates.
+
+### Content
+
+- The spec MUST cover every element that the change adds or alters, in enough detail to be assessed, and for the software to be designed without guesswork about anything outside a process: everything about an element it adds, and only what changes about one it alters. For example, where the change gives them something to decide:
   - For each exchange: whether it's asynchronous, synchronous, or a stream (and, if synchronous, why it can't be asynchronous), the protocol, the message schema, authentication, size limits, timeouts, the retry policy (backoff, jitter, and whether it's capped by attempts or by time), and what happens once retries are exhausted.
   - For each endpoint that accepts traffic: rate limits, quotas, and other protections against abuse.
   - For each store: the schema, indices, uniqueness constraints, retention and what enforces it, who can read it, and whether it's backed up.
@@ -43,14 +55,20 @@ A change spec specifies a delta to the system's architecture: what the change ad
   - For each dependency: how the system behaves when it's unavailable.
   - For each configuration option: its default.
 - A message format SHOULD be declared in the notation closest to its wire format (e.g., Protocol Buffers for gRPC, JSON for a JSON API, ASN.1 for DER), marking what the change adds, alters, or removes.
-- Decisions nest, and each MUST state what it optimises for, at the expense of what, and its second-order consequences.
+- Decisions nest, and each one that gives up something a reviewer could contest MUST state what it optimises for, at the expense of what, and its second-order consequences.
 - Open questions MUST sit next to the decision they block.
-- A rejected option MUST be documented with its reasoning, rather than deleted.
+- A rejected option that a reviewer could be expected to propose MUST be documented with its reasoning, rather than deleted.
 - Where the change drops a requirement or reverses a decision, the spec MUST:
   1. Restate the current design in its own best terms.
   2. Say what was wrong with the original requirement, on its own terms.
   3. Enumerate every simplification that the reversal buys.
   4. Enumerate the capabilities it costs and the consequences being accepted, and say why the advantages still outweigh them.
+
+### Amendments to other documents
+
+- The architecture document MUST be amended only where the change would otherwise contradict it, and never to record what the change does (e.g., how a bug was fixed). Such an amendment is a decision of its own, justified on its own merits.
+- Where the change makes the threat model stale, the spec MUST name each attack vector that it affects, and refer to the decisions and residual risks that change it.
+- Amendments MUST be stated as what changes and why, and MUST NOT be drafted in full, because their wording is settled in the documents themselves. The spec MUST NOT cover changes to any other document (e.g., a README, release notes).
 
 ## Diagrams
 
