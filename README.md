@@ -27,6 +27,7 @@ Agents:
 
 - `architect`: Systems Architect, owning everything outside the OS process: inter-process contracts, backing services, and the deployment topology.
 - `programmer`: Programmer and Software Architect, owning the codebase, its data model, and its security and privacy guarantees.
+- `prototyper`: Prototyper, owning throwaway prototypes that test hypotheses in new and existing codebases, and the conclusions drawn from them.
 
 Skills:
 
