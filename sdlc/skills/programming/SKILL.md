@@ -11,7 +11,6 @@ description: How code should be written regardless of language. Code organisatio
 - Everything that isn't part of a module's contract MUST use the strictest visibility the language offers.
 - Entrypoints (e.g., `main`) MUST contain no logic of their own: they wire dependencies together and delegate.
 - An abstraction MUST NOT be introduced for a second case that doesn't exist yet, and an extension point MUST NOT be built before something extends it.
-- Code written for a prototype MUST NOT be reused in code meant to last, not even after polishing, because production quality can't be reliably retrofitted.
 
 ## Functions, procedures, and the like
 

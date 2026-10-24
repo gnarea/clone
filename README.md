@@ -27,11 +27,12 @@ Agents:
 
 - `architect`: Systems Architect, owning everything outside the OS process: inter-process contracts, backing services, and the deployment topology.
 - `programmer`: Programmer and Software Architect, owning the codebase, its data model, and its security and privacy guarantees.
-- `prototyper`: Prototyper, owning throwaway prototypes that test hypotheses in new and existing codebases, and the conclusions drawn from them.
+- `prototyper`: Prototyper, de-risking projects with throwaway prototypes in new and existing codebases, from the questions they answer to the report on what they found.
 
 Skills:
 
 - `programming`: How to write and review code in any language.
 - `systems-architecture`: How to design and review anything beyond the boundary of the OS process.
+- `prototyping`: How to plan, build, and report on a throwaway prototype that de-risks a project.
 - `escalation`: When and how every agent escalates a hazard, and the hazards common to all of them.
 - `artefact-review`: How to review an artefact that you didn't produce, such as a spec, a design, or a change, and how to process feedback on an artefact that you produced.
