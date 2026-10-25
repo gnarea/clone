@@ -11,7 +11,7 @@ In a delay-tolerant network, intermediaries store messages and forward them late
 ## Duplicates and replacements
 
 - Each message MUST carry an identifier that's unique for its sender until the message expires. An intermediary MUST authenticate the sender before treating a message as a duplicate of another, or as its replacement.
-- The specification MUST say whether a message that reuses the identifier of an earlier one from the same sender is a duplicate to refuse, or a replacement for one still in transit (e.g., a profile picture changed twice in quick succession).
+- An intermediary that still holds a message when another arrives with the same sender and identifier SHOULD replace the earlier one with it (e.g., a profile picture changed twice in quick succession).
 
 ## Verification
 

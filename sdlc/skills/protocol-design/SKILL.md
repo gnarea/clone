@@ -1,6 +1,6 @@
 ---
 name: protocol-design
-description: How to design protocols, including cryptographic ones, as an extension of systems architecture. Use when designing, changing, or reviewing a protocol, or a protocol specification.
+description: How to design protocols, including cryptographic ones. Use when designing, changing, or reviewing a protocol, or a protocol specification.
 ---
 # Protocol design
 
@@ -22,9 +22,9 @@ Where the protocol has to run over more than one underlying protocol (e.g., HTTP
 
 Where the protocol leaves anything for other protocols to define (e.g., its bindings, the protocols that run on top of it):
 
-- The protocol MUST list everything that each of them has to define (e.g., how each binding acknowledges a message, which identifier each protocol on top uses to tell its messages apart).
-- Each of them MUST define everything on that list, and MUST NOT override anything that the protocol defines.
-- A requirement that more than one of them would need MUST be defined by the protocol itself.
+- The protocol MUST list everything that each of them can or has to define (e.g., how each binding acknowledges a message, which identifier each protocol on top uses to tell its messages apart).
+- Each of them MUST define whatever that list requires it to, and MUST NOT override anything that the protocol defines.
+- A requirement, recommendation, or permission that more than one of them would need MUST be defined by the protocol itself.
 
 ## Failures
 
@@ -35,12 +35,12 @@ Where the protocol leaves anything for other protocols to define (e.g., its bind
 ## Interoperability
 
 - The protocol MUST allow exactly one way to do each thing (e.g., one way to identify the signer of a message), unless a use case needs another, because every alternative is one more thing that implementations have to agree on to work together. Where it adopts a standard that offers alternatives, it MUST narrow them down likewise.
+- Where the protocol extends a standard (e.g., CMS, HTTP), it MUST do so only through the extension points that the standard offers (e.g., a signed attribute, a header field), so that existing implementations of the standard can still process its messages.
 - Where the protocol does allow alternatives (e.g., versions, algorithms), it MUST name at least one that every implementation has to support (aka _mandatory to implement_), so that any two implementations always have one in common.
 - The protocol MUST NOT require anything (e.g., an algorithm) unless it has a production-ready implementation on every platform that the protocol has to support, and those implementations interoperate with each other.
-- The protocol MUST NOT require anything that the third-party software its messages pass through (e.g., a reverse proxy, a load balancer) doesn't already support.
 - A requirement that proves hard to implement with the mainstream tools of a supported platform SHOULD be reconsidered.
 - Every constraint that the protocol places on one party MUST also be enforced by the parties that rely on it (e.g., a verifier refusing a credential that's valid for longer than the maximum), so that one lax party can't defeat it.
-- Where other protocols run on top of this one, it SHOULD define a trivial one of its own (e.g., a ping), so that implementations and deployments can be tested end-to-end.
+- Where other protocols run on top of this one, it SHOULD define a trivial one of its own (e.g., one that echoes every message back to its sender), so that implementations and deployments can be tested end-to-end.
 
 ## Wire formats
 
@@ -77,7 +77,7 @@ Where the protocol leaves anything for other protocols to define (e.g., its bind
 
 ## Privacy
 
-Where privacy is a requirement:
+Privacy is always a requirement, but how far the protocol has to take it varies by project.
 
 - The protocol MUST be assessed for what each party that handles or observes a message learns from it besides its content (e.g., when it was created, its size, who initiated the exchange, what the recipient asked for). Each leak MUST be mitigated in the protocol itself (e.g., by backdating a timestamp, padding the message, moving a field inside the encrypted payload), or the specification MUST state what the party learns.
 - An identifier or credential that would let an observer link a party's activity across its peers (e.g., the same intermediate certificate in every message) SHOULD be left out of messages.
