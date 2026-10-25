@@ -32,5 +32,6 @@ Skills:
 
 - `programming`: How to write and review code in any language.
 - `systems-architecture`: How to design and review anything beyond the boundary of the OS process.
+- `protocol-design`: How to design and review protocols and their specifications, on top of `systems-architecture`.
 - `escalation`: When and how every agent escalates a hazard, and the hazards common to all of them.
 - `artefact-review`: How to review an artefact that you didn't produce, such as a spec, a design, or a change, and how to process feedback on an artefact that you produced.
