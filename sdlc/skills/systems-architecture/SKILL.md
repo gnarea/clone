@@ -98,7 +98,7 @@ Where anonymity or deniability is a requirement:
 - Whatever collects, stores, or alerts on telemetry (e.g., a log aggregator, a paging service) MUST be deemed a backing service.
 - The design MUST decide how telemetry leaves each process (e.g., written to standard output for the platform to collect, pushed to a collector), so that no component depends on where it ends up.
 - Every operation that the threat model expects to be abused MUST be measured in the product's own terms (e.g., accounts created per hour), with an alert on departures from the norm.
-- Where privacy is a requirement, observability MUST be derived from the threat model: record what's needed to detect and troubleshoot abuse, and nothing that could identify a user.
+- Observability MUST be derived from the threat model: record what's needed to detect and troubleshoot abuse, and no more about users than the privacy requirements allow (e.g., nothing that could identify one, where users must be anonymous).
 - Configuration options SHOULD be kept to a minimum, and each default MUST be safe for every deployment.
 
 ## Integration testing
