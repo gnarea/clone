@@ -1,4 +1,4 @@
-# Cryptographic protocols
+# Cryptography
 
 ## Algorithms
 
@@ -18,7 +18,3 @@
 - A party MUST be able to hold more than one valid key or credential for the same purpose at a time (e.g., verifiers accept every credential that's still valid, a recipient keeps its previous key whilst messages encrypted with it can still arrive), so that rotating one doesn't require its peers to switch at the same time.
 - A certificate MUST NOT be used where a raw key would do (e.g., an ephemeral key that the message carrying it already authenticates).
 - Every signature MUST be bound to its purpose, through an identifier of the purpose in the signed content (e.g., an OID per message type), and verifiers MUST refuse a signature made for another purpose. Where a signature is meant for one recipient, it MUST also be bound to that recipient (e.g., through an audience).
-
-## Building on other work
-
-- Where no standard fills a gap, the invention MUST be the smallest that fills it, and the specification MUST say which gap that is.

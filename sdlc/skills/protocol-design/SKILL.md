@@ -37,6 +37,7 @@ Where the protocol leaves anything for other protocols to define (e.g., its bind
 - The protocol MUST allow exactly one way to do each thing (e.g., one way to identify the signer of a message), unless a use case needs another, because every alternative is one more thing that implementations have to agree on to work together. Where it adopts a standard that offers alternatives, it MUST narrow them down likewise.
 - Where the protocol does allow alternatives (e.g., versions, algorithms), it MUST name at least one that every implementation has to support (aka _mandatory to implement_), so that any two implementations always have one in common. Where it leaves the alternatives for other protocols to define (e.g., a core protocol that's agnostic of algorithms, like CMS), each of those protocols MUST name one instead.
 - Where the protocol extends a standard (e.g., CMS, HTTP), it MUST do so only through the extension points that the standard offers (e.g., a signed attribute, a header field), so that existing implementations of the standard can still process its messages.
+- Where no standard fills a gap, the invention MUST be the smallest that fills it, and the specification MUST say which gap that is.
 - The protocol MUST NOT require anything (e.g., an algorithm) unless it has a production-ready implementation on every platform that the protocol has to support, and those implementations interoperate with each other.
 - A requirement that proves hard to implement with the mainstream tools of a supported platform SHOULD be reconsidered.
 - Every constraint that the protocol places on one party MUST also be enforced by the parties that rely on it (e.g., a verifier refusing a credential that's valid for longer than the maximum), so that one lax party can't defeat it.
@@ -88,6 +89,6 @@ Privacy is always a requirement, but how far the protocol has to take it varies 
 
 ### By concern
 
-- [Cryptographic protocols](references/cryptographic-protocols.md): The protocol signs, encrypts, or authenticates messages, or issues credentials.
+- [Cryptography](references/cryptography.md): The protocol signs, encrypts, or authenticates messages, or issues credentials.
 - [Delay-tolerant networking](references/delay-tolerant-networking.md): Messages can take days to arrive, or pass through intermediaries that store them and forward them later.
 - [Specifications](references/specifications.md): The protocol is being specified, or its specification changed.
