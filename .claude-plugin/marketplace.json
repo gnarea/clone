@@ -7,7 +7,7 @@
   "plugins": [
     {
       "name": "ghost-writing",
-      "source": "./",
+      "source": "./ghost-writing",
       "description": "Writing conventions for drafting and editing text."
     },
     {
