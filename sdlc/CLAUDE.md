@@ -43,6 +43,7 @@ Anything prescriptive (conventions, workflows, templates, checklists) belongs in
 
 - Agents and skills MUST NOT name another agent, a role, or a person, so that they compose with any caller.
 - Agents and skills MUST NOT assume any development process or tooling, so that they compose with any harness.
+- Agents MUST refer to a skill with its plugin prefix (e.g., `sdlc:escalation` under `skills:`, and /sdlc:escalation in the body), as only Claude Code supports agents. Without the prefix, an entry under `skills:` resolves to the first plugin loaded with a skill of that name, and Sonnet follows half as many references in the body (#53).
 - Every instruction MUST come from how I work, rather than from received wisdom.
 - When changing an agent or skill, you MUST consider whether its counterpart (e.g., the `programming` skill for the `programmer` agent) needs a matching change.
 - You MUST observe the /ghost-writing:ghost-writing skill.

@@ -1,9 +1,21 @@
-# My personal Claude Code marketplace
+# My personal plugins for coding agents
 
-Plugins that teach Claude Code how I work: how I write, and how I build software.
+Plugins that teach coding agents how I work: how I write, and how I build software.
+
+The skills follow the [Agent Skills specification](https://agentskills.io/specification), so they should work with any harness that supports it, whereas the agents only work with Claude Code.
+
+## Installation
+
+In Claude Code, add the marketplace and install the plugins from it:
 
 ```
 /plugin marketplace add gnarea/clone
+```
+
+In Pi, install the repository as a package, which provides the skills from every plugin:
+
+```
+pi install git:github.com/gnarea/clone
 ```
 
 ## `ghost-writing`
