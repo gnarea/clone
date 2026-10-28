@@ -1,6 +1,6 @@
-# My personal Claude Code marketplace
+# My personal plugins for LLM harnesses
 
-Plugins that teach Claude Code how I work: how I write, and how I build software.
+Plugins that teach LLM harnesses how I work: how I write, and how I build software.
 
 ```
 /plugin marketplace add gnarea/clone
