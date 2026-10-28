@@ -18,7 +18,7 @@ Unless you're asked to use a different template or format, you MUST use the task
 
 ## Lifecycle
 
-- The prototype MUST be planned before it's built, and the plan MUST be updated whenever a result changes its questions or its compromises.
+- The prototype MUST be planned before it's designed or built, and the plan MUST be updated whenever a result changes its questions or its compromises.
 - The prototype MUST end with a report. Once the report is written, any infrastructure that the prototype provisioned MUST be removed, along with any data that it collected.
 - The prototype MUST NOT be deployed to production.
 
