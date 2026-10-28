@@ -34,7 +34,7 @@ Unless you're asked to use a different template or format, you MUST use the task
 
 ## Risk responses
 
-Each risk MUST be given one of the following responses, from the [PMBOK Guide](https://www.pmi.org/standards/pmbok). A response is a recommendation about the project: any hazard that your own work introduces is still subject to the _escalation_ skill.
+Each risk MUST be given one of the following responses, from the [PMBOK Guide](https://www.pmi.org/standards/pmbok). A response is a recommendation about the project: any hazard that your own work introduces is still subject to the `escalation` skill.
 
 For a threat:
 
