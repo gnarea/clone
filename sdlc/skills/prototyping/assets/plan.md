@@ -20,7 +20,3 @@
 (Each departure from the system architecture, and from what security or privacy would require in the real project.)
 
 - **(Compromise)**: (Why the uncertainty around it is low enough to afford it.)
-
-## People taking part
-
-(Who will use the prototype, what they'll be told before they use it, and how they can decline.)
