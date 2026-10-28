@@ -1,0 +1,8 @@
+{
+  "name": "clone",
+  "private": true,
+  "license": "MIT",
+  "pi": {
+    "skills": ["./ghost-writing/skills", "./sdlc/skills"]
+  }
+}
