@@ -3,6 +3,6 @@
   "private": true,
   "license": "MIT",
   "pi": {
-    "skills": ["./skills", "./sdlc/skills"]
+    "skills": ["./skills"]
   }
 }
