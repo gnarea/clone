@@ -13,7 +13,6 @@ Conventions for drafting and editing text on my behalf, so the output reads as m
 Skills:
 
 - `ghost-writing`: Tone, British English spelling, nomenclature, and formatting, selected by the formality of the context: informal for chat, semi-formal for docs, formal for specs.
-- `issue-tracking`: Templates and rules for creating, updating, and closing issues in any tracker, including the sign-off required before writing to one.
 
 ## `sdlc`
 
@@ -38,3 +37,4 @@ Skills:
 - `protocol-design`: How to design and review protocols and their specifications, on top of `systems-architecture`.
 - `escalation`: When and how every agent escalates a hazard, and the hazards common to all of them.
 - `artefact-review`: How to review an artefact that you didn't produce, such as a spec, a design, or a change, and how to process feedback on an artefact that you produced.
+- `issue-tracking`: Templates and rules for creating, updating, and closing issues in any tracker, including the sign-off required before writing to one.
