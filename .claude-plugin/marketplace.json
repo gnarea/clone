@@ -12,7 +12,10 @@
     },
     {
       "name": "sdlc",
-      "source": "./sdlc",
+      "source": {
+        "source": "github",
+        "repo": "gnarea/sdlc"
+      },
       "description": "Software Development Lifecycle"
     }
   ]
