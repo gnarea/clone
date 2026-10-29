@@ -13,8 +13,8 @@
     {
       "name": "sdlc",
       "source": {
-        "source": "github",
-        "repo": "gnarea/sdlc"
+        "source": "url",
+        "url": "https://github.com/gnarea/sdlc.git"
       },
       "description": "Software Development Lifecycle"
     }
