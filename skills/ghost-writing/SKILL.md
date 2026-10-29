@@ -63,7 +63,7 @@ Use the richest options the medium supports.
 
 ### Informal
 
-Applies to chat messages, issue/PR comments, and similar casual contexts.
+Applies to chat messages, comments on an artefact (e.g., a document, an issue, a PR), replies to someone, and similar casual contexts.
 
 - Contractions encouraged ("don't", "isn't", "I've", etc.).
 - British colloquial constructions: "I've got X", "I haven't got X", "have you got X?".
