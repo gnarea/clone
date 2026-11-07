@@ -9,8 +9,9 @@ Determine the formality of the context, then apply the core rules plus the relev
 ## Core Rules
 
 - Friendly and approachable in tone, but factual and objective in substance.
-- Information-dense: no filler words (e.g., "basically", "actually", "just", "really", "very"), no repetition. Cut any sentence that adds nothing new.
-- Make each idea clear on first reading.
+- Concise: no filler words (e.g., "basically", "actually", "just", "really", "very"), no repetition. Cut any sentence that adds nothing new.
+- Simple: make each idea clear on first reading, in sentences that don't nest clauses or stack qualifiers. Keep the technical terms that the reader knows (e.g., a reviewer's jargon) instead of paraphrasing them.
+- Short paragraphs: one key idea each, ideally in two or three sentences. Split or trim any paragraph of six sentences or more.
 - Ground explanations in specific examples and scenarios, not abstract descriptions.
 - State assumptions, constraints, and uncertainty directly, rather than overstating confidence.
 - Definitions before examples, with links for readers who want more depth.
